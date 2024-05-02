@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="lofi">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		%sveltekit.head%
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-R3H59R0Y3D"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-R3H59R0Y3D');
+		</script>
+
+		<script
+			src="https://cdn.tiny.cloud/1/8gun0j9nau8n45n8z0rxd9qj89zsgcv72gf1mhasjmuuz90x/tinymce/6/tinymce.min.js"
+			referrerpolicy="origin"
+		></script>
+	</head>
+	<body>
+		<div>%sveltekit.body%</div>
+
+		<!-- <script>
+			tinymce.init({
+				skin: 'CUSTOM',
+				content_css: 'CUSTOM',
+				selector: 'textarea',
+				statusbar: false,
+				plugins:
+					'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+				toolbar:
+					'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks |' +
+					'alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist |' +
+					'forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak |' +
+					'charmap emoticons | fullscreen preview save print |' +
+					'insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl |' +
+					'showcomments addcomment',
+
+				tinycomments_mode: 'embedded',
+				tinycomments_author: 'Author name',
+				mergetags_list: [
+					{ value: 'First.Name', title: 'First Name' },
+					{ value: 'Email', title: 'Email' }
+				]
+			});
+		</script> -->
+	</body>
+</html>

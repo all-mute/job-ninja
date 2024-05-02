@@ -1,0 +1,47 @@
+{
+	"name": "project-nexum",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"dev-ssl": "NODE_TLS_REJECT_UNAUTHORIZED=0 vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test": "playwright test",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.28.1",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.5.0",
+		"autoprefixer": "^10.4.14",
+		"daisyui": "^3.0.3",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-svelte": "^2.26.0",
+		"object-to-formdata": "^4.4.2",
+		"postcss": "^8.4.23",
+		"postcss-load-config": "^4.0.1",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.8.1",
+		"svelte": "^3.54.0",
+		"svelte-french-toast": "^1.0.3",
+		"svelte-hero-icons": "^5.0.0",
+		"svelte-preprocess": "^5.0.3",
+		"svelte-toc": "^0.5.5",
+		"tailwindcss": "^3.3.1",
+		"typescript": "^5.4.5",
+		"vite": "^4.3.0",
+		"zod": "^3.19.1"
+	},
+	"type": "module",
+	"dependencies": {
+		"@tinymce/tinymce-svelte": "^1.0.1",
+		"ai": "2.0.1",
+		"openai-edge": "^0.5.1",
+		"pocketbase": "0.15.0-rc",
+		"read-time": "^1.0.0",
+		"svelte-icons-pack": "^2.1.0"
+	}
+}

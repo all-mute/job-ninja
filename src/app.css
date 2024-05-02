@@ -1,0 +1,116 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	@variants responsive {
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		.no-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Hide scrollbar for IE, Edge and Firefox */
+		.no-scrollbar {
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+		}
+
+		/* Add the CSS for hide-scrollbar */
+		.hide-scrollbar {
+			/* For WebKit-based browsers (Chrome, Safari) */
+			scrollbar-width: none; /* Hide the scrollbar */
+			-ms-overflow-style: none; /* Hide scrollbar on Internet Explorer */
+
+			/* For Firefox */
+		}
+	}
+}
+
+/* html {
+	scroll-behavior: smooth;
+} */
+
+/* PAGE TABLE OF CONTENS */
+aside > nav > ol > li.active {
+	@apply bg-neutral;
+}
+
+aside > nav > ol > li.active:hover {
+	@apply text-white;
+}
+
+aside > nav > ol > li:hover {
+	@apply text-primary;
+}
+
+aside > nav::-webkit-scrollbar {
+	display: none;
+}
+
+aside > nav > h2 {
+	@apply hidden;
+}
+
+/* PAGE CONTENT */
+.page-content p {
+	padding: 0 0 1.5rem 0;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.page-content a:link {
+	color: blue;
+}
+
+.page-content a:link:hover {
+	text-decoration: underline;
+}
+
+.page-content h1 {
+	font-size: 2rem !important;
+	text-decoration: underline;
+	font-weight: 600;
+	/* Additional styles for h1 */
+}
+.page-content h2 {
+	font-size: 1.75rem;
+	font-weight: 600;
+	/* Additional styles for h2 */
+}
+
+/* Specific styles for h3 */
+.page-content h3 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	/* Additional styles for h3 */
+}
+
+/* Specific styles for h4 */
+.page-content h4 {
+	font-size: 1.25rem;
+	font-weight: 600;
+	/* Additional styles for h4 */
+}
+
+/* Specific styles for h5 */
+.page-content h5 {
+	font-size: 1rem;
+	font-weight: 600;
+	/* Additional styles for h5 */
+}
+
+/* Specific styles for h6 */
+.page-content h6 {
+	font-size: 0.75rem;
+	font-weight: 600;
+	/* Additional styles for h6 */
+}
+
+code {
+	background-color: black;
+	color: white;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+}
