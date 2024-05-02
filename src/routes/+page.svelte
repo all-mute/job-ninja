@@ -41,9 +41,12 @@
 	};
 
 	const handleFilter = (value) => {
-		if (filter === undefined) {
+		if (value == undefined) {
+			filter = undefined; // Очищаем фильтр, если новое значение пустое
+		} else if (filter === undefined) {
 			filter = value; // Присваиваем значение, если фильтр undefined
 		} else {
+			
 			filter += " " + value; // Добавляем пробел и новое значение, если фильтр не undefined
 		}
 	};
@@ -187,6 +190,10 @@
 						on:click={() => handleFilter(tag.name)}>{tag.name}</button
 					>
 				{/each}
+				<button
+					class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
+					on:click={() => handleFilter(undefined)}>Clear Filter</button
+				>
 			</div>
 
 			<div class="border-l h-16 border-neutral" />
@@ -260,14 +267,16 @@
 	{/if}
 	<div class="flex justify-center pt-4">
 		<div class="flex flex-col w-full px-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-		  {#each filteredPageNames as page}
-			<MyPageItem
-			  {page}
-			  localUser={data.user}
-			  isNew={isNew(page.created)}
-			  isOld={isOld(page.updated)}
-			/>
-		  {/each}
+		  {#if filteredPageNames.length > 0 && typeof filter !== 'undefined'}
+			{#each filteredPageNames as page}
+			  <MyPageItem
+				{page}
+				localUser={data.user}
+				isNew={isNew(page.created)}
+				isOld={isOld(page.updated)}
+			  />
+			{/each}
+		  {/if}
 		</div>
 	</div>
 
