@@ -62,6 +62,7 @@
 				<div class="text-lg font-bold">{page.name}</div>
 
 				<div class="font-thin">{page.tagline}</div>
+				<div class="font-thin">{page.company}</div>
 			</div>
 
 			{#if page.division != ''}

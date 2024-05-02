@@ -151,6 +151,7 @@
 			</div>
 
 			<div class="text-xl font-light mt-2">{data.page.tagline}</div>
+			<div class="text-xl font-light mt-2">{data.page.company}</div>
 		</div>
 		<!-- <div>
 			<div class="mt-1">

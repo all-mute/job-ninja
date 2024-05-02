@@ -161,26 +161,26 @@
 						<hr class="border border-neutral/25" />
 						<div class="my-2">
 							<li>
-								<a href="/ai" class="flex justify-between w-full">
+								<a href="#" class="flex justify-between w-full" on:click|preventDefault>
 									<div class="flex gap-2">
 										<div>
 											<Icon src={ChatBubbleLeftRight} class="w-5 h-5" solid />
 										</div>
-										<div>ET-GPT</div>
+										<div>Job-AI</div>
 									</div>
-									<div class="badge badge-error uppercase badge-sm ml-5">beta</div>
+									<div class="badge badge-success uppercase badge-sm ml-5">soon</div>
 								</a>
 							</li>
 
 							<li>
-								<a href={PUBLIC_SEARCH_URL} target="_blank" class="flex w-full justify-between">
+								<a href="#" class="flex w-full justify-between" on:click|preventDefault>
 									<div class="flex gap-2">
 										<div>
 											<Icon src={MagnifyingGlassCircle} class="w-5 h-5" solid />
 										</div>
 										<div>AI Search</div>
 									</div>
-									<div class="badge badge-error uppercase badge-sm">beta</div>
+									<div class="badge badge-success uppercase badge-sm">soon</div>
 								</a>
 							</li>
 						</div>

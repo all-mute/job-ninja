@@ -131,6 +131,8 @@
 					<div>
 						<div class=" font-bold">{page.name}</div>
 						<div class=" text-sm text-base-content/75">{page.tagline}</div>
+						<div class=" text-sm text-base-content/75">{page.company}</div>
+
 						{#if page.division != ''}
 							<div class="badge badge-sm badge-neutral rounded py-3 mt-2">{page.division}</div>
 						{/if}

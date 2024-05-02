@@ -70,6 +70,20 @@ export const createPageSchema = z.object({
 		.max(64, { message: 'Name must be 64 characters or less' })
 		.trim(),
 
+
+	company: z
+		.string({ required_error: 'Company is required' })
+		.min(2, { message: 'Company must be longer than 2 characters' })
+		.max(32, { message: 'Company must be 32 characters or less' })
+		.trim(),
+
+
+	domain: z
+		.string({ required_error: 'Domain is required' })
+		.min(2, { message: 'Domain must be longer than 2 characters' })
+		.max(32, { message: 'Domain must be 32 characters or less' })
+		.trim(),
+
 	tagline: z
 		.string({ required_error: 'Tagline is required' })
 		.min(2, { message: 'Tagline must be longer than 2 characters' })
@@ -79,6 +93,8 @@ export const createPageSchema = z.object({
 	url: z.string({ required_error: 'URL is required' }).url({ message: 'URL must be a valid URL' }),
 
 	division: z.optional(z.string().min(1).max(64).trim()),
+
+	grade: z.optional(z.string().min(1).max(64).trim()),
 
 	content: z
 		.string({ required_error: 'Content is required' })

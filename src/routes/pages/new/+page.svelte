@@ -38,6 +38,24 @@
 				</div>
 
 				<div>
+					<Input
+						id="company"
+						label="Page Company*"
+						value={form?.data?.company}
+						errors={form?.errors?.company}
+					/>
+				</div>
+
+				<div>
+					<Input
+						id="domain"
+						label="Page Domain*"
+						value={form?.data?.domain}
+						errors={form?.errors?.domain}
+					/>
+				</div>
+
+				<div>
 					<Input id="url" label="Homepage URL" value={form?.data?.url} errors={form?.errors?.url} />
 				</div>
 
@@ -60,6 +78,27 @@
 					</select>
 					<!-- <span class="text-sm text-red-600">{form?.errors?.division}</span> -->
 				</div>
+			</div>
+
+			<div class="w-full">
+				<label for="grade" class="label font-medium pb-1">
+					<span class="label-text">Grade</span>
+				</label>
+				<select
+					id="grade"
+					name="grade"
+					label="Grade"
+					class="select select-bordered w-full"
+				>
+					<!-- TODO: Make this dynamic -->
+					<option disabled selected>Select Grade</option>
+					<option value="intern">intern</option>
+					<option value="junior">junior</option>
+					<option value="middle">middle</option>
+					<option value="senior">senior</option>
+					<option value="senior+">senior+</option>
+				</select>
+				<!-- <span class="text-sm text-red-600">{form?.errors?.division}</span> -->
 			</div>
 
 			<div class="w-full">
