@@ -291,7 +291,7 @@
 		  <button
 			class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
 			on:click={() => handleFilter('')}>Clear Filter</button
-		  >
+		  > 
 		</div>
 	  </div>
 </div>
