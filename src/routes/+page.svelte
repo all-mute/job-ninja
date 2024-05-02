@@ -41,21 +41,32 @@
 	};
 
 	const handleFilter = (value) => {
-		filter = value;
+		if (filter === undefined) {
+			filter = value; // Присваиваем значение, если фильтр undefined
+		} else {
+			filter += " " + value; // Добавляем пробел и новое значение, если фильтр не undefined
+		}
 	};
+
+
+	function searchDocuments(filter) {
+		if (!filter) return data.pages; // Возвращаем все страницы, если фильтр пустой
+
+		const filterTerms = filter.toLowerCase().split(' '); // Разбиваем фильтр на отдельные слова
+
+		return data.pages.filter(page => {
+			// Собираем все поля страницы в одну строку для упрощения поиска
+			const pageContent = [page.domain, page.company, page.grade, page.name, page.tagline, page.content].join(' ').toLowerCase();
+			// Проверяем, что каждое слово из фильтра есть в содержимом страницы
+			return filterTerms.every(term => pageContent.includes(term));
+		});
+	}
+
 
 	let filteredPageNames = [];
 
 	$: if (data && data.pages && filter) {
-		filteredPageNames = data.pages
-			.filter((page) => page.name.toLowerCase().includes(filter.toLowerCase()))
-			.map((page) => ({
-				name: page.name,
-				user: page.user,
-				division: page.division,
-				id: page.id,
-				content: page.content
-			}));
+		filteredPageNames = filter ? searchDocuments(filter) : data.pages;
 	} else {
 		filteredPageNames = [];
 	}
@@ -260,30 +271,57 @@
 
 				{#each data.pages as page}
 					{#each data.users as user}
-						{#if !filter || page.name.toLowerCase().includes(filter.toLowerCase()) || page.tagline
-								.toLowerCase()
-								.includes(filter.toLowerCase()) || (Array.isArray(page.division) && page.division.some( (division) => division
-											.toLowerCase()
-											.includes(filter.toLowerCase()) )) || page.content
-								.toLowerCase()
-								.includes(filter.toLowerCase()) || user.name
-								.toLowerCase()
-								.includes(filter.toLowerCase()) || (page.expand && page.expand.tags && page.expand.tags.some( (tag) => tag.name
-											.toLowerCase()
-											.includes(filter.toLowerCase()) ))}
-							{#if page.user === user.id}
-								<MyPageItem
-									{page}
-									{user}
-									localUser={data.user}
-									isNew={isNew(page.created)}
-									isOld={isOld(page.updated)}
-								/>
-							{/if}
+						{#if !filter || 
+							page.name.toLowerCase().includes(filter.toLowerCase()) ||
+							page.tagline.toLowerCase().includes(filter.toLowerCase()) ||
+							(Array.isArray(page.division) && page.division.some((division) => division.toLowerCase().includes(filter.toLowerCase()))) ||
+							page.content.toLowerCase().includes(filter.toLowerCase()) ||
+							user.name.toLowerCase().includes(filter.toLowerCase()) ||
+							(page.expand && page.expand.tags && page.expand.tags.some((tag) => tag.name.toLowerCase().includes(filter.toLowerCase()))) ||
+							page.company.toLowerCase().includes(filter.toLowerCase()) ||
+							page.domain.toLowerCase().includes(filter.toLowerCase()) ||
+							(Array.isArray(page.grade) && page.grade.some((grade) => grade.toLowerCase().includes(filter.toLowerCase())))} 
+						{#if page.user === user.id}
+							<MyPageItem
+							{page}
+							{user}
+							localUser={data.user}
+							isNew={isNew(page.created)}
+							isOld={isOld(page.updated)}
+							/>
+						{/if}
 						{/if}
 					{/each}
 				{/each}
+
 			</div>
 		</div>
 	{/if}
+	<div class="flex justify-center pt-4">
+		<div class="flex flex-col w-full px-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+		  {#each filteredPageNames as page}
+			<MyPageItem
+			  {page}
+			  localUser={data.user}
+			  isNew={isNew(page.created)}
+			  isOld={isOld(page.updated)}
+			/>
+		  {/each}
+		</div>
+	</div>
+
+	<div class="flex justify-center mt-4">
+		<div class="flex gap-4">
+		  {#each data.tags as tag}
+			<button
+			  class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
+			  on:click={() => handleFilter(tag.name)}>{tag.name}</button
+			>
+		  {/each}
+		  <button
+			class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
+			on:click={() => handleFilter('')}>Clear Filter</button
+		  >
+		</div>
+	  </div>
 </div>

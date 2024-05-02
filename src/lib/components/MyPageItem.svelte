@@ -130,11 +130,12 @@
 				<div class="flex flex-col justify-between h-full">
 					<div>
 						<div class=" font-bold">{page.name}</div>
+						<div class=" text-sm text-base-content/75">{page.grade}</div>
+						<div class=" text-sm text-base-content/75">{page.domain}</div>
 						<div class=" text-sm text-base-content/75">{page.tagline}</div>
-						<div class=" text-sm text-base-content/75">{page.company}</div>
 
 						{#if page.division != ''}
-							<div class="badge badge-sm badge-neutral rounded py-3 mt-2">{page.division}</div>
+							<div class="badge badge-sm badge-neutral rounded py-3 mt-2">{page.company}</div>
 						{/if}
 					</div>
 

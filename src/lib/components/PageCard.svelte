@@ -61,13 +61,14 @@
 			<div>
 				<div class="text-lg font-bold">{page.name}</div>
 
+				<div class="font-thin">{page.grade}</div>
+				<div class="font-thin">{page.domain}</div>
 				<div class="font-thin">{page.tagline}</div>
-				<div class="font-thin">{page.company}</div>
 			</div>
 
 			{#if page.division != ''}
 				<div class="badge badge-primary text-xs md:text-sm rounded py-3 mt-2">
-					{page.division}
+					{page.company}
 				</div>
 			{/if}
 
