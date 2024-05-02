@@ -146,45 +146,6 @@
 						</button>
 					{/if}
 
-					<!-- Dropdown for filtered page names -->
-					{#if filteredPageNames.length > 0}
-						<div
-							class="absolute z-50 top-full mt-5 w-full bg-base-100 border border-neutral/50 rounded shadow-xl"
-						>
-							<div class="font-semibold capitalize bg-info text-base-100 p-2">
-								Pages that match your search...
-							</div>
-							{#each filteredPageNames as page, index}
-								<!-- svelte-ignore a11y-click-events-have-key-events -->
-								<a href={`/pages/${page.id}`} class="">
-									<div
-										class="border border-neutral p-2 hover:bg-neutral cursor-pointer {focusedIndex ===
-										index
-											? 'bg-neutral/10'
-											: ''}"
-									>
-										<div class="flex items-center">
-											<!-- <div>
-											<Icon src={DocumentText} class=" text-primary w-5 h-5" solid />
-										</div> -->
-
-											{#if page.division != ''}
-												<div
-													class="badge font-semibold badge-primary scale-[80%] rounded py-3 w-1/6"
-												>
-													{page.division}
-												</div>
-											{/if}
-
-											<div class="w-full">
-												{page.name}
-											</div>
-										</div>
-									</div>
-								</a>
-							{/each}
-						</div>
-					{/if}
 				</div>
 			</div>
 		</div>
