@@ -14,10 +14,8 @@
 	export let localUser;
 
 	const formattedDateTime = getFormattedDateTime(page.updated);
-	export let isNew = false;
-	export let isOld = false;
 
-	let modalOpen;
+	// let modalOpen;
 	let loading = false;
 
 	const openModal = () => {
@@ -51,7 +49,13 @@
 				<div class="flex flex-col justify-between h-full">
 					<div>
 						<div class=" font-bold">{page.name}</div>
-						<div class=" text-sm text-base-content/75">{page.grade} {page.domain} {page.tagline}</div>
+						<div class=" text-sm text-base-content/75">
+							{page.grade} {page.domain}
+							{page.tagline.length > 10
+								? page.tagline.slice(0, 10) + '...'
+								: page.tagline
+							}
+						</div>
 
 						<div class="badge badge-sm badge-neutral rounded py-3 mt-2">{page.company}</div>
 					</div>
