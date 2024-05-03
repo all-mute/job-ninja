@@ -46,13 +46,13 @@
 	<div class="w-full flex gap-0 items-center rounded">
 		<div class="w-full h-full p-2">
 			<a href="/pages/{page.id}" class="">
-				<div class="flex flex-col justify-between h-full">
+				<div class="flex justify-between h-full">
 					<div>
 						<div class=" font-bold">{page.name}</div>
 						<div class=" text-sm text-base-content/75">
 							{page.grade} {page.domain}
-							{page.tagline.length > 10
-								? page.tagline.slice(0, 10) + '...'
+							{page.tagline.length > 30
+								? page.tagline.slice(0, 30) + '...'
 								: page.tagline
 							}
 						</div>
@@ -60,18 +60,17 @@
 						<div class="badge badge-sm badge-neutral rounded py-3 mt-2">{page.company}</div>
 					</div>
 
-					<div class="flex flex-col gap-2 mt-5">
+					<div class="flex flex-col justify-between items-end m-1">
 						{#if user}
-							<div class="flex items-center gap-1">
+							<div class="flex items-stretch">
 								<img
-									class="w-6 h-6 object-cover rounded-full border border-neutral group-hover:saturate-150 transition-color duration-300"
+									class="w-8 h-8 object-cover rounded-full border border-neutral group-hover:saturate-150 transition-color duration-300"
 									src={user?.avatar
 										? getImageURL(user?.collectionId, user?.id, user?.avatar)
 										: `https://ui-avatars.com/api/?name=${user?.name}`}
 									alt="User avatar"
 								/>
 
-								<div class="text-sm text-base-content/75">{user.name}</div>
 							</div>
 						{/if}
 
