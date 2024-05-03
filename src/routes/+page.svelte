@@ -14,7 +14,7 @@
 	import MyPageItem from '../lib/components/MyPageItem.svelte';
 
 	export let data;
-	let filter;
+	let filter = '';
 
 	const handleFeedSelect = () => {
 		$feedSelect = !$feedSelect;
@@ -41,9 +41,9 @@
 	};
 
 	const handleFilter = (value) => {
-		if (value == undefined) {
-			filter = undefined; // Очищаем фильтр, если новое значение пустое
-		} else if (filter === undefined) {
+		if (value == '') {
+			filter = ''; // Очищаем фильтр, если новое значение пустое
+		} else if (filter === '') {
 			filter = value; // Присваиваем значение, если фильтр undefined
 		} else {
 			
@@ -192,7 +192,7 @@
 				{/each}
 				<button
 					class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
-					on:click={() => handleFilter(undefined)}>Clear Filter</button
+					on:click={() => handleFilter('')}>Clear Filter</button
 				>
 			</div>
 
@@ -202,54 +202,12 @@
 
 	{#if $feedSelect}
 		<div class="flex justify-center pt-4">
-			<div class="flex flex-col w-full px-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-				{#each data.pages as page}
+			<div class="flex flex-col w-full px-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				{#if filter !== ''}
+					{#each filteredPageNames as page}
 					{#each data.users as user}
-						{#if data.user.following.includes(page.user)}
-							{#if !filter || page.name.toLowerCase().includes(filter.toLowerCase()) || page.tagline
-									.toLowerCase()
-									.includes(filter.toLowerCase()) || (Array.isArray(page.division) && page.division.some( (division) => division
-												.toLowerCase()
-												.includes(filter.toLowerCase()) )) || page.content
-									.toLowerCase()
-									.includes(filter.toLowerCase()) || user.name
-									.toLowerCase()
-									.includes(filter.toLowerCase()) || (page.expand && page.expand.tags && page.expand.tags.some( (tag) => tag.name
-												.toLowerCase()
-												.includes(filter.toLowerCase()) ))}
-								{#if page.user === user.id}
-									<MyPageItem
-										{page}
-										{user}
-										localUser={data.user}
-										isNew={isNew(page.created)}
-										isOld={isOld(page.updated)}
-									/>
-								{/if}
-							{/if}
-						{/if}
-					{/each}
-				{/each}
-			</div>
-		</div>
-	{:else}
-		<div class="flex justify-center pt-4">
-			<div class="flex flex-col w-full px-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-				<!-- TODO: I'm sure this could be cleaner, but I'm not sure how to do it. -->
-
-				{#each data.pages as page}
-					{#each data.users as user}
-						{#if !filter || 
-							page.name.toLowerCase().includes(filter.toLowerCase()) ||
-							page.tagline.toLowerCase().includes(filter.toLowerCase()) ||
-							(Array.isArray(page.division) && page.division.some((division) => division.toLowerCase().includes(filter.toLowerCase()))) ||
-							page.content.toLowerCase().includes(filter.toLowerCase()) ||
-							user.name.toLowerCase().includes(filter.toLowerCase()) ||
-							(page.expand && page.expand.tags && page.expand.tags.some((tag) => tag.name.toLowerCase().includes(filter.toLowerCase()))) ||
-							page.company.toLowerCase().includes(filter.toLowerCase()) ||
-							page.domain.toLowerCase().includes(filter.toLowerCase()) ||
-							(Array.isArray(page.grade) && page.grade.some((grade) => grade.toLowerCase().includes(filter.toLowerCase())))} 
 						{#if page.user === user.id}
+						{#if data.user.following.includes(page.user)}
 							<MyPageItem
 							{page}
 							{user}
@@ -260,38 +218,62 @@
 						{/if}
 						{/if}
 					{/each}
+					{/each}
+				{/if}
+				{#if filter === ''}
+					{#each data.pages as page}
+					{#each data.users as user}
+							{#if page.user === user.id}
+							{#if data.user.following.includes(page.user)}
+							<MyPageItem
+								{page}
+								{user}
+								localUser={data.user}
+								isNew={isNew(page.created)}
+								isOld={isOld(page.updated)}
+							/>
+							{/if}
+							{/if}
+					{/each}
+					{/each}
+				{/if}
+			</div>
+		</div>
+	{:else}
+		<div class="flex justify-center pt-4">
+			<div class="flex flex-col w-full px-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+			{#if filter !== ''}
+				{#each filteredPageNames as page}
+					{#each data.users as user}
+						{#if page.user === user.id}
+							<MyPageItem
+							{page}
+							{user}
+							localUser={data.user}
+							isNew={isNew(page.created)}
+							isOld={isOld(page.updated)}
+							/>
+						{/if}
+					{/each}
 				{/each}
-
+			{/if}
+			{#if filter === ''}
+				{#each data.pages as page}
+				{#each data.users as user}
+					{#if page.user === user.id}
+					<MyPageItem
+						{page}
+						{user}
+						localUser={data.user}
+						isNew={isNew(page.created)}
+						isOld={isOld(page.updated)}
+					/>
+					{/if}
+				{/each}
+				{/each}
+			{/if}
 			</div>
 		</div>
 	{/if}
-	<div class="flex justify-center pt-4">
-		<div class="flex flex-col w-full px-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-		  {#if filteredPageNames.length > 0 && typeof filter !== 'undefined'}
-			{#each filteredPageNames as page}
-			  <MyPageItem
-				{page}
-				localUser={data.user}
-				isNew={isNew(page.created)}
-				isOld={isOld(page.updated)}
-			  />
-			{/each}
-		  {/if}
-		</div>
-	</div>
-
-	<div class="flex justify-center mt-4">
-		<div class="flex gap-4">
-		  {#each data.tags as tag}
-			<button
-			  class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
-			  on:click={() => handleFilter(tag.name)}>{tag.name}</button
-			>
-		  {/each}
-		  <button
-			class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
-			on:click={() => handleFilter('')}>Clear Filter</button
-		  > 
-		</div>
-	  </div>
+	
 </div>
