@@ -37,6 +37,7 @@
 	};
 
 	$: modalOpen = false;
+
 </script>
 
 <div
@@ -46,18 +47,19 @@
 	<div class="w-full flex gap-0 items-center rounded">
 		<div class="w-full h-full p-2">
 			<a href="/pages/{page.id}" class="">
-				<div class="flex justify-between h-full">
+				<div class="flex justify-between h-full m-1">
 					<div>
+						<div class="badge badge-sm badge-neutral rounded my-1 py-3">{page.company}</div>
+						<div class="badge badge-sm badge-domain rounded capitalize my-1 py-3">{page.domain}</div>
+						<div class="badge badge-sm badge-ghost rounded capitalize my-1 py-3">{page.grade}</div>
 						<div class=" font-bold">{page.name}</div>
 						<div class=" text-sm text-base-content/75">
-							{page.grade} {page.domain}
+							{page.domain}
 							{page.tagline.length > 30
 								? page.tagline.slice(0, 30) + '...'
 								: page.tagline
 							}
 						</div>
-
-						<div class="badge badge-sm badge-neutral rounded py-3 mt-2">{page.company}</div>
 					</div>
 
 					<div class="flex flex-col justify-between items-end m-1">
