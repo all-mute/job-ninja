@@ -215,7 +215,7 @@
 				<div class="display">
 					<div class="artboard artboard-demo phone-1">
 						<div class="text-5xl font-bold animate-pulse">
-							<span class="text-purple-500">Job </span>Ninja
+							<span class="text-orange-500">Job </span>Ninja
 						</div>
 						<div>Optimized for mobile.</div>
 					</div>

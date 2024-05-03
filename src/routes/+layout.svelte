@@ -38,7 +38,7 @@
 		<div class="flex-1">
 			<a href="/" class="btn btn-ghost normal-case text-xl">
 				<div>
-					<span class="text-purple-500">Job </span>Ninja
+					<span class="text-orange-600 font-bold">Job </span>Ninja
 				</div>
 			</a>
 		</div>

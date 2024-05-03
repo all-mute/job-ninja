@@ -7,6 +7,7 @@
 		XMark,
 		Rss,
 		ChatBubbleLeftRight,
+		ListBullet,
 		UserGroup,
 		DocumentText
 	} from 'svelte-hero-icons';
@@ -109,7 +110,7 @@
 <div>
 	<div class="mt-10 text-center text-7xl font-bold tracking-tight text-base-content">
 		<div>
-			<span class="text-purple-500">Job</span> Ninja
+			<span class="text-orange-500">Job</span> Ninja
 		</div>
 	</div>
 	<div class="text-center my-5">
@@ -117,14 +118,14 @@
 			<div class="flex justify-center items-center gap-2">
 				<div class="">
 					<strong>Посмотрим </strong>что нового у 
-					<span class="text-purple-500 font-bold">менторов</span>
+					<span class="text-orange-500 font-bold">менторов</span>
 				</div>
-				<div><Icon src={UserGroup} class="w-7 h-7 text-purple-500" solid /></div>
+				<div><Icon src={UserGroup} class="w-7 h-7 text-orange-500" solid /></div>
 			</div>
 		{:else}
 			<div class="flex justify-center items-center gap-2">
 				<div class=""><strong>Куда </strong>и на <strong>кого </strong>близится собес?</div>
-				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-purple-500" solid /></div>
+				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-orange-500" solid /></div>
 			</div>
 		{/if}
 	</div>
@@ -173,7 +174,7 @@
 								<Icon src={UserGroup} class="w-7 h-7 " solid />
 							</div>
 							<div class="swap-off">
-								<Icon src={ChatBubbleLeftRight} class="w-7 h-7 " solid />
+								<Icon src={ListBullet} class="w-7 h-7 " solid />
 							</div>
 						</label>
 					</div>

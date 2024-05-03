@@ -16,7 +16,7 @@
 	<div class="text-center my-5">
 		<div class="flex justify-center items-center gap-2">
 			<div class="">Displaying all <span class="font-bold">{getUserCount()}</span> users.</div>
-			<div><Icon src={Users} class="w-7 h-7 text-purple-500" solid /></div>
+			<div><Icon src={Users} class="w-7 h-7 text-orange-500" solid /></div>
 		</div>
 	</div>
 
