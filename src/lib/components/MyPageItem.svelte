@@ -52,7 +52,7 @@
 						<div class="badge badge-sm badge-neutral rounded capitalize my-1 py-3">{page.company}</div>
 						<div class="badge badge-sm badge-domain rounded capitalize my-1 py-3">{page.domain}</div>
 						<div class="badge badge-sm badge-ghost rounded capitalize my-1 py-3">{page.grade}</div>
-						<div class=" font-bold">{page.name}</div>
+						<div class=" font-bold mt-2">{page.name}</div>
 						<div class=" text-sm text-base-content/75">
 							{page.domain}
 							{page.tagline.length > 30
