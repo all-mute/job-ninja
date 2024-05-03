@@ -109,7 +109,7 @@
 <div>
 	<div class="mt-10 text-center text-7xl font-bold tracking-tight text-base-content">
 		<div>
-			Ne<span class="text-purple-500">x</span>um
+			<span class="text-purple-500">Job</span> Ninja
 		</div>
 	</div>
 	<div class="text-center my-5">
