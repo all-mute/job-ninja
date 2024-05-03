@@ -27,7 +27,7 @@
 				<!-- svelte-ignore a11y-autofocus -->
 				<input
 					type="text"
-					placeholder="Search Pages, People, Divisions, and Content"
+					placeholder="ML NLP Frontend Middle Yandex"
 					class="w-full focus:outline-none bg-base-100"
 					bind:value={filter}
 					autofocus

@@ -6,7 +6,7 @@
 		MagnifyingGlass,
 		XMark,
 		Rss,
-		GlobeAmericas,
+		ChatBubbleLeftRight,
 		UserGroup,
 		DocumentText
 	} from 'svelte-hero-icons';
@@ -123,8 +123,8 @@
 			</div>
 		{:else}
 			<div class="flex justify-center items-center gap-2">
-				<div class=""><strong>Displaying </strong>all content across wiki</div>
-				<div><Icon src={GlobeAmericas} class="w-7 h-7 text-purple-500" solid /></div>
+				<div class=""><strong>Куда </strong>и <strong>кого </strong>близится собес?</div>
+				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-purple-500" solid /></div>
 			</div>
 		{/if}
 	</div>
@@ -137,7 +137,7 @@
 					<!-- svelte-ignore a11y-autofocus -->
 					<input
 						type="text"
-						placeholder="Search Pages, People, Divisions, and Content"
+						placeholder="ML NLP Frontend Middle Yandex"
 						class="w-full focus:outline-none bg-base-100"
 						bind:value={filter}
 						on:keydown={handleKeyDown}
@@ -173,7 +173,7 @@
 								<Icon src={UserGroup} class="w-7 h-7 " solid />
 							</div>
 							<div class="swap-off">
-								<Icon src={GlobeAmericas} class="w-7 h-7 " solid />
+								<Icon src={ChatBubbleLeftRight} class="w-7 h-7 " solid />
 							</div>
 						</label>
 					</div>
