@@ -8,6 +8,7 @@
 		Rss,
 		ChatBubbleLeftRight,
 		ListBullet,
+		GlobeEuropeAfrica,
 		UserGroup,
 		DocumentText
 	} from 'svelte-hero-icons';
@@ -174,7 +175,7 @@
 								<Icon src={UserGroup} class="w-7 h-7 " solid />
 							</div>
 							<div class="swap-off">
-								<Icon src={ListBullet} class="w-7 h-7 " solid />
+								<Icon src={GlobeEuropeAfrica} class="w-7 h-7 " solid />
 							</div>
 						</label>
 					</div>
@@ -193,7 +194,7 @@
 				{/each}
 				<button
 					class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
-					on:click={() => handleFilter('')}>Clear Filter</button
+					on:click={() => handleFilter('')}>Clear</button
 				>
 			</div>
 
