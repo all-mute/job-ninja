@@ -52,7 +52,7 @@
 			<div
 				class="text-lg md:text-xl font-bold badge badge-neutral text-content-neutral/50 py-3 rounded uppercase mt-10 md:my-0"
 			>
-				User Stats
+				Статистика профиля
 			</div>
 			<div class="flex flex-col gap-5">
 				<div class="flex md:gap-2">

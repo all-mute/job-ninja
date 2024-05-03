@@ -17,7 +17,7 @@
 
 <div class="my-10 px-4">
 	<div class="text-center text-7xl font-bold tracking-tight text-base-content">
-		<div>My Pages</div>
+		<div>Мои посты</div>
 	</div>
 	<div class="text-center my-5">Find content by person, division, or job title.</div>
 

@@ -1,9 +1,9 @@
 <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded mt-10">
 	<div class="grid grid-flow-col gap-4">
-		<a href="/" class="link link-hover">Home</a>
-		<a href="/about" class="link link-hover">About</a>
-		<a href="/people" class="link link-hover">People</a>
-		<a href="/" class="link link-hover">Pages</a>
+		<a href="/" class="link link-hover">Главная</a>
+		<a href="/about" class="link link-hover">О сервисе</a>
+		<a href="/people" class="link link-hover">Пользователи</a>
+		<a href="/" class="link link-hover">Посты</a>
 	</div>
 	<div>
 		<div class="grid grid-flow-col gap-4">
@@ -46,6 +46,6 @@
 		</div>
 	</div>
 	<div>
-		<div>Copyright © 2023 - All right reserved by Nexum</div>
+		<div>Job Ninja © 2024</div>
 	</div>
 </footer>

@@ -116,14 +116,14 @@
 		{#if $feedSelect}
 			<div class="flex justify-center items-center gap-2">
 				<div class="">
-					<strong>Displaying </strong>users you are
-					<span class="text-purple-500 font-bold">following</span>
+					<strong>Посмотрим </strong>что нового у 
+					<span class="text-purple-500 font-bold">менторов</span>
 				</div>
 				<div><Icon src={UserGroup} class="w-7 h-7 text-purple-500" solid /></div>
 			</div>
 		{:else}
 			<div class="flex justify-center items-center gap-2">
-				<div class=""><strong>Куда </strong>и <strong>кого </strong>близится собес?</div>
+				<div class=""><strong>Куда </strong>и на <strong>кого </strong>близится собес?</div>
 				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-purple-500" solid /></div>
 			</div>
 		{/if}

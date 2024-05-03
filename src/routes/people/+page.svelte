@@ -11,7 +11,7 @@
 
 <div class="px-4">
 	<div class="mt-10 text-center text-7xl font-bold tracking-tight text-base-content">
-		<div>People</div>
+		<div>Пользователи</div>
 	</div>
 	<div class="text-center my-5">
 		<div class="flex justify-center items-center gap-2">

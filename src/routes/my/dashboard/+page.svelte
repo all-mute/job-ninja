@@ -109,7 +109,7 @@
 
 <div class="flex flex-col mx-4">
 	<div class="text-lg md:text-xl font-bold badge badge-neutral py-3 rounded uppercase">
-		Page Data
+		Статистика постов
 	</div>
 
 	<!-- LARGE BREAKPOINT -->
@@ -364,7 +364,7 @@
 		id="mypages"
 		class=" text-xl font-bold badge badge-outline text-neutral/50 py-3 rounded uppercase"
 	>
-		My Pages
+		Мои посты
 	</div>
 
 	<div class="my-2">

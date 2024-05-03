@@ -38,7 +38,7 @@
 		<div class="flex-1">
 			<a href="/" class="btn btn-ghost normal-case text-xl">
 				<div>
-					Ne<span class="text-purple-500">x</span>um
+					<span class="text-purple-500">Job </span>Ninja
 				</div>
 			</a>
 		</div>
@@ -93,7 +93,7 @@
 										<div>
 											<Icon src={Home} class="w-5 h-5" solid />
 										</div>
-										<div>Home</div>
+										<div>Главная</div>
 									</div>
 								</a>
 							</li>
@@ -104,7 +104,7 @@
 										<div>
 											<Icon src={InformationCircle} class="w-5 h-5" solid />
 										</div>
-										<div>About</div>
+										<div>О сервисе</div>
 									</div>
 								</a>
 							</li>
@@ -115,7 +115,7 @@
 										<div>
 											<Icon src={Users} class="w-5 h-5" solid />
 										</div>
-										<div>People</div>
+										<div>Пользователи</div>
 									</div>
 								</a>
 							</li>
@@ -130,7 +130,7 @@
 										<div>
 											<Icon src={UserCircle} class="w-5 h-5" solid />
 										</div>
-										<div>My Profile</div>
+										<div>Профиль</div>
 									</div>
 								</a>
 							</li>
@@ -141,7 +141,7 @@
 										<div>
 											<Icon src={RectangleStack} class="w-5 h-5" />
 										</div>
-										<div>My Pages</div>
+										<div>Мои посты</div>
 									</div>
 								</a>
 							</li> -->
@@ -152,7 +152,7 @@
 										<div>
 											<Icon src={RectangleGroup} class="w-5 h-5" solid />
 										</div>
-										<div>My Dashboard</div>
+										<div>Статистика</div>
 									</div>
 								</a>
 							</li>
@@ -193,7 +193,7 @@
 										<div>
 											<Icon src={Cog6Tooth} class="w-5 h-5" solid />
 										</div>
-										<div>Settings</div>
+										<div>Настройки</div>
 									</div>
 								</a>
 							</li>
@@ -204,7 +204,7 @@
 											<div>
 												<Icon src={Power} class="w-5 h-5" solid />
 											</div>
-											<div>Logout</div>
+											<div>Выход</div>
 										</div>
 									</button>
 								</form>
