@@ -115,6 +115,6 @@ code {
 	align-items: center;
 }
 
-[data-theme="lofi"] .badge-domain {
+.badge-domain {
 	background-color: #FFD4C5;
   }
