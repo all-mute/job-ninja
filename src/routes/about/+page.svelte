@@ -1,5 +1,5 @@
 <script>
-	import { githubURL } from '../../lib/store';
+	import { githubOurURL } from '../../lib/store';
 	import FeatureCard from '$lib/components/FeatureCard.svelte';
 
 	import Icon from 'svelte-icons-pack/Icon.svelte';
