@@ -95,16 +95,16 @@
 
 				<div class="w-full flex flex-col gap-2">
 					<div class="font-bold text-lg md:text-xl badge badge-neutral py-3 rounded uppercase">
-						Badges
+						Достижения
 					</div>
 
 					{#if userBadges.length === 0}
 						<div class="flex flex-col gap-2 my-5">
-							<div class="text-xl font-bold text-neutral/50">No badges found.</div>
+							<div class="text-xl font-bold text-neutral/50">Нет достижений</div>
 
 							<div class=" text-neutral/50">
-								<a href="/about/badges" class=" underline">Learn more</a>
-								about badges.
+								<a href="/about/badges" class=" underline">Подробнее</a>
+								о наградах
 							</div>
 						</div>
 					{/if}

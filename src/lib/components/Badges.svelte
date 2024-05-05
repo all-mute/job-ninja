@@ -58,9 +58,9 @@
 								</div>
 
 								<div class="flex gap-2 justify-center mt-10 my-5">
-									<div class="btn btn-info rounded">About Badges</div>
+									<div class="btn btn-info rounded">О наградах</div>
 
-									<div class="btn btn-success rounded">Claim Prize!</div>
+									<div class="btn btn-success rounded">Получить приз!</div>
 								</div>
 							</div>
 						</Modal>
