@@ -11,7 +11,7 @@ export const handle = async ({ event, resolve }) => {
   event.locals.email = '';
 
   // Handle auth route or during build
-  const isAuth = event.url.pathname === '/login';
+  const isAuth = event.url.pathname === '/login' || event.url.pathname === '/register';
   if (isAuth || building) {
     event.cookies.set('pb_auth', '', { path: '/' });
     return await resolve(event);
