@@ -138,10 +138,7 @@
 				</div>
 			{/if}
 
-			<!-- DIVISION -->
-			{#if data.page.division != ''}
-				<div class="badge border-neutral rounded py-3 uppercase">{data.page.division}</div>
-			{/if}
+			
 		</div>
 
 		<!-- TITLE -->
@@ -205,11 +202,7 @@
 								{creator.name}
 							</div>
 							<div class="text-sm font-medium secondary-content">{creator.job_title}</div>
-							{#if creator.division}
-								<div class="badge badge-sm badge-neutral uppercase rounded py-3 mt-2">
-									{creator.division}
-								</div>
-							{/if}
+							
 
 							{#if creator.id != data.user.id}
 								<div class="my-2">

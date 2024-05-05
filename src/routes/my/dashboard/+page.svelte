@@ -93,7 +93,7 @@
 		name={data.user.name}
 		userId={data.user.id}
 		title={data.user.job_title}
-		division={data.user.division}
+		
 		avatar={data.user?.avatar
 			? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)
 			: `https://ui-avatars.com/api/?name=${data.user?.name}`}

@@ -89,26 +89,6 @@
 				</div>
 
 				<div class="w-full">
-					<label for="division" class="label font-medium pb-1">
-						<span class="label-text">Division</span>
-					</label>
-					<select
-						id="division"
-						name="division"
-						label="Division"
-						class="select select-bordered w-full"
-					>
-						<!-- TODO: Make this dynamic -->
-						<option disabled selected>{data.page.division}</option>
-						<option value="NCS">NCS</option>
-						<option value="BTS">BTS</option>
-						<option value="CORP">CORP</option>
-						<option value="Direct">DIRECT</option>
-					</select>
-					<!-- <span class="text-sm text-red-600">{form?.errors?.division}</span> -->
-				</div>
-
-				<div class="w-full">
 					<label for="grade" class="label font-medium pb-1">
 						<span class="label-text">Grade</span>
 					</label>
@@ -119,14 +99,14 @@
 						class="select select-bordered w-full"
 					>
 						<!-- TODO: Make this dynamic -->
-						<option disabled selected>{data.page.division}</option>
+						<option disabled selected>{data.page.grade}</option>
 						<option value="intern">intern</option>
 						<option value="junior">junior</option>
 						<option value="middle">middle</option>
 						<option value="senior">senior</option>
 						<option value="senior+">senior+</option>
 					</select>
-					<!-- <span class="text-sm text-red-600">{form?.errors?.division}</span> -->
+					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
 			</div>
 

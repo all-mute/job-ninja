@@ -4,7 +4,6 @@
 	export let name;
 	export let userId;
 	export let title;
-	export let division;
 	export let avatar;
 
 	export let pageCount;
@@ -40,11 +39,6 @@
 					{name}
 				</div>
 				<div class="text-lg md:text-xl font-thin capitalize">{title}</div>
-				{#if division}
-					<div class="badge md:badge-lg badge-neutral rounded mt-2 uppercase py-3">
-						{division}
-					</div>
-				{/if}
 			</div>
 		</div>
 
