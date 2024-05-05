@@ -1,5 +1,6 @@
 <script>
 	import Editor from '@tinymce/tinymce-svelte';
+	import { PUBLIC_TINY_API_KEY } from '$env/static/public';
 	export let value = '';
 	export let placeholder = '';
 	export let id;
@@ -52,7 +53,7 @@
 	<label for={id} class="label font-medium pb-1">
 		<span class="label-text">{label}</span>
 	</label>
-	<Editor {conf} class="textarea textarea-bordered resize-y h-full" bind:value />
+	<Editor {conf} class="textarea textarea-bordered resize-y h-full" bind:value apiKey={PUBLIC_TINY_API_KEY}/>
 
 	<input
 		class="textarea textarea-bordered resize-y h-full"
