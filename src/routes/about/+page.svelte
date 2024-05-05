@@ -41,7 +41,7 @@
 						class="btn btn-primary bg-purple-500 border-purple-500 hover:bg-purple-700 rounded"
 						>Get Started</a
 					>
-					<a href={$githubURL} class="btn btn-outline group rounded">
+					<a href={$githubOurURL} class="btn btn-outline group rounded">
 						<div class="flex gap-1 items-center">
 							<div
 								class="group-hover:fill-purple-500 fill-purple-500 transition-color duration-200"
