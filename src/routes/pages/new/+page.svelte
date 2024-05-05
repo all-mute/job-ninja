@@ -14,8 +14,8 @@
 			use:enhance
 		>
 			<div class="flex flex-col justify-center text-center mt-10">
-				<div class="text-center text-3xl font-bold">Tell us more about this topic</div>
-				<div class="pt-2 text-lg">We'll need a name, tagline, link, and content</div>
+				<div class="text-center text-3xl font-bold">Запиь собеседования</div>
+				<div class="pt-2 text-lg">В tagline можно записать свои теги по типу React, NLP, Memes</div>
 			</div>
 
 			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
@@ -115,7 +115,7 @@
 				/>
 			</div>
 			<div class="w-full max-w-lg pt-3">
-				<button type="submit" class="btn btn-success rounded w-full max-w-lg">Create Page</button>
+				<button type="submit" class="btn btn-success rounded w-full max-w-lg">Создать страницу</button>
 			</div>
 		</form>
 	</div>

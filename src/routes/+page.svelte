@@ -118,14 +118,13 @@
 		{#if $feedSelect}
 			<div class="flex justify-center items-center gap-2">
 				<div class="">
-					<strong>Посмотрим </strong>что нового у 
-					<span class="text-orange-500 font-bold">менторов</span>
+					Лента <strong>подписок</strong>
 				</div>
 				<div><Icon src={UserGroup} class="w-7 h-7 text-orange-500" solid /></div>
 			</div>
 		{:else}
 			<div class="flex justify-center items-center gap-2">
-				<div class=""><strong>Куда </strong>и на <strong>кого </strong>близится собес?</div>
+				<div class="">Лента <strong>последних</strong> собеседований в it компании</div>
 				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-orange-500" solid /></div>
 			</div>
 		{/if}
@@ -139,7 +138,7 @@
 					<!-- svelte-ignore a11y-autofocus -->
 					<input
 						type="text"
-						placeholder="ML NLP Frontend Middle Yandex"
+						placeholder="Avito middle backend go"
 						class="w-full focus:outline-none bg-base-100"
 						bind:value={filter}
 						on:keydown={handleKeyDown}

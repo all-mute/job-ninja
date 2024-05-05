@@ -223,7 +223,7 @@
 														<!-- <Icon src={CheckCircle} class="text-primary w-5 h-5" solid /> -->
 
 														<div class="flex gap-2 items-center">
-															<div>Following</div>
+															<div>Подписан</div>
 														</div>
 													</button>
 												{:else}
@@ -231,7 +231,7 @@
 
 													<button class="flex btn btn-xs capitalize rounded">
 														<!-- <Icon src={PlusCircle} class="text-primary w-5 h-5" /> -->
-														<div>Follow</div>
+														<div>Подписаться</div>
 													</button>
 												{/if}
 											</div>
@@ -339,10 +339,10 @@
 								/>
 							</span>
 							<div slot="heading">
-								<div class="text-2xl">Delete {data.page.name}</div>
+								<div class="text-2xl">Удалить {data.page.name}</div>
 								<div class="text-base font-normal mt-2">
-									Are you sure you want to delete this page? Once deleted, the page cannot be
-									restored.
+									Вы уверены, что хотите удалить эту страницу? После удаления страницы она не может быть
+									восстановлена.
 								</div>
 							</div>
 							<div slot="actions" class="flex w-full items-center justify-center space-x-2">

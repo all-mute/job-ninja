@@ -58,11 +58,11 @@
 				<div class="flex md:gap-2">
 					<div class="w-full">
 						<Stat
-							statTitle="Pages"
+							statTitle="Страницы"
 							userStat={true}
 							pageLink={`/people/${userId}`}
 							statValue={pageCount || '0'}
-							statDescription="Total pages."
+							statDescription="Общее количество страниц."
 						>
 							<Icon src={PencilSquare} class="w-5 h-5 sm:w-7 sm:h-7" solid />
 						</Stat>
@@ -70,11 +70,11 @@
 
 					<div class="w-full">
 						<Stat
-							statTitle="Followers"
+							statTitle="Подписчики"
 							userStat={true}
 							pageLink={`/people/${userId}/followers`}
 							statValue={followers || '0'}
-							statDescription="Total Followers."
+							statDescription="Общее количество подписчиков."
 						>
 							<Icon src={UserGroup} class="w-5 h-5 sm:w-7 sm:h-7" solid />
 						</Stat>
@@ -82,11 +82,11 @@
 
 					<div class="w-full">
 						<Stat
-							statTitle="Following"
+							statTitle="Подписки"
 							userStat={true}
 							pageLink={`/people/${userId}/following`}
 							statValue={following || '0'}
-							statDescription="Total Following."
+							statDescription="Общее количество подписок."
 						>
 							<Icon src={UserPlus} class="w-5 h-5 sm:w-7 sm:h-7" solid />
 						</Stat>

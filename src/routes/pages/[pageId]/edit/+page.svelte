@@ -37,8 +37,8 @@
 			use:enhance={submitUpdatePage}
 		>
 			<div class="flex flex-col justify-center text-center mt-10">
-				<div class="text-3xl font-bold">Edit "{data.page.name}"</div>
-				<div class="pt-2 text-lg">Update whatever you like, then click "save changes"</div>
+				<div class="text-3xl font-bold">Редактировать "{data.page.name}"</div>
+				<div class="pt-2 text-lg">Измените, что угодно, а затем нажмите "сохранить изменения"</div>
 			</div>
 
 			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
@@ -188,10 +188,10 @@
 
 			<div class="flex gap-2 w-full max-w-md my-5">
 				<div class="w-full">
-					<a href={`/pages/${data.page.id}`} class="btn btn-outline rounded w-full">Cancel</a>
+					<a href={`/pages/${data.page.id}`} class="btn btn-outline rounded w-full">Отменить</a>
 				</div>
 				<div class="w-full">
-					<button type="submit" class="btn btn-success rounded w-full">Save Changes</button>
+					<button type="submit" class="btn btn-success rounded w-full">Сохранить изменения</button>
 				</div>
 			</div>
 		</form>

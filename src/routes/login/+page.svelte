@@ -48,13 +48,13 @@
 
 <div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4">
 	<div class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
-		Login to your account
+		Войти в аккаунт
 	</div>
 	<div class="text-center mt-1">
-		Or <a
+		Или <a
 			href="/register"
-			class="underline text-primary font-medium hover:cursor-pointer hover:underline">register</a
-		> if you don't already have an account.
+			class="underline text-primary font-medium hover:cursor-pointer hover:underline">зарегистрироваться</a
+		> если вы ещё не зарегистрировались.
 	</div>
 	<form method="post" action="?/oauth_yandex" on:submit|preventDefault={(e) => login_yandex(e.currentTarget)}>
 		<input name="token" type="hidden" />
@@ -90,12 +90,12 @@
 				href="/reset-password"
 				class="font-medium text-primary hover:cursor-pointer hover:underline"
 			>
-				Forgot Password?</a
+				Забыли пароль?</a
 			>
 		</div>
 
 		<div class="w-full max-w-lg pt-2">
-			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>Login</button>
+			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>Войти</button>
 		</div>
 		<!-- {#if form?.notVerified}
 			<div class="alert alert-error shadow-lg w-full max-w-lg">
