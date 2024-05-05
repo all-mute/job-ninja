@@ -53,9 +53,7 @@
 	<label for={id} class="label font-medium pb-1">
 		<span class="label-text">{label}</span>
 	</label>
-	<Editor apiKey="{PUBLIC_TINY_API_KEY}" conf={conf} class="textarea textarea-bordered resize-y h-full" bind:value />
 	<Editor apiKey={PUBLIC_TINY_API_KEY} conf={conf} class="textarea textarea-bordered resize-y h-full" bind:value />
-	<Editor apiKey="9fb1yzlp4mb860eelswkpw8yj16jd91gsph4lzdhhdswkk39" conf={conf} class="textarea textarea-bordered resize-y h-full" bind:value />
 
 	<input
 		class="textarea textarea-bordered resize-y h-full"
