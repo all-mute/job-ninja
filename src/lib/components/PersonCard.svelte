@@ -25,11 +25,7 @@
 					{user.name}
 				</div>
 				<div class="text-sm font-thin capitalize">{user.job_title}</div>
-				{#if user.division}
-					<div class="badge badge-sm badge-primary font-semibold rounded mt-2 uppercase py-3">
-						{user.division}
-					</div>
-				{/if}
+				
 			</div>
 		</div>
 	</div>

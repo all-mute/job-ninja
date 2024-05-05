@@ -92,15 +92,13 @@ export const createPageSchema = z.object({
 
 	url: z.string().url({ message: 'URL must be a valid URL' }).optional(),
 
-	division: z.optional(z.string().min(1).max(64).trim()),
-
 	grade: z
 		.string({ required_error: 'Grade is required' })
 		.min(1, { message: 'Grade is required' })
 		.max(64, { message: 'Grade must be 64 characters or less' })
 		.trim()
 		.refine((val) => {
-			const choices = ['intern, junior, middle, senior, senior+'];
+			const choices = ['intern', 'junior', 'middle', 'senior', 'senior+'];
 			return choices.includes(val) ? val : undefined;
 		}, { message: 'Grade must be one of the following: intern, junior, middle, senior, senior+' }),
 

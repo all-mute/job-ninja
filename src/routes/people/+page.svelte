@@ -46,7 +46,7 @@
 		{#each data.users as user}
 			{#if !filter || user.name.toLowerCase().includes(filter.toLowerCase()) || user.job_title
 					.toLowerCase()
-					.includes(filter.toLowerCase()) || user.division
+					.includes(filter.toLowerCase()) || user.description
 					.toLowerCase()
 					.includes(filter.toLowerCase())}
 				<PersonCard {user} />

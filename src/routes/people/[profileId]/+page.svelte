@@ -68,11 +68,7 @@
 					{data.pageUser.name}
 				</div>
 				<div class="text-lg md:text-xl font-thin capitalize">{data.pageUser.job_title}</div>
-				{#if data.pageUser.division}
-					<div class="badge md:badge-lg badge-primary rounded mt-2 uppercase py-3">
-						{data.pageUser.division}
-					</div>
-				{/if}
+				
 
 				{#if data.user.id != data.pageUser.id}
 					<div class="mt-5 sm:mt-2">
@@ -147,9 +143,7 @@
 				{#each data.pages as page}
 					{#if !filter || page.name.toLowerCase().includes(filter.toLowerCase()) || page.tagline
 							.toLowerCase()
-							.includes(filter.toLowerCase()) || (Array.isArray(page.division) && page.division.some( (division) => division
-										.toLowerCase()
-										.includes(filter.toLowerCase()) )) || page.content
+							.includes(filter.toLowerCase()) || page.content
 							.toLowerCase()
 							.includes(filter.toLowerCase()) || (page.expand.tags && page.expand.tags.some( (tag) => tag.name
 										.toLowerCase()
