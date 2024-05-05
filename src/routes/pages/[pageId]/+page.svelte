@@ -143,12 +143,16 @@
 
 		<!-- TITLE -->
 		<div>
+			<div class="badge badge-xl badge-neutral rounded capitalize my-1 py-3">{data.page.company}</div>
+			<div class="badge badge-xl badge-domain rounded capitalize my-1 py-3">{data.page.domain}</div>
+			<div class="badge badge-xl badge-ghost rounded capitalize my-1 py-3">{data.page.grade}</div>
+			
 			<div class="text-5xl font-bold">
 				{data.page.name}<span />
 			</div>
-
-			<div class="text-xl font-light mt-2">{data.page.tagline}</div>
-			<div class="text-xl font-light mt-2">{data.page.company}</div>
+			<div class=" text-sm text-base-content/75">
+				{data.page.tagline}
+			</div>
 		</div>
 		<!-- <div>
 			<div class="mt-1">
@@ -201,7 +205,7 @@
 							<div class="text-lg font-semibold primary-content">
 								{creator.name}
 							</div>
-							<div class="text-sm font-medium secondary-content">{creator.job_title}</div>
+							<div class="text-sm font-medium secondary-content">{creator.description}</div>
 							
 
 							{#if creator.id != data.user.id}
