@@ -97,8 +97,8 @@
 		/>
 
 		<Input
-			id="job_title"
-			label="Job Title"
+			id="description"
+			label="Description"
 			value={form?.data?.job_title ?? data?.user?.job_title}
 			disabled={loading}
 			errors={form?.errors?.job_title}
