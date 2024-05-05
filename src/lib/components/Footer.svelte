@@ -4,6 +4,8 @@
 		<a href="/about" class="link link-hover">О сервисе</a>
 		<a href="/people" class="link link-hover">Пользователи</a>
 		<a href="/" class="link link-hover">Посты</a>
+		<a href="https://github.com/all-mute/job-ninja" class="link link-hover">Гитхаб</a>
+		<a href="https://github.com/engageintellect" class="link link-hover">Автор оригинала, engageintellect</a>
 	</div>
 	<div>
 		<div class="grid grid-flow-col gap-4">
