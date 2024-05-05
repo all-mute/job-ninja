@@ -11,7 +11,7 @@
 		<div class="max-w-md">
 			<div class="mb-5 text-5xl lg:text-6xl font-bold">
 				<div>
-					Ne<span class="text-purple-500">x</span>um Wiki
+					<span class="text-purple-500">Job </span>Ninja
 				</div>
 			</div>
 			<div class="mb-5 text-sm md:text-md lg:text-lg">
@@ -19,8 +19,8 @@
 			</div>
 
 			<div class="grid grid-cols-2 gap-2">
-				<a href="/about" class="btn btn-primary bg-purple-500">About</a>
-				<a href="/register" class="btn btn-primary bg-purple-500">Get Started</a>
+				<a href="/about" class="btn btn-primary bg-purple-500">О сервисе</a>
+				<a href="/register" class="btn btn-primary bg-purple-500">Как начать</a>
 			</div>
 		</div>
 	</div>

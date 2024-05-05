@@ -114,3 +114,7 @@ code {
 	display: flex;
 	align-items: center;
 }
+
+.badge-domain {
+	background-color: #FFD4C5;
+  }

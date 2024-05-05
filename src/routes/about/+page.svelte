@@ -1,5 +1,5 @@
 <script>
-	import { githubURL } from '../../lib/store';
+	import { githubOurURL } from '../../lib/store';
 	import FeatureCard from '$lib/components/FeatureCard.svelte';
 
 	import Icon from 'svelte-icons-pack/Icon.svelte';
@@ -41,7 +41,7 @@
 						class="btn btn-primary bg-purple-500 border-purple-500 hover:bg-purple-700 rounded"
 						>Get Started</a
 					>
-					<a href={$githubURL} class="btn btn-outline group rounded">
+					<a href={$githubOurURL} class="btn btn-outline group rounded">
 						<div class="flex gap-1 items-center">
 							<div
 								class="group-hover:fill-purple-500 fill-purple-500 transition-color duration-200"
@@ -215,7 +215,7 @@
 				<div class="display">
 					<div class="artboard artboard-demo phone-1">
 						<div class="text-5xl font-bold animate-pulse">
-							Ne<span class="text-purple-500">x</span>um
+							<span class="text-orange-500">Job </span>Ninja
 						</div>
 						<div>Optimized for mobile.</div>
 					</div>

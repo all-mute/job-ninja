@@ -93,7 +93,7 @@
 		name={data.user.name}
 		userId={data.user.id}
 		title={data.user.job_title}
-		division={data.user.division}
+		
 		avatar={data.user?.avatar
 			? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)
 			: `https://ui-avatars.com/api/?name=${data.user?.name}`}
@@ -109,7 +109,7 @@
 
 <div class="flex flex-col mx-4">
 	<div class="text-lg md:text-xl font-bold badge badge-neutral py-3 rounded uppercase">
-		Page Data
+		Статистика постов
 	</div>
 
 	<!-- LARGE BREAKPOINT -->
@@ -117,34 +117,38 @@
 	<div class="hidden md:flex gap-2 h-full my-2">
 		<div class="w-full">
 			<Stat
-				statTitle="Verified Pages"
+				statTitle="Опубликованные собеседования"
 				statValue={verifiedCount}
-				statDescription="Pages have been verified."
+				statDescription="Функционал приватности СКОРО."
 				><Icon src={CheckBadge} class="w-12 h-12 pr-2 text-success" solid /></Stat
 			>
 		</div>
 		<div class="w-full">
 			<Stat
-				statTitle="Stale Pages"
+				statTitle="Приватные собеседования"
 				statValue={staleCount}
-				statDescription="30 days or more since update."
+				statDescription="Функционал приватности СКОРО."
 				><Icon src={ExclamationTriangle} class="w-12 h-12 pr-2 text-warning" solid /></Stat
 			>
 		</div>
 
 		<div class="w-full">
 			<Stat
-				statTitle="Favorites"
+				statTitle="Избранные"
 				statValue={count.favorites}
-				statDescription="Pages you have favorites."
+				statDescription="Страницы, которые вы добавили в избранное."
 				><Icon src={Heart} class="w-12 h-12 pr-2 text-error" solid /></Stat
 			>
 		</div>
 
 		<div class="w-full">
-			<Stat statTitle="Likes" statValue={count.likes} statDescription="Pages you have liked."
-				><Icon src={HandThumbUp} class="w-12 h-12 pr-2 text-info" solid /></Stat
+			<Stat
+				statTitle="Лайки"
+				statValue={count.likes}
+				statDescription="Страницы, которые вы лайкнули."
 			>
+				<Icon src={HandThumbUp} class="w-12 h-12 pr-2 text-info" solid />
+			</Stat>
 		</div>
 	</div>
 
@@ -152,9 +156,9 @@
 		<div class="">
 			<div class="md:hidden my-2">
 				<Stat
-					statTitle="Verified Pages"
+					statTitle="Опубликованные собеседования"
 					statValue={verifiedCount}
-					statDescription="Pages have been verified."
+					statDescription="Функционал приватности СКОРО."
 					><Icon src={CheckBadge} class="w-12 h-12 pr-2 text-success" solid /></Stat
 				>
 			</div>
@@ -210,9 +214,9 @@
 		<div class="">
 			<div class="md:hidden my-2">
 				<Stat
-					statTitle="Stale Pages"
+					statTitle="Приватные собеседования"
 					statValue={staleCount}
-					statDescription="Last updated over 30 days ago."
+					statDescription="Функционал приватности СКОРО."
 					><Icon src={ExclamationTriangle} class="w-12 h-12 pr-2 text-warning" solid /></Stat
 				>
 			</div>
@@ -268,9 +272,9 @@
 		<div class="">
 			<div class="md:hidden my-2">
 				<Stat
-					statTitle="Favorites"
+					statTitle="Избранные"
 					statValue={count.favorites}
-					statDescription="Pages you have favorited."
+					statDescription="Страницы, которые вы добавили в избранное."
 					><Icon src={Heart} class="w-12 h-12 pr-2 text-error" solid /></Stat
 				>
 			</div>
@@ -314,7 +318,7 @@
 
 		<div class="">
 			<div class="md:hidden my-2">
-				<Stat statTitle="Likes" statValue={count.likes} statDescription="Pages you have liked."
+				<Stat statTitle="Лайки" statValue={count.likes} statDescription="Страницы, которые вы лайкнули."
 					><Icon src={HandThumbUp} class="w-12 h-12 pr-2 text-info" solid /></Stat
 				>
 			</div>
@@ -364,7 +368,7 @@
 		id="mypages"
 		class=" text-xl font-bold badge badge-outline text-neutral/50 py-3 rounded uppercase"
 	>
-		My Pages
+		Мои посты
 	</div>
 
 	<div class="my-2">
@@ -380,11 +384,10 @@
 			</div>
 		{:else}
 			<div class="flex flex-col gap-2 my-7">
-				<div class="text-lg font-bold text-neutral/50">No pages found.</div>
-
+				<div class="text-lg font-bold text-neutral/50">Нет страниц.</div>
 				<div class=" text-neutral/50">
-					<a href="/pages/new" class=" underline">Create</a>
-					a page to get started.
+					<a href="/pages/new" class=" underline">Создай</a>
+					страницу, чтобы начать.
 				</div>
 			</div>
 		{/if}

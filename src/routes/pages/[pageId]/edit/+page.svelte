@@ -37,80 +37,44 @@
 			use:enhance={submitUpdatePage}
 		>
 			<div class="flex flex-col justify-center text-center mt-10">
-				<div class="text-3xl font-bold">Edit "{data.page.name}"</div>
-				<div class="pt-2 text-lg">Update whatever you like, then click "save changes"</div>
+				<div class="text-3xl font-bold">Редактировать "{data.page.name}"</div>
+				<div class="pt-2 text-lg">Измените, что угодно, а затем нажмите "сохранить изменения"</div>
 			</div>
 
-			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
+			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-3">
 				<div>
 					<Input
 						id="name"
-						label="Page Name"
+						label="Название*"
 						value={form?.data?.name ?? data.page.name}
 						errors={form?.errors?.name}
-					/>
-				</div>
-
-				<div>
-					<Input
-						id="tagline"
-						label="Page Tagline"
-						value={form?.data?.tagline ?? data.page.tagline}
-						errors={form?.errors?.tagline}
+						placeholder="Сложный собес на бэк в Авито"
 					/>
 				</div>
 
 				<div>
 					<Input
 						id="company"
-						label="Company"
+						label="Компания*"
 						value={form?.data?.company ?? data.page.company}
 						errors={form?.errors?.company}
+						placeholder="avito"
 					/>
 				</div>
 
 				<div>
 					<Input
 						id="domain"
-						label="Domain"
+						label="Домен*"
 						value={form?.data?.domain ?? data.page.domain}
 						errors={form?.errors?.domain}
+						placeholder="backend"
 					/>
-				</div>
-
-
-				<div>
-					<Input
-						id="url"
-						label="Homepage URL"
-						value={form?.data?.url ?? data.page.url}
-						errors={form?.errors?.url}
-					/>
-				</div>
-
-				<div class="w-full">
-					<label for="division" class="label font-medium pb-1">
-						<span class="label-text">Division</span>
-					</label>
-					<select
-						id="division"
-						name="division"
-						label="Division"
-						class="select select-bordered w-full"
-					>
-						<!-- TODO: Make this dynamic -->
-						<option disabled selected>{data.page.division}</option>
-						<option value="NCS">NCS</option>
-						<option value="BTS">BTS</option>
-						<option value="CORP">CORP</option>
-						<option value="Direct">DIRECT</option>
-					</select>
-					<!-- <span class="text-sm text-red-600">{form?.errors?.division}</span> -->
 				</div>
 
 				<div class="w-full">
 					<label for="grade" class="label font-medium pb-1">
-						<span class="label-text">Grade</span>
+						<span class="label-text">Grade*</span>
 					</label>
 					<select
 						id="grade"
@@ -119,61 +83,37 @@
 						class="select select-bordered w-full"
 					>
 						<!-- TODO: Make this dynamic -->
-						<option disabled selected>{data.page.division}</option>
+						<option disabled selected>Select Grade</option>
 						<option value="intern">intern</option>
 						<option value="junior">junior</option>
 						<option value="middle">middle</option>
 						<option value="senior">senior</option>
 						<option value="senior+">senior+</option>
 					</select>
-					<!-- <span class="text-sm text-red-600">{form?.errors?.division}</span> -->
+					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
-			</div>
+				
+				<div>
+					<Input
+						id="tagline"
+						label="Какие угодно теги"
+						value={form?.data?.tagline ?? data.page.tagline}
+						errors={form?.errors?.tagline}
+						placeholder="golang"
+					/>
+				</div>
 
-			<div class="form-control w-full">
-				<label for="thumbnail" class="label font-medium -mb-3 -mt-0">
-					{#if data.page.thumbnail}
-						<span class="label-text pb-2">Thumbnail</span>
-					{:else}
-						<span class="label-text">Thumbnail</span>
-					{/if}
-				</label>
-				{#if data.page.thumbnail}
-					<label for="thumbnail" class="avatar w-20 hover:cursor-pointer">
-						<label for="thumbnail" class="absolute -top-1.5 -right-1.5 hover:cursor-pointer">
-							<button formaction="?/deleteThumbnail" class="btn btn-error btn-sm btn-circle">
-								<Icon src={Trash} class="w-5 h-5 text-white" />
-							</button>
-						</label>
-						<div class="w-20 rounded">
-							<img
-								src={getImageURL(
-									data.page.collectionId,
-									data.page.id,
-									data.page.thumbnail,
-									'80x80'
-								)}
-								alt="page thumbnail"
-							/>
-						</div>
-					</label>
-				{/if}
-				<input
-					type="file"
-					name="thumbnail"
-					id="thumbnail"
-					label="Thumbnail"
-					class="file-input file-input-bordered w-full mt-2"
-				/>
-				{#if form?.errors?.thumbnail}
-					{#each form?.errors?.thumbnail as error}
-						<label for="thumbnail" class="label py-0 pt-1">
-							<span class="label-text-alt text-error">
-								{error}
-							</span>
-						</label>
-					{/each}
-				{/if}
+				<div>
+					<Input
+						id="url"
+						label="Ссылка на вакансию, если есть"
+						value={form?.data?.url ?? data.page.url}
+						errors={form?.errors?.url}
+						placeholder="https://"
+					/>
+				</div>
+
+				
 			</div>
 
 			<div class="w-full pt-2">
@@ -188,10 +128,10 @@
 
 			<div class="flex gap-2 w-full max-w-md my-5">
 				<div class="w-full">
-					<a href={`/pages/${data.page.id}`} class="btn btn-outline rounded w-full">Cancel</a>
+					<a href={`/pages/${data.page.id}`} class="btn btn-outline rounded w-full">Отменить</a>
 				</div>
 				<div class="w-full">
-					<button type="submit" class="btn btn-success rounded w-full">Save Changes</button>
+					<button type="submit" class="btn btn-success rounded w-full">Сохранить изменения</button>
 				</div>
 			</div>
 		</form>

@@ -138,20 +138,21 @@
 				</div>
 			{/if}
 
-			<!-- DIVISION -->
-			{#if data.page.division != ''}
-				<div class="badge border-neutral rounded py-3 uppercase">{data.page.division}</div>
-			{/if}
+			
 		</div>
 
 		<!-- TITLE -->
 		<div>
+			<div class="badge badge-xl badge-neutral rounded capitalize my-1 py-3">{data.page.company}</div>
+			<div class="badge badge-xl badge-domain rounded capitalize my-1 py-3">{data.page.domain}</div>
+			<div class="badge badge-xl badge-ghost rounded capitalize my-1 py-3">{data.page.grade}</div>
+			
 			<div class="text-5xl font-bold">
 				{data.page.name}<span />
 			</div>
-
-			<div class="text-xl font-light mt-2">{data.page.tagline}</div>
-			<div class="text-xl font-light mt-2">{data.page.company}</div>
+			<div class=" text-sm text-base-content/75">
+				{data.page.tagline}
+			</div>
 		</div>
 		<!-- <div>
 			<div class="mt-1">
@@ -204,12 +205,8 @@
 							<div class="text-lg font-semibold primary-content">
 								{creator.name}
 							</div>
-							<div class="text-sm font-medium secondary-content">{creator.job_title}</div>
-							{#if creator.division}
-								<div class="badge badge-sm badge-neutral uppercase rounded py-3 mt-2">
-									{creator.division}
-								</div>
-							{/if}
+							<div class="text-sm font-medium secondary-content">{creator.description}</div>
+							
 
 							{#if creator.id != data.user.id}
 								<div class="my-2">
@@ -223,7 +220,7 @@
 														<!-- <Icon src={CheckCircle} class="text-primary w-5 h-5" solid /> -->
 
 														<div class="flex gap-2 items-center">
-															<div>Following</div>
+															<div>Подписан</div>
 														</div>
 													</button>
 												{:else}
@@ -231,7 +228,7 @@
 
 													<button class="flex btn btn-xs capitalize rounded">
 														<!-- <Icon src={PlusCircle} class="text-primary w-5 h-5" /> -->
-														<div>Follow</div>
+														<div>Подписаться</div>
 													</button>
 												{/if}
 											</div>
@@ -339,10 +336,10 @@
 								/>
 							</span>
 							<div slot="heading">
-								<div class="text-2xl">Delete {data.page.name}</div>
+								<div class="text-2xl">Удалить {data.page.name}</div>
 								<div class="text-base font-normal mt-2">
-									Are you sure you want to delete this page? Once deleted, the page cannot be
-									restored.
+									Вы уверены, что хотите удалить эту страницу? После удаления страницы она не может быть
+									восстановлена.
 								</div>
 							</div>
 							<div slot="actions" class="flex w-full items-center justify-center space-x-2">

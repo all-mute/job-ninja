@@ -1,1 +1,1 @@
-<div>about badges</div>
+<div>О наградах (TBD, пока наград нет)</div>

@@ -30,7 +30,7 @@
 				<!-- svelte-ignore a11y-autofocus -->
 				<input
 					type="text"
-					placeholder="Search Pages, People, Divisions, and Content"
+					placeholder="ML NLP Frontend Middle Yandex"
 					class="w-full focus:outline-none bg-base-100"
 					bind:value={filter}
 					autofocus
@@ -50,7 +50,7 @@
 			{#if data.user.following.includes(user.id)}
 				{#if !filter || user.name.toLowerCase().includes(filter.toLowerCase()) || user.job_title
 						.toLowerCase()
-						.includes(filter.toLowerCase()) || user.division
+						.includes(filter.toLowerCase()) || user.description
 						.toLowerCase()
 						.includes(filter.toLowerCase())}
 					<PersonCard {user} />

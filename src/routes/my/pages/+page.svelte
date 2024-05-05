@@ -9,17 +9,15 @@
 			!filter ||
 			page.name.toLowerCase().includes(filter.toLowerCase()) ||
 			page.tagline.toLowerCase().includes(filter.toLowerCase()) ||
-			(Array.isArray(page.division) &&
-				page.division.some((division) => division.toLowerCase().includes(filter.toLowerCase()))) ||
 			page.content.toLowerCase().includes(filter.toLowerCase())
 	);
 </script>
 
 <div class="my-10 px-4">
 	<div class="text-center text-7xl font-bold tracking-tight text-base-content">
-		<div>My Pages</div>
+		<div>Мои посты</div>
 	</div>
-	<div class="text-center my-5">Find content by person, division, or job title.</div>
+	<div class="text-center my-5">Найдите контент по имени, теглайну или контенту.</div>
 
 	<div class="my-5">
 		<div class="flex justify-center w-full max-w-lg mx-auto border border-neutral rounded p-3">
@@ -28,7 +26,7 @@
 				<!-- svelte-ignore a11y-autofocus -->
 				<input
 					type="text"
-					placeholder="Search Pages, People, Divisions, and Content"
+					placeholder="ML NLP Frontend Middle Yandex"
 					class="w-full focus:outline-none bg-base-100"
 					bind:value={filter}
 					autofocus

@@ -4,9 +4,9 @@
 
 <div class="flex flex-col items-center h-full w-full px-4">
 	<div class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
-		Reset Your Password
+		Сброс пароля
 	</div>
-	<div class="text-center mt-1">We'll send you an email with a link to reset your password.</div>
+	<div class="text-center mt-1">Мы отправим вам на электронную почту с ссылкой для сброса вашего пароля.</div>
 	<form
 		action="?/resetPassword"
 		method="POST"
@@ -19,7 +19,7 @@
 			<input type="email" name="email" class="input input-bordered w-full max-w-md" />
 		</div>
 		<div class="w-full max-w-md pt-2">
-			<button type="submit" class="btn btn-primary w-full">Request Password Reset</button>
+			<button type="submit" class="btn btn-primary w-full">Запросить сброс пароля</button>
 		</div>
 		{#if form?.success}
 			<div class="alert alert-success shadow-lg w-full max-w-md">
@@ -36,7 +36,7 @@
 							d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
 						/></svg
 					>
-					<span>An email has been sent to reset your password!</span>
+					<span>На ваш email отправлено письмо с ссылкой для сброса пароля!</span>
 				</div>
 			</div>
 		{/if}

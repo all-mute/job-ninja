@@ -66,11 +66,6 @@
 				<div class="font-thin">{page.tagline}</div>
 			</div>
 
-			{#if page.division != ''}
-				<div class="badge badge-primary text-xs md:text-sm rounded py-3 mt-2">
-					{page.company}
-				</div>
-			{/if}
 
 			{#if page.expand.tags}
 				<div class="flex flex-wrap items-end gap-2">

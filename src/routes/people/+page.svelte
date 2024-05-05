@@ -11,12 +11,12 @@
 
 <div class="px-4">
 	<div class="mt-10 text-center text-7xl font-bold tracking-tight text-base-content">
-		<div>People</div>
+		<div>Пользователи</div>
 	</div>
 	<div class="text-center my-5">
 		<div class="flex justify-center items-center gap-2">
-			<div class="">Displaying all <span class="font-bold">{getUserCount()}</span> users.</div>
-			<div><Icon src={Users} class="w-7 h-7 text-purple-500" solid /></div>
+			<div>Отображаются все <span class="font-bold">{getUserCount()}</span> пользователи.</div>
+			<div><Icon src={Users} class="w-7 h-7 text-orange-500" solid /></div>
 		</div>
 	</div>
 
@@ -27,7 +27,7 @@
 				<!-- svelte-ignore a11y-autofocus -->
 				<input
 					type="text"
-					placeholder="Search Pages, People, Divisions, and Content"
+					placeholder="ML NLP Frontend Middle Yandex"
 					class="w-full focus:outline-none bg-base-100"
 					bind:value={filter}
 					autofocus
@@ -46,7 +46,7 @@
 		{#each data.users as user}
 			{#if !filter || user.name.toLowerCase().includes(filter.toLowerCase()) || user.job_title
 					.toLowerCase()
-					.includes(filter.toLowerCase()) || user.division
+					.includes(filter.toLowerCase()) || user.description
 					.toLowerCase()
 					.includes(filter.toLowerCase())}
 				<PersonCard {user} />

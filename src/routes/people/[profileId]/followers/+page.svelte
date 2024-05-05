@@ -28,7 +28,7 @@
 				People following
 				<span class="font-bold capitalize">{data.pageUser.name}</span>
 			</div>
-			<div><Icon src={UserGroup} class="w-7 h-7 text-purple-500" solid /></div>
+			<div><Icon src={UserGroup} class="w-7 h-7 text-orange-500" solid /></div>
 		</div>
 	</div>
 
@@ -39,7 +39,7 @@
 				<!-- svelte-ignore a11y-autofocus -->
 				<input
 					type="text"
-					placeholder="Search Pages, People, Divisions, and Content"
+					placeholder="ML NLP Frontend Middle Yandex"
 					class="w-full focus:outline-none bg-base-100"
 					bind:value={filter}
 					autofocus
@@ -58,7 +58,7 @@
 		{#each getFollowers() as user}
 			{#if !filter || user.name.toLowerCase().includes(filter.toLowerCase()) || user.job_title
 					.toLowerCase()
-					.includes(filter.toLowerCase()) || user.division
+					.includes(filter.toLowerCase()) || user.description
 					.toLowerCase()
 					.includes(filter.toLowerCase())}
 				<PersonCard {user} />

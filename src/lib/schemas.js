@@ -16,12 +16,12 @@ export const registerUserSchema = z
 			.max(64, { message: 'Name must be less than 64 characters' })
 			.trim(),
 
-		job_title: z
-			.string({ required_error: 'Job Title is required' })
-			.regex(/^[a-zA-z\s]*$/, { message: 'Job Title can only contain letters and spaces.' })
+		description: z
+			.string()
+			.regex(/^[a-zA-Z0-9 ,.'-]*$/, { message: 'Description can only contain letters, numbers, spaces, and normal symbols like commas, periods, dashes, and apostrophes.' })
 			.min(2, { message: 'Job Title must be at least 2 characters' })
-			.max(64, { message: 'Job Title must be less than 64 characters' })
-			.trim(),
+			.max(128, { message: 'Job Title must be less than 128 characters' })
+			.trim().optional(),
 
 		email: z
 			.string({ required_error: 'Email is required' })
@@ -85,42 +85,30 @@ export const createPageSchema = z.object({
 		.trim(),
 
 	tagline: z
-		.string({ required_error: 'Tagline is required' })
+		.string()
 		.min(2, { message: 'Tagline must be longer than 2 characters' })
 		.max(64, { message: 'Tagline must be 64 characters or less' })
-		.trim(),
+		.trim().optional(),
 
-	url: z.string({ required_error: 'URL is required' }).url({ message: 'URL must be a valid URL' }),
+	url: z.string().url({ message: 'URL must be a valid URL' }).optional(),
 
-	division: z.optional(z.string().min(1).max(64).trim()),
+	grade: z
+		.string({ required_error: 'Grade is required' })
+		.min(1, { message: 'Grade is required' })
+		.max(64, { message: 'Grade must be 64 characters or less' })
+		.trim()
+		.refine((val) => {
+			const choices = ['intern', 'junior', 'middle', 'senior', 'senior+'];
+			return choices.includes(val) ? val : undefined;
+		}, { message: 'Grade must be one of the following: intern, junior, middle, senior, senior+' }),
 
-	grade: z.optional(z.string().min(1).max(64).trim()),
 
 	content: z
 		.string({ required_error: 'Content is required' })
 		.min(1, { message: 'Content is required' })
 		// .max(262, 144, { message: 'Content must be less than 262,144 characters' })
 		.trim(),
-	thumbnail: z
-		.instanceof(Blob)
-		.optional()
-		.superRefine((val, ctx) => {
-			if (val) {
-				if (val.size > 5242880) {
-					ctx.addIssue({
-						code: z.ZodIssueCode.custom,
-						message: 'Thumbnail must be less than 5MB'
-					});
-				}
-
-				if (!imageTypes.includes(val.type)) {
-					ctx.addIssue({
-						code: z.ZodIssueCode.custom,
-						message: 'Unsupported file type. Supported formats: jpeg, jpg, png, webp, svg, gif'
-					});
-				}
-			}
-		}),
+	
 	user: z.string({ required_error: 'User is required.' })
 });
 
@@ -178,11 +166,12 @@ export const updateProfileSchema = z.object({
 		.max(64, { message: 'Name must be 64 characters or less' })
 		.trim(),
 
-	job_title: z
-		.string({ required_error: 'Job Title is required' })
-		.min(1, { message: 'Job Title is required' })
-		.max(64, { message: 'Job Title must be 64 characters or less' })
-		.trim(),
+	description: z
+		.string()
+		.regex(/^[a-zA-Z0-9 ,.'-]*$/, { message: 'Description can only contain letters, numbers, spaces, and normal symbols like commas, periods, dashes, and apostrophes.' })
+		.min(2, { message: 'Job Title must be at least 2 characters' })
+		.max(128, { message: 'Job Title must be less than 128 characters' })
+		.trim().optional(),
 
 	avatar: z
 		.instanceof(Blob)
