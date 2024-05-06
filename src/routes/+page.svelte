@@ -114,7 +114,7 @@
 			<span class="text-orange-500">Job</span> Ninja
 		</div> -->
 	</div>
-	<div class="text-center my-5">
+	<div class="text-center my-10 text-xl">
 		{#if $feedSelect}
 			<div class="flex justify-center items-center gap-2">
 				<div class="">
@@ -124,7 +124,7 @@
 			</div>
 		{:else}
 			<div class="flex justify-center items-center gap-2">
-				<div class="">Лента <strong>последних</strong> собеседований в IT компаниях</div>
+				<div class="">Лента <strong>последних</strong> собеседований в it компании</div>
 				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-orange-500" solid /></div>
 			</div>
 		{/if}
@@ -132,7 +132,7 @@
 
 	<div class=" my-5 flex justify-center px-4">
 		<div class=" flex items-center justify-center w-full gap-2">
-			<div class=" flex w-full max-w-lg border border-neutral rounded p-3">
+			<div class=" flex w-full max-w-lg border border-neutral/10 rounded p-3">
 				<div class="relative flex items-center gap-2 w-full">
 					<Icon src={MagnifyingGlass} class=" text-neutral w-5 h-5" />
 					<!-- svelte-ignore a11y-autofocus -->
@@ -181,23 +181,23 @@
 				</label>
 			</div>
 
-			<div class="ml-5 border-r h-16 border-neutral" />
+			<div class="ml-5 border-r h-16 border-neutral/10" />
 			<div
 				class="flex overflow-x-auto md:overflow-x-auto no-scrollbar md:justify-cener items-center gap-2 px-4 w-full"
 			>
 				{#each data.tags as tag}
 					<button
-						class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
+						class="btn btn-sm lowercase shadow"
 						on:click={() => handleFilter(tag.name)}>{tag.name}</button
 					>
 				{/each}
 				<button
-					class="border border-neutral py-1 px-2 uppercase my-2 hover:shadow transition-all duration-100 rounded"
+					class="btn btn-sm lowercase shadow hover:bg-orange-500 hover:text-white"
 					on:click={() => handleFilter('')}>Clear</button
 				>
 			</div>
 
-			<div class="border-l h-16 border-neutral" />
+			<div class="border-l h-16 border-neutral/10" />
 		</div>
 	{/if}
 
