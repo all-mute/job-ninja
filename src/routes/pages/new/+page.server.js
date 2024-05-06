@@ -14,15 +14,10 @@ export const actions = {
 	create: async ({ request, locals }) => {
 		const body = await request.formData();
 
-		const thumb = body.get('thumbnail');
-
-		if (thumb.size === 0) {
-			body.delete('thumbnail');
-		}
 		body.append('user', locals.user.id);
 
 		const { formData, errors } = await validateData(body, createPageSchema);
-		const { thumbnail, ...rest } = formData;
+		const { ...rest } = formData;
 
 		if (errors) {
 			return fail(400, {

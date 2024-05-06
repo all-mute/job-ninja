@@ -86,11 +86,10 @@ export const createPageSchema = z.object({
 
 	tagline: z
 		.string()
-		.min(2, { message: 'Tagline must be longer than 2 characters' })
 		.max(64, { message: 'Tagline must be 64 characters or less' })
 		.trim().optional(),
 
-	url: z.string().url({ message: 'URL must be a valid URL' }).optional(),
+	url: z.string().optional(),
 
 	grade: z
 		.string({ required_error: 'Grade is required' })
