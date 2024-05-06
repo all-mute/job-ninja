@@ -39,7 +39,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@tinymce/tinymce-svelte": "^1.0.1",
+		"@tinymce/tinymce-svelte": "^2.0.2",
 		"ai": "3.1.1",
 		"openai-edge": "^0.5.1",
 		"pocketbase": "0.15.0-rc",
