@@ -19,8 +19,8 @@ export const registerUserSchema = z
 		description: z
 			.string()
 			.regex(/^[a-zA-Z0-9 ,.'-]*$/, { message: 'Description can only contain letters, numbers, spaces, and normal symbols like commas, periods, dashes, and apostrophes.' })
-			.min(2, { message: 'Job Title must be at least 2 characters' })
-			.max(128, { message: 'Job Title must be less than 128 characters' })
+			.min(2, { message: 'Description must be at least 2 characters' })
+			.max(128, { message: 'Description must be less than 128 characters' })
 			.trim().optional(),
 
 		email: z
@@ -169,8 +169,8 @@ export const updateProfileSchema = z.object({
 	description: z
 		.string()
 		.regex(/^[a-zA-Z0-9 ,.'-]*$/, { message: 'Description can only contain letters, numbers, spaces, and normal symbols like commas, periods, dashes, and apostrophes.' })
-		.min(2, { message: 'Job Title must be at least 2 characters' })
-		.max(128, { message: 'Job Title must be less than 128 characters' })
+		.min(2, { message: 'Description must be at least 2 characters' })
+		.max(128, { message: 'Description must be less than 128 characters' })
 		.trim().optional(),
 
 	avatar: z
