@@ -70,7 +70,7 @@
 	<div class="text-center mt-1">
 		Или <a
 			href="/register"
-			class="underline text-primary font-medium hover:cursor-pointer hover:underline">зарегистрироваться</a
+			class="underline text-primary font-medium hover:cursor-pointer hover:underline">зарегистрироваться,</a
 		> если вы ещё не зарегистрировались.
 	</div>
 	<form
