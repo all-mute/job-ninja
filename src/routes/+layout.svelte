@@ -34,7 +34,7 @@
 
 <Toaster />
 <div class="min-h-full">
-	<nav class="navbar bg-base-100 border-b border-neutral max-w-7xl mx-auto">
+	<nav class="navbar bg-base-100 border-b border-neutral max-w-5xl mx-auto">
 		<div class="flex-1">
 			<a href="/" class="btn btn-ghost normal-case text-xl">
 				<div>
@@ -216,7 +216,7 @@
 		</div>
 	</nav>
 	<div class="py-4">
-		<div class="mx-auto max-w-7xl">
+		<div class="mx-auto max-w-5xl">
 			{#if !isLoaded}
 				<div class="scale-150 flex justify-center items-center h-screen w-full">
 					<span class="loading loading-dots loading-lg" />
