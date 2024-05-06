@@ -12,6 +12,17 @@ export const actions = {
         cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/' });
         throw redirect(303, '/');
     },
+
+	login_pass: async ({ request, cookies }) => {
+        const form = await request.formData();
+        const token = form.get('token');
+        if (!token || typeof token !== 'string') {
+            throw redirect(303, '/login');
+        }
+        cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/' });
+        throw redirect(303, '/');
+    },
+
 	login: async ({ request, locals }) => {
 		const { formData, errors } = await validateData(await request.formData(), loginUserSchema);
 

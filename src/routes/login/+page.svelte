@@ -7,6 +7,8 @@
 	export let form;
 	let loading = false;
 
+	const pb = new PocketBase(PUBLIC_POCKETBASE_URL);
+
 	const submitLogin = () => {
 		loading = true;
 		return async ({ result, update }) => {
@@ -28,8 +30,6 @@
 		};
 	};
 
-	const pb = new PocketBase(PUBLIC_POCKETBASE_URL);
-
     async function login_yandex(form) {
         try {
             await pb.collection('users').authWithOAuth2({ 
@@ -38,6 +38,23 @@
                     name: 'anonymous-' + Math.random().toString(36).substring(7),
                 },
             });
+            form.token.value = pb.authStore.token;
+            form.submit();
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+
+    async function login_email_pass(form) {
+		console.log(form);
+		console.log(form.password.value);
+        try {
+            await pb.collection('users').authWithPassword(
+				form.email.value,
+				form.password.value
+			);
+			console.log(pb.authStore)
             form.token.value = pb.authStore.token;
             form.submit();
         } catch (err) {
@@ -56,7 +73,12 @@
 			class="underline text-primary font-medium hover:cursor-pointer hover:underline">зарегистрироваться</a
 		> если вы ещё не зарегистрировались.
 	</div>
-	<form method="post" action="?/oauth_yandex" on:submit|preventDefault={(e) => login_yandex(e.currentTarget)}>
+	<form
+		method="post"
+		action="?/oauth_yandex"
+		on:submit|preventDefault={(e) => login_yandex(e.currentTarget)}
+		disabled={loading}
+	>
 		<input name="token" type="hidden" />
 		<button
 			class="border rounded p-2 mt-10 bg-gray-800 text-white hover:bg-gray-700"
@@ -65,11 +87,12 @@
 		</button>
 	</form>
 	<form
-		action="?/login"
+		action="?/login_pass"
 		method="POST"
 		class="flex flex-col items-center space-y-2 w-full pt-4"
-		use:enhance={submitLogin}
+		on:submit|preventDefault={(e) => login_email_pass(e.currentTarget)}
 	>
+		<input name="token" type="hidden" />
 		<Input
 			type="email"
 			id="email"
