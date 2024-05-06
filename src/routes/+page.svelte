@@ -110,9 +110,9 @@
 
 <div>
 	<div class="mt-10 text-center text-7xl font-bold tracking-tight text-base-content">
-		<div>
+		<!-- <div>
 			<span class="text-orange-500">Job</span> Ninja
-		</div>
+		</div> -->
 	</div>
 	<div class="text-center my-5">
 		{#if $feedSelect}
@@ -124,7 +124,7 @@
 			</div>
 		{:else}
 			<div class="flex justify-center items-center gap-2">
-				<div class="">Лента <strong>последних</strong> собеседований в it компании</div>
+				<div class="">Лента <strong>последних</strong> собеседований в IT компаниях</div>
 				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-orange-500" solid /></div>
 			</div>
 		{/if}
