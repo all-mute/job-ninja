@@ -209,6 +209,7 @@
 					{#each data.users as user}
 						{#if page.user === user.id}
 						{#if data.user.following.includes(page.user)}
+						{#if !page.private}
 							<MyPageItem
 							{page}
 							{user}
@@ -216,6 +217,7 @@
 							isNew={isNew(page.created)}
 							isOld={isOld(page.updated)}
 							/>
+						{/if}
 						{/if}
 						{/if}
 					{/each}
@@ -226,6 +228,7 @@
 					{#each data.users as user}
 							{#if page.user === user.id}
 							{#if data.user.following.includes(page.user)}
+							{#if !page.private}
 							<MyPageItem
 								{page}
 								{user}
@@ -233,6 +236,7 @@
 								isNew={isNew(page.created)}
 								isOld={isOld(page.updated)}
 							/>
+							{/if}
 							{/if}
 							{/if}
 					{/each}
@@ -247,6 +251,7 @@
 				{#each filteredPageNames as page}
 					{#each data.users as user}
 						{#if page.user === user.id}
+						{#if !page.private}
 							<MyPageItem
 							{page}
 							{user}
@@ -255,6 +260,7 @@
 							isOld={isOld(page.updated)}
 							/>
 						{/if}
+						{/if}
 					{/each}
 				{/each}
 			{/if}
@@ -262,6 +268,7 @@
 				{#each data.pages as page}
 				{#each data.users as user}
 					{#if page.user === user.id}
+					{#if !page.private}
 					<MyPageItem
 						{page}
 						{user}
@@ -269,6 +276,7 @@
 						isNew={isNew(page.created)}
 						isOld={isOld(page.updated)}
 					/>
+					{/if}
 					{/if}
 				{/each}
 				{/each}
