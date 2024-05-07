@@ -97,7 +97,7 @@ export const createPageSchema = z.object({
 		// .max(262, 144, { message: 'Content must be less than 262,144 characters' })
 		.trim(),
 	
-	user: z.string({ required_error: 'User is required.' })
+	user: z.string({ required_error: 'User is required.' }),
 });
 
 export const updatePageSchema = createPageSchema.omit({ user: true });

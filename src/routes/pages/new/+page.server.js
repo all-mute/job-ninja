@@ -14,9 +14,18 @@ export const actions = {
 	create: async ({ request, locals }) => {
 		const body = await request.formData();
 
+		const privateValue = body.get('private');
+
 		body.append('user', locals.user.id);
 
 		const { formData, errors } = await validateData(body, createPageSchema);
+		
+		if (privateValue === 'on') {
+			formData.private = true;
+		} else {
+			formData.private = false;
+		}
+		
 		const { ...rest } = formData;
 
 		if (errors) {
@@ -33,7 +42,7 @@ export const actions = {
 			throw error(err.status, err.message);
 		}
 
-		console.log('FORM DATA: ', formData);
+		//console.log('FORM DATA: ', formData);
 		throw redirect(303, '/');
 	}
 };

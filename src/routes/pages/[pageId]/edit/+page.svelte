@@ -83,12 +83,11 @@
 						class="select select-bordered w-full"
 					>
 						<!-- TODO: Make this dynamic -->
-						<option disabled selected>Select Grade</option>
-						<option value="intern">intern</option>
-						<option value="junior">junior</option>
-						<option value="middle">middle</option>
-						<option value="senior">senior</option>
-						<option value="senior+">senior+</option>
+						<option value="intern" selected={form?.data?.grade === 'intern' || data.page.grade === 'intern'}>intern</option>
+						<option value="junior" selected={form?.data?.grade === 'junior' || data.page.grade === 'junior'}>junior</option>
+						<option value="middle" selected={form?.data?.grade === 'middle' || data.page.grade === 'middle'}>middle</option>
+						<option value="senior" selected={form?.data?.grade === 'senior' || data.page.grade === 'senior'}>senior</option>
+						<option value="senior+" selected={form?.data?.grade === 'senior+' || data.page.grade === 'senior+'}>senior+</option>
 					</select>
 					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
@@ -115,6 +114,23 @@
 
 				
 			</div>
+
+			<div class="flex items-center">
+				<label for="private" class="flex items-center mr-2">
+					<input
+						type="checkbox"
+						id="private"
+						name="private"
+						class="form-checkbox"
+						checked={form?.data?.private ?? data.page.private}
+					/>
+					<span class="ml-2 text-sm">Private</span>
+				</label>
+			</div>
+
+			
+			  
+			  
 
 			<div class="w-full pt-2">
 				<WYSIWYG
