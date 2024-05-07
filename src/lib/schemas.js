@@ -4,25 +4,16 @@ export const loginUserSchema = z.object({
 	email: z
 		.string({ required_error: 'Email is required' })
 		.email({ message: 'Email must be a valid email.' }),
-	password: z.string({ required_error: 'Password is required' })
+	password: z
+		.string({ required_error: 'Password is required', message: 'Please enter a password.' })
+		.regex(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, {
+			message:
+				'Password is required & must be a minimum of 8 characters & contain at least one letter, one number, and one special character.'
+		}),
 });
 
 export const registerUserSchema = z
 	.object({
-		name: z
-			.string({ required_error: 'Name is required' })
-			.regex(/^[a-zA-z\s]*$/, { message: 'Name can only contain letters and spaces.' })
-			.min(2, { message: 'Name must be at least 2 characters' })
-			.max(64, { message: 'Name must be less than 64 characters' })
-			.trim(),
-
-		description: z
-			.string()
-			.regex(/^[a-zA-Z0-9 ,.'-]*$/, { message: 'Description can only contain letters, numbers, spaces, and normal symbols like commas, periods, dashes, and apostrophes.' })
-			.min(2, { message: 'Description must be at least 2 characters' })
-			.max(128, { message: 'Description must be less than 128 characters' })
-			.trim().optional(),
-
 		email: z
 			.string({ required_error: 'Email is required' })
 			.email({ message: 'Email must be a valid email' }),

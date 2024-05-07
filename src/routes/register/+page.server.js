@@ -3,6 +3,27 @@ import { registerUserSchema } from '$lib/schemas';
 import { generateUsername, validateData } from '$lib/utils';
 
 export const actions = {
+	register_new: async ({ request, cookies }) => {
+        const form = await request.formData();
+        const token = form.get('token');
+        if (!token || typeof token !== 'string') {
+            throw redirect(303, '/register');
+        }
+
+		// IMPORTANT
+        cookies.set('pb_auth', JSON.stringify({ token: '' }), { path: '/' });
+        throw redirect(303, '/login');
+    },
+	oauth_yandex: async ({ request, cookies }) => {
+        const form = await request.formData();
+        const token = form.get('token');
+        if (!token || typeof token !== 'string') {
+            throw redirect(303, '/login');
+        }
+        cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/' });
+        throw redirect(303, '/');
+    },
+	// LEGACY reg
 	register: async ({ locals, request }) => {
 		const { formData, errors } = await validateData(await request.formData(), registerUserSchema);
 
@@ -25,13 +46,4 @@ export const actions = {
 
 		throw redirect(303, '/login');
 	},
-	oauth_yandex: async ({ request, cookies }) => {
-        const form = await request.formData();
-        const token = form.get('token');
-        if (!token || typeof token !== 'string') {
-            throw redirect(303, '/login');
-        }
-        cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/' });
-        throw redirect(303, '/');
-    },
 };

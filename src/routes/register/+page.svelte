@@ -2,24 +2,84 @@
 	import { Input } from '$lib/components';
 	import PocketBase from 'pocketbase';
     import { PUBLIC_POCKETBASE_URL } from '$env/static/public';
-	
+	import toast from 'svelte-french-toast';
+	import { registerUserSchema } from '$lib/schemas';
+	import { z } from 'zod';
+
 	export let form;
+
+	let loading = false;
 
 	const pb = new PocketBase(PUBLIC_POCKETBASE_URL);
 
     async function login_yandex(form) {
+		loading = true;
         try {
-            await pb.collection('users').authWithOAuth2({ 
-                provider: 'yandex',
-                createData: {
+			// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
+			let w = window.open()
+
+			await pb
+				.collection("users")
+				.authWithOAuth2({
+				provider: 'yandex',
+				createData: {
                     name: 'anonymous-' + Math.random().toString(36).substring(7),
                 },
-            });
+				urlCallback: (url) => {
+					w.location.href = url
+				},
+				})
+
             form.token.value = pb.authStore.token;
             form.submit();
         } catch (err) {
             console.error(err);
+			toast.error(err.message);
         }
+		loading = false;
+    }
+
+	async function register_email_pass(form) {
+		loading = true;
+		
+        try {
+			// Validate form data using zod schema
+			const formData = registerUserSchema.parse({
+				email: form.email.value,
+				password: form.password.value,
+				passwordConfirm: form.passwordConfirm.value
+			});
+
+			const regData = {
+				email: formData.email,
+				password: formData.password,
+				passwordConfirm: formData.passwordConfirm,
+				name: 'newname-' + Math.random().toString(36).substring(7),
+			}
+
+            const authData = await pb.collection('users').create(regData);
+			await pb.collection('users').requestVerification(formData.email);
+
+			toast.success('Now check your email to verify your account.');
+
+			await new Promise(resolve => setTimeout(resolve, 5000));
+
+            form.token.value = pb.authStore.token;
+            form.submit();
+        } catch (err) {
+			// Check if error is a ZodError (validation error)
+			if (err instanceof z.ZodError) {
+				// Extract error messages and display toast
+				const errorMessages = err.errors.map(error => error.message).join(', ');
+				toast.error(errorMessages);
+			} else {
+				// Handle other errors (e.g., authentication errors)
+				
+				const message = err.message ? err.message : 'An error occurred during registration.';
+				toast.error(message);
+			}
+		} 
+		loading = false;
     }
 </script>
 
@@ -37,26 +97,25 @@
 		<input name="token" type="hidden" />
 		<button
 			class="border rounded p-2 mt-10 bg-gray-800 text-white hover:bg-gray-700"
+			disabled={loading}
 		>
 			Login using Yandex
 		</button>
 	</form>
-	<form action="?/register" method="POST" class="flex flex-col items-center space-y-2 w-full pt-4">
-		<Input id="name" label="Name*" value={form?.data?.name} errors={form?.errors?.name} />
-
+	<form
+		action="?/register_new"
+		method="POST"
+		class="flex flex-col items-center space-y-2 w-full pt-4"
+		on:submit|preventDefault={(e) => register_email_pass(e.currentTarget)}
+	>
+		<input name="token" type="hidden" />
 		<Input
 			type="email"
 			id="email"
 			label="Email*"
 			value={form?.data?.email}
 			errors={form?.errors?.email}
-		/>
-
-		<Input
-			id="description"
-			label="Description"
-			value={form?.data?.job_title}
-			errors={form?.errors?.job_title}
+			disabled={loading}
 		/>
 
 		<Input type="password" id="password" label="Password*" errors={form?.errors?.password} />
@@ -65,9 +124,10 @@
 			id="passwordConfirm"
 			label="Confirm Password*"
 			errors={form?.errors?.passwordConfirm}
+			disabled={loading}
 		/>
 		<div class="w-full max-w-lg pt-2">
-			<button type="submit" class="btn btn-primary rounded w-full">Зарегистрироваться</button>
+			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>Зарегистрироваться</button>
 		</div>
 	</form>
 </div>

@@ -23,6 +23,7 @@ export const actions = {
         throw redirect(303, '/');
     },
 
+	// LEGACY login
 	login: async ({ request, locals }) => {
 		const { formData, errors } = await validateData(await request.formData(), loginUserSchema);
 

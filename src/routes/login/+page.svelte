@@ -4,11 +4,17 @@
 	import toast from 'svelte-french-toast';
 	import PocketBase from 'pocketbase';
     import { PUBLIC_POCKETBASE_URL } from '$env/static/public';
+	import { loginUserSchema } from '$lib/schemas';
+	import { z } from 'zod';
+	
 	export let form;
+
 	let loading = false;
 
 	const pb = new PocketBase(PUBLIC_POCKETBASE_URL);
 
+
+	// LEGACY login
 	const submitLogin = () => {
 		loading = true;
 		return async ({ result, update }) => {
@@ -31,36 +37,76 @@
 	};
 
     async function login_yandex(form) {
+		loading = true;
         try {
-            await pb.collection('users').authWithOAuth2({ 
-                provider: 'yandex',
-                createData: {
+			// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
+			let w = window.open()
+
+			await pb
+				.collection("users")
+				.authWithOAuth2({
+				provider: 'yandex',
+				createData: {
                     name: 'anonymous-' + Math.random().toString(36).substring(7),
                 },
-            });
+				urlCallback: (url) => {
+					w.location.href = url
+				},
+				})
+
             form.token.value = pb.authStore.token;
             form.submit();
         } catch (err) {
             console.error(err);
+			toast.error(err.message);
         }
+		loading = false;
     }
 
 
     async function login_email_pass(form) {
-		console.log(form);
-		console.log(form.password.value);
+		loading = true;
+		
         try {
-            await pb.collection('users').authWithPassword(
-				form.email.value,
-				form.password.value
+			// Validate form data using zod schema
+			const formData = loginUserSchema.parse({
+				email: form.email.value,
+				password: form.password.value
+			});
+
+            const authData = await pb.collection('users').authWithPassword(
+				formData.email,
+				formData.password
 			);
-			console.log(pb.authStore)
+
+			if (!pb.authStore.model.verified) {
+				throw new Error('Unverified email');
+			}
+
             form.token.value = pb.authStore.token;
             form.submit();
+
+			toast.success('Successful login!');
         } catch (err) {
-            console.error(err);
+			// Check if error is a ZodError (validation error)
+			if (err instanceof z.ZodError) {
+				// Extract error messages and display toast
+				const errorMessages = err.errors.map(error => error.message).join(', ');
+				toast.error(errorMessages);
+			} else {
+				// Handle other errors (e.g., authentication errors)
+				if (err.message === 'Unverified email') {
+					toast.error('Please verify your email before logging in.');
+				} else {
+					const message = err.message ? err.message : 'An error occurred during login.';
+					toast.error(message);
+				}
+
+			}
         }
+		loading = false;
     }
+
 </script>
 
 <div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4">
@@ -82,6 +128,7 @@
 		<input name="token" type="hidden" />
 		<button
 			class="border rounded p-2 mt-10 bg-gray-800 text-white hover:bg-gray-700"
+			disabled={loading}
 		>
 			Login using Yandex
 		</button>
