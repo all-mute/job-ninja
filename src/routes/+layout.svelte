@@ -34,7 +34,7 @@
 
 <Toaster />
 <div class="min-h-full">
-	<nav class="navbar bg-base-100 border-b border-neutral max-w-7xl mx-auto">
+	<nav class="navbar bg-base-100 border-b border-neutral/10 max-w-5xl mx-auto">
 		<div class="flex-1">
 			<a href="/" class="btn btn-ghost normal-case text-xl">
 				<div>
@@ -72,7 +72,7 @@
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 					<!-- svelte-ignore a11y-label-has-associated-control -->
 					<label tabindex="0" class="btn btn-ghost btn-circle avatar">
-						<div class="w-10 rounded-full border border-neutral">
+						<div class="w-10 rounded-full border border-neutral/10">
 							<img
 								src={data.user?.avatar
 									? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)
@@ -216,7 +216,7 @@
 		</div>
 	</nav>
 	<div class="py-4">
-		<div class="mx-auto max-w-7xl">
+		<div class="mx-auto max-w-5xl">
 			{#if !isLoaded}
 				<div class="scale-150 flex justify-center items-center h-screen w-full">
 					<span class="loading loading-dots loading-lg" />

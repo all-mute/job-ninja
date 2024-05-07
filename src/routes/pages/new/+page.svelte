@@ -14,7 +14,7 @@
 			use:enhance
 		>
 			<div class="flex flex-col justify-center text-center mt-10">
-				<div class="text-center text-3xl font-bold">Запиь собеседования</div>
+				<div class="text-center text-3xl font-bold">Запись собеседования</div>
 				<div class="pt-2 text-lg">В tagline можно записать свои теги по типу React, NLP, Memes</div>
 			</div>
 
