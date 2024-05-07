@@ -333,6 +333,16 @@
     "schema": [
       {
         "system": false,
+        "id": "gcafxbyn",
+        "name": "private",
+        "type": "bool",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "system": false,
         "id": "kcum4x7w",
         "name": "name",
         "type": "text",
@@ -424,16 +434,6 @@
       },
       {
         "system": false,
-        "id": "gcafxbyn",
-        "name": "private",
-        "type": "bool",
-        "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {}
-      },
-      {
-        "system": false,
         "id": "9hy2flf1",
         "name": "content",
         "type": "text",
@@ -493,9 +493,9 @@
       }
     ],
     "indexes": [],
-    "listRule": "",
+    "listRule": "private = false || (private = true && @request.auth.id = user.id)",
     "viewRule": "",
-    "createRule": "@request.auth.id !=\"\" && @request.auth.id = @request.data.user",
+    "createRule": "@request.auth.id !=\"\" && @request.auth.id = @request.data.user && @request.auth.verified = true",
     "updateRule": "@request.auth.id = user",
     "deleteRule": "@request.auth.id = user",
     "options": {}
