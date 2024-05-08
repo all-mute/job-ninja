@@ -30,6 +30,8 @@
 
 		isLoaded = true;
 	});
+
+	import { page } from '$app/stores';
 </script>
 
 <Toaster />
@@ -43,7 +45,15 @@
 			</a>
 		</div>
 		<div class="flex-none">
-			{#if !data.user}
+			{#if $page.url.pathname === "/login"}
+				<div class="dropdown dropdown-end">
+					<a href="/register" class="btn btn-outline rounded">Регистрация</a>
+				</div>
+			{:else if $page.url.pathname === "/register"}
+				<div class="dropdown dropdown-end">
+					<a href="/login" class="btn btn-outline rounded">Логин</a>
+				</div>
+			{:else if !data.user}
 				<div class="dropdown dropdown-end">
 					<a href="/login" class="btn btn-outline rounded">Логин</a>
 					<a href="/register" class="btn btn-outline rounded">Регистрация</a>
