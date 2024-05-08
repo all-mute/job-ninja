@@ -113,20 +113,20 @@
 
 </script>
 
-<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4">
-	<div class="mt-5 text-center text-3xl font-bold tracking-tight text-base-content">
+<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4 mb-20">
+	<!-- <div class="mt-8 text-center text-3xl font-bold tracking-tight text-base-content">
 		Вход
-	</div>
+	</div> -->
 	<form
 		method="post"
 		action="?/oauth_yandex"
 		on:submit|preventDefault={(e) => login_yandex(e.currentTarget)}
 		disabled={loading}
-		class="w-full"
+		class="w-full mt-8"
 	>
 		<input name="token" type="hidden" />
 		<button
-			class="flex items-center place-content-center gap-2 w-full border rounded-full p-4 mt-10 text-lg text-black stroke-neutral/10 hover:bg-gray-100"
+			class="flex items-center place-content-center gap-2 w-full border rounded-full p-3 mt-10 text-base font-medium text-black stroke-neutral/10 hover:bg-gray-100"
 			disabled={loading}
 		>
 			<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,13 +136,13 @@
 			Войти через Яндекс
 		</button>
 	</form>
-	<div class="flex flex-col w-full mt-4 border-opacity-50 text-neutral/50">
+	<div class="flex flex-col w-full mt-2 border-opacity-50 text-neutral/50">
 		<div class="divider">или через почту</div>
 	  </div>
 	<form
 		action="?/login_pass"
 		method="POST"
-		class="flex flex-col items-center space-y-2 w-full pt-2"
+		class="flex flex-col items-center space-y-2 w-full pt-1"
 		on:submit|preventDefault={(e) => login_email_pass(e.currentTarget)}
 	>
 		<input name="token" type="hidden" />
@@ -160,6 +160,7 @@
 			label="Пароль"
 			errors={form?.errors?.password}
 			disabled={loading}
+			context="login"
 		/>
 
 
