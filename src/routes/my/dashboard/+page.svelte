@@ -92,7 +92,7 @@
 	<DashboardHeader
 		name={data.user.name}
 		userId={data.user.id}
-		title={data.user.job_title}
+		title={data.user.description}
 		
 		avatar={data.user?.avatar
 			? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)

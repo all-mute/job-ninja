@@ -5,6 +5,10 @@
 	import toast from 'svelte-french-toast';
 	import { registerUserSchema } from '$lib/schemas';
 	import { z } from 'zod';
+	import { getRandomImageFromArray } from '$lib/avatars';
+	import zoomer from '$lib/assets/avatars/zoomer.png';
+
+	const imageUrl = getRandomImageFromArray();
 
 	export let form;
 
@@ -18,12 +22,16 @@
 			// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
 			let w = window.open()
 
+			const file = await fetch('static/zoomer.png').then(r => r.blob());
+			console.log('avatar uploaded');
+
 			await pb
 				.collection("users")
 				.authWithOAuth2({
 				provider: 'yandex',
 				createData: {
                     name: 'anonymous-' + Math.random().toString(36).substring(7),
+					avatar: file,
                 },
 				urlCallback: (url) => {
 					w.location.href = url
@@ -43,6 +51,10 @@
 		loading = true;
 		
         try {
+			const file = await fetch(`/images`).then(r => r.blob());
+			console.log('avatar uploaded');
+			console.log(file);
+
 			// Validate form data using zod schema
 			const formData = registerUserSchema.parse({
 				email: form.email.value,
@@ -55,14 +67,31 @@
 				password: formData.password,
 				passwordConfirm: formData.passwordConfirm,
 				name: 'newname-' + Math.random().toString(36).substring(7),
+				//avatar: file.,
+				description: 'peter griffin',
+				//avatar: formData.file
 			}
 
             const authData = await pb.collection('users').create(regData);
 			await pb.collection('users').requestVerification(formData.email);
 
+			console.log('authData: ', authData);
+			console.log('authData: ', authData.id);
+
+			await new Promise(resolve => setTimeout(resolve, 1000));
+			
+			const formData2 = new FormData();
+
+			formData2.append('avatar', file);
+
+			const authData2 = await pb.collection('users').authWithPassword(formData.email, formData.password);
+
+			await pb.collection('users').update(pb.authStore.model.id, formData2);
+			console.log('avatar uploaded');
+
 			toast.success('Now check your email to verify your account.');
 
-			await new Promise(resolve => setTimeout(resolve, 5000));
+			await new Promise(resolve => setTimeout(resolve, 55000));
 
             form.token.value = pb.authStore.token;
             form.submit();

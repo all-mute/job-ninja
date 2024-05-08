@@ -35,7 +35,7 @@
 				/>
 				<div class="flex flex-col">
 					<div class="text-sm font-medium primary-content">{user.name}</div>
-					<div class="text-xs font-thin secondary-content">{user.job_title}</div>
+					<div class="text-xs font-thin secondary-content">{user.description}</div>
 				</div>
 			</div>
 		{/if}

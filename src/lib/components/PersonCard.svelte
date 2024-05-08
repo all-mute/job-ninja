@@ -24,7 +24,7 @@
 				<div class="text-lg font-semibold capitalize">
 					{user.name}
 				</div>
-				<div class="text-sm font-thin capitalize">{user.job_title}</div>
+				<div class="text-sm font-thin capitalize">{user.description}</div>
 				
 			</div>
 		</div>

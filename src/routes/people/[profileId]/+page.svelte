@@ -67,7 +67,7 @@
 				<div class="text-2xl md:text-3xl font-semibold capitalize">
 					{data.pageUser.name}
 				</div>
-				<div class="text-lg md:text-xl font-thin capitalize">{data.pageUser.job_title}</div>
+				<div class="text-lg md:text-xl font-thin capitalize">{data.pageUser.description}</div>
 				
 
 				{#if data.user.id != data.pageUser.id}

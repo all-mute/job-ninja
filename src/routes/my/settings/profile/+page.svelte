@@ -99,9 +99,9 @@
 		<Input
 			id="description"
 			label="Description"
-			value={form?.data?.job_title ?? data?.user?.job_title}
+			value={form?.data?.description ?? data?.user?.description}
 			disabled={loading}
-			errors={form?.errors?.job_title}
+			errors={form?.errors?.description}
 		/>
 
 		<div class="w-full max-w-lg pt-3">
