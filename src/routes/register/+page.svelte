@@ -5,10 +5,6 @@
 	import toast from 'svelte-french-toast';
 	import { registerUserSchema } from '$lib/schemas';
 	import { z } from 'zod';
-	import { getRandomImageFromArray } from '$lib/avatars';
-	import zoomer from '$lib/assets/avatars/zoomer.png';
-
-	const imageUrl = getRandomImageFromArray();
 
 	export let form;
 
@@ -22,16 +18,12 @@
 			// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
 			let w = window.open()
 
-			const file = await fetch('static/zoomer.png').then(r => r.blob());
-			console.log('avatar uploaded');
-
 			await pb
 				.collection("users")
 				.authWithOAuth2({
 				provider: 'yandex',
 				createData: {
                     name: 'anonymous-' + Math.random().toString(36).substring(7),
-					avatar: file,
                 },
 				urlCallback: (url) => {
 					w.location.href = url
