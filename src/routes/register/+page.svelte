@@ -51,10 +51,6 @@
 		loading = true;
 		
         try {
-			const file = await fetch(`/images`).then(r => r.blob());
-			console.log('avatar uploaded');
-			console.log(file);
-
 			// Validate form data using zod schema
 			const formData = registerUserSchema.parse({
 				email: form.email.value,
@@ -66,32 +62,26 @@
 				email: formData.email,
 				password: formData.password,
 				passwordConfirm: formData.passwordConfirm,
-				name: 'newname-' + Math.random().toString(36).substring(7),
-				//avatar: file.,
-				description: 'peter griffin',
-				//avatar: formData.file
+				name: 'noname-' + Math.random().toString(36).substring(7),
 			}
 
-            const authData = await pb.collection('users').create(regData);
-			await pb.collection('users').requestVerification(formData.email);
-
-			console.log('authData: ', authData);
-			console.log('authData: ', authData.id);
-
-			await new Promise(resolve => setTimeout(resolve, 1000));
 			
-			const formData2 = new FormData();
+			const formDataNew = new FormData();
+			formDataNew.append('email', regData.email);
+			formDataNew.append('password', regData.password);
+			formDataNew.append('passwordConfirm', regData.passwordConfirm);
+			formDataNew.append('name', regData.name);
 
-			formData2.append('avatar', file);
+			// Set avatar
+			const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
+			formDataNew.append('avatar', avatarFile);
 
-			const authData2 = await pb.collection('users').authWithPassword(formData.email, formData.password);
-
-			await pb.collection('users').update(pb.authStore.model.id, formData2);
-			console.log('avatar uploaded');
+			const authData = await pb.collection('users').create(formDataNew);
+			await pb.collection('users').requestVerification(formData.email);
 
 			toast.success('Now check your email to verify your account.');
 
-			await new Promise(resolve => setTimeout(resolve, 55000));
+			await new Promise(resolve => setTimeout(resolve, 5000));
 
             form.token.value = pb.authStore.token;
             form.submit();
