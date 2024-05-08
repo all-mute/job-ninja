@@ -9,7 +9,7 @@
 		<div class="grid grid-cols-1 gap-2">
 			<a href="https://t.me/nonGilgamesh" class="link link-hover">Контакты</a>
 			<a href="#" class="link link-hover">Сообщество</a>
-			<a href="https://github.com/engageintellect" class="link link-hover">Автор шаблона</a>
+			<a href="https://github.com/engageintellect" class="link link-hover">Большое спасибо</a>
 		</div>
 	</div>
 	<div>
