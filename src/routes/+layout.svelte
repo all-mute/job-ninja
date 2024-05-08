@@ -47,7 +47,7 @@
 		<div class="flex-none">
 			{#if $page.url.pathname === "/login"}
 				<div class="dropdown dropdown-end">
-					<a href="/register" class="btn btn-outline rounded">Регистрация</a>
+					<a href="/register" class="rounded-full btn bg-white text-black/90">Регистрация</a>
 				</div>
 			{:else if $page.url.pathname === "/register"}
 				<div class="dropdown dropdown-end">

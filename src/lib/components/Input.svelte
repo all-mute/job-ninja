@@ -7,17 +7,33 @@
 	export let disabled = false;
 	export let required = false;
 
+	import { page } from '$app/stores';
+
 	export let errors;
 </script>
 
 <div class="form-control w-full mb-2">
-	<label for={id} class="label font-medium pb-1">
-		<span class="label-text">{label}</span>
-	</label>
+	<div class="flex w-full justify-between place-items-end">
+		<label for={id} class="label font-medium pb-1">
+			<span class="label-text">{label}</span>
+		</label>
+
+		{#if id === "password"}
+			<div class="pb-1 text-sm">
+				<a
+					href="/reset-password"
+					class="text-primary underline hover:cursor-pointer"
+				>
+					Забыли пароль?</a
+				>
+			</div>
+		{/if}
+	</div>
+
 	<input
 		class={type === 'file'
-			? 'file-input file-input-bordered w-full'
-			: 'input input-bordered w-full'}
+			? 'file-input file-input-bordered w-full rounded'
+			: 'input input-bordered w-full rounded'}
 		{type}
 		{placeholder}
 		{required}

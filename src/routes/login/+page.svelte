@@ -110,7 +110,7 @@
 </script>
 
 <div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4">
-	<div class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
+	<div class="mt-5 text-center text-3xl font-bold tracking-tight text-base-content">
 		Вход
 	</div>
 	<form
@@ -138,14 +138,14 @@
 	<form
 		action="?/login_pass"
 		method="POST"
-		class="flex flex-col items-center space-y-2 w-full pt-4"
+		class="flex flex-col items-center space-y-2 w-full pt-2"
 		on:submit|preventDefault={(e) => login_email_pass(e.currentTarget)}
 	>
 		<input name="token" type="hidden" />
 		<Input
 			type="email"
 			id="email"
-			label="Email"
+			label="Почта"
 			value={form?.data?.email ?? ''}
 			errors={form?.errors?.email}
 			disabled={loading}
@@ -153,21 +153,17 @@
 		<Input
 			type="password"
 			id="password"
-			label="Password"
+			label="Пароль"
 			errors={form?.errors?.password}
 			disabled={loading}
 		/>
-		<div class="w-full max-w-lg">
-			<a
-				href="/reset-password"
-				class="font-medium text-primary hover:cursor-pointer hover:underline"
-			>
-				Забыли пароль?</a
-			>
-		</div>
 
-		<div class="w-full max-w-lg pt-2">
-			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>Войти</button>
+
+
+		<div class="w-full max-w-lg pt-7">
+			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>
+				Войти
+			</button>
 			<div class="text-center mt-6 text-gray-700">
 				Нет аккаунта? <a
 					href="/register"
