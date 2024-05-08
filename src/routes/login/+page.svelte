@@ -42,12 +42,16 @@
 			// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
 			let w = window.open()
 
+			// Set avatar
+			const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
+
 			await pb
 				.collection("users")
 				.authWithOAuth2({
 				provider: 'yandex',
 				createData: {
                     name: 'anonymous-' + Math.random().toString(36).substring(7),
+					avatar: avatarFile,
                 },
 				urlCallback: (url) => {
 					w.location.href = url

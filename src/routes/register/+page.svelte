@@ -18,12 +18,16 @@
 			// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
 			let w = window.open()
 
+			// Set avatar
+			const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
+
 			await pb
 				.collection("users")
 				.authWithOAuth2({
 				provider: 'yandex',
 				createData: {
                     name: 'anonymous-' + Math.random().toString(36).substring(7),
+					avatar: avatarFile
                 },
 				urlCallback: (url) => {
 					w.location.href = url
@@ -54,10 +58,21 @@
 				email: formData.email,
 				password: formData.password,
 				passwordConfirm: formData.passwordConfirm,
-				name: 'newname-' + Math.random().toString(36).substring(7),
+				name: 'noname-' + Math.random().toString(36).substring(7),
 			}
 
-            const authData = await pb.collection('users').create(regData);
+			
+			const formDataNew = new FormData();
+			formDataNew.append('email', regData.email);
+			formDataNew.append('password', regData.password);
+			formDataNew.append('passwordConfirm', regData.passwordConfirm);
+			formDataNew.append('name', regData.name);
+
+			// Set avatar
+			const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
+			formDataNew.append('avatar', avatarFile);
+
+			const authData = await pb.collection('users').create(formDataNew);
 			await pb.collection('users').requestVerification(formData.email);
 
 			toast.success('Now check your email to verify your account.');

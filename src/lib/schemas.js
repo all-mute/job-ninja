@@ -6,7 +6,7 @@ export const loginUserSchema = z.object({
     .email({ message: 'Email must be a valid email.' }),
   password: z
     .string({ required_error: 'Password is required', message: 'Please enter a password.' })
-    .regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, {
+    .regex(/.{8,}$/, {
       message: 'Password is required & must be a minimum of 8 characters & contain at least one letter and one number.'
     }),
 });
@@ -18,13 +18,13 @@ export const registerUserSchema = z
       .email({ message: 'Email must be a valid email' }),
     password: z
       .string({ required_error: 'Password is required' })
-      .regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, {
-        message: 'Password must be a minimum of 8 characters & contain at least one letter and one number.'
+      .regex(/.{8,}$/, {
+        message: 'Password must be a minimum of 8 characters.'
       }),
     passwordConfirm: z
       .string({ required_error: 'Confirm Password is required' })
-      .regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, {
-        message: 'Password must be a minimum of 8 characters & contain at least one letter and one number.'
+      .regex(/.{8,}$/, {
+        message: 'Password must be a minimum of 8 characters.'
       })
   })
   .superRefine(({ passwordConfirm, password }, ctx) => {
@@ -120,14 +120,14 @@ export const updatePasswordSchema = z
 	.object({
 		oldPassword: z.string({ required_error: 'Old password is required' }),
 		password: z
-			.string({ required_error: 'Password is required' })
-			.regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, {
-				message: 'Password must be a minimum of 8 characters & contain at least one letter and one number.'
+		.string({ required_error: 'Password is required' })
+			.regex(/.{8,}$/, {
+				message: 'Password must be a minimum of 8 characters.'
 		}),
 		passwordConfirm: z
 			.string({ required_error: 'Confirm Password is required' })
-			.regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, {
-				message: 'Password must be a minimum of 8 characters & contain at least one letter and one number.'
+			.regex(/.{8,}$/, {
+			message: 'Password must be a minimum of 8 characters.'
 		})
 	})
 	.superRefine(({ passwordConfirm, password }, ctx) => {
@@ -154,8 +154,6 @@ export const updateProfileSchema = z.object({
 
 	description: z
 		.string()
-		.regex(/^[a-zA-Z0-9 ,.'-]*$/, { message: 'Description can only contain letters, numbers, spaces, and normal symbols like commas, periods, dashes, and apostrophes.' })
-		.min(2, { message: 'Description must be at least 2 characters' })
 		.max(128, { message: 'Description must be less than 128 characters' })
 		.trim().optional(),
 
