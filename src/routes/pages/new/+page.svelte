@@ -14,7 +14,7 @@
 			use:enhance
 		>
 			<div class="flex flex-col justify-center text-center mt-10">
-				<div class="text-center text-3xl font-bold">Запиь собеседования</div>
+				<div class="text-center text-3xl font-bold">Запись собеседования</div>
 				<div class="pt-2 text-lg">В tagline можно записать свои теги по типу React, NLP, Memes</div>
 			</div>
 
@@ -91,6 +91,19 @@
 				</div>
 
 				
+			</div>
+
+			<div class="flex items-center">
+				<label for="private" class="flex items-center mr-2">
+					<input
+						type="checkbox"
+						id="private"
+						name="private"
+						class="form-checkbox"
+						checked={form?.data?.private}
+					/>
+					<span class="ml-2 text-sm">Private</span>
+				</label>
 			</div>
 
 			<div class="w-full">
