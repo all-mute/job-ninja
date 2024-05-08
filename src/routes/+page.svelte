@@ -114,7 +114,7 @@
 			<span class="text-orange-500">Job</span> Ninja
 		</div> -->
 	</div>
-	<div class="text-center my-10 text-xl">
+	<div class="text-center my-10 text-xl mx-[80px]">
 		{#if $feedSelect}
 			<div class="flex justify-center items-center gap-2">
 				<div class="">
@@ -123,8 +123,8 @@
 				<div><Icon src={UserGroup} class="w-7 h-7 text-orange-500" solid /></div>
 			</div>
 		{:else}
-			<div class="flex justify-center items-center gap-2">
-				<div class="">Лента <strong>последних</strong> собеседований в it компании</div>
+			<div class="flex justify-center items-center gap-2 text-pretty">
+				<div class="">Лента <strong>последних</strong> собеседований</div>
 				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-orange-500" solid /></div>
 			</div>
 		{/if}
