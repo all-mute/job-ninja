@@ -93,6 +93,19 @@
 				
 			</div>
 
+			<div class="flex items-center">
+				<label for="private" class="flex items-center mr-2">
+					<input
+						type="checkbox"
+						id="private"
+						name="private"
+						class="form-checkbox"
+						checked={form?.data?.private}
+					/>
+					<span class="ml-2 text-sm">Private</span>
+				</label>
+			</div>
+
 			<div class="w-full">
 				<WYSIWYG
 					type="hidden"

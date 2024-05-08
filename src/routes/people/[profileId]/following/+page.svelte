@@ -48,7 +48,7 @@
 	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:my-10">
 		{#each data.users as user}
 			{#if data.user.following.includes(user.id)}
-				{#if !filter || user.name.toLowerCase().includes(filter.toLowerCase()) || user.job_title
+				{#if !filter || user.name.toLowerCase().includes(filter.toLowerCase()) || user.description
 						.toLowerCase()
 						.includes(filter.toLowerCase()) || user.description
 						.toLowerCase()

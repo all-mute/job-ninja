@@ -45,3 +45,4 @@ export function getFormattedDateTime(dateTimeString) {
 
 	return dateTime.toLocaleString('en-US', options);
 }
+

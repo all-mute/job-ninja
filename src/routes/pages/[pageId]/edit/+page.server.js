@@ -28,8 +28,18 @@ export const load = async ({ locals, params }) => {
 export const actions = {
 	updatePage: async ({ request, locals, params }) => {
 		const body = await request.formData();
+		
+		// TODO fix this shit
+		const privateValue = body.get('private');
 
 		const { formData, errors } = await validateData(body, updatePageSchema);
+
+		if (privateValue === 'on') {
+			formData.private = true;
+		} else {
+			formData.private = false;
+		}
+
 		const { ...rest } = formData;
 
 		if (errors) {
