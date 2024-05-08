@@ -122,7 +122,7 @@
 	>
 		<input name="token" type="hidden" />
 		<button
-			class="flex items-center place-content-center gap-2 w-full border rounded-full p-4 mt-10 text-black stroke-neutral/10 hover:bg-gray-100"
+			class="flex items-center place-content-center gap-2 w-full border rounded-full p-4 mt-10 text-lg text-black stroke-neutral/10 hover:bg-gray-100"
 			disabled={loading}
 		>
 			<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -132,6 +132,9 @@
 			Войти через Яндекс
 		</button>
 	</form>
+	<div class="flex flex-col w-full mt-4 border-opacity-50 text-neutral/50">
+		<div class="divider">или через почту</div>
+	  </div>
 	<form
 		action="?/login_pass"
 		method="POST"
