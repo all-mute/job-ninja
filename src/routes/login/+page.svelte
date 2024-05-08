@@ -111,26 +111,25 @@
 
 <div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4">
 	<div class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
-		Войти в аккаунт
-	</div>
-	<div class="text-center mt-1">
-		Или <a
-			href="/register"
-			class="underline text-primary font-medium hover:cursor-pointer hover:underline">зарегистрироваться,</a
-		> если вы ещё не зарегистрировались.
+		Вход
 	</div>
 	<form
 		method="post"
 		action="?/oauth_yandex"
 		on:submit|preventDefault={(e) => login_yandex(e.currentTarget)}
 		disabled={loading}
+		class="w-full"
 	>
 		<input name="token" type="hidden" />
 		<button
-			class="border rounded p-2 mt-10 bg-gray-800 text-white hover:bg-gray-700"
+			class="flex items-center place-content-center gap-2 w-full border rounded-full p-4 mt-10 text-black stroke-neutral/10 hover:bg-gray-100"
 			disabled={loading}
 		>
-			Login using Yandex
+			<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M2.04 12c0-5.523 4.476-10 10-10 5.522 0 10 4.477 10 10s-4.478 10-10 10c-5.524 0-10-4.477-10-10z" fill="#FC3F1D"/>
+				<path d="M13.32 7.666h-.924c-1.694 0-2.585.858-2.585 2.123 0 1.43.616 2.1 1.881 2.959l1.045.704-3.003 4.487H7.49l2.695-4.014c-1.55-1.111-2.42-2.19-2.42-4.015 0-2.288 1.595-3.85 4.62-3.85h3.003v11.868H13.32V7.666z" fill="#fff"/>
+			</svg>
+			Войти через Яндекс
 		</button>
 	</form>
 	<form
@@ -166,6 +165,11 @@
 
 		<div class="w-full max-w-lg pt-2">
 			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>Войти</button>
+			<div class="text-center mt-6 text-gray-700">
+				Нет аккаунта? <a
+					href="/register"
+					class="underline text-primary font-medium hover:cursor-pointer hover:underline">Зарегистрируйте</a>
+			</div>
 		</div>
 		<!-- {#if form?.notVerified}
 			<div class="alert alert-error shadow-lg w-full max-w-lg">
