@@ -160,7 +160,7 @@
 			<div class="">
 				<label class="group cursor-pointer">
 					<div
-						class=" flex items-center gap-2 border border-neutral group-hover:border-neutral/50 py-2.5 px-4 rounded group-hover:shadow-md transition-all duration-200"
+						class=" flex items-center gap-2 border border-neutral/10 group-hover:border-neutral/50 py-2.5 px-4 rounded group-hover:shadow-md transition-all duration-200"
 					>
 						<label class="swap swap-rotate">
 							<input

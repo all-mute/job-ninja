@@ -42,7 +42,7 @@
 
 <div
 	in:fade
-	class="flex w-full rounded border border-neutral/10 transition-all duration-100 hover:shadow-lg group"
+	class="flex w-full rounded border border-neutral/10 transition-all duration-100 hover:border-neutral/50 hover:shadow-lg group"
 >
 	<div class="w-full flex gap-0 items-center rounded">
 		<div class="w-full h-full p-2">
