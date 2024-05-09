@@ -22,18 +22,6 @@
 		$feedSelect = !$feedSelect;
 	};
 
-	const isPrivate = page.private;
-
-	const isNew = (date) => {
-		const currentDate = new Date(); // Current date
-		const createDate = new Date(date); // Replace with page.updated value
-		const differenceInMilliseconds = currentDate - createDate;
-		const daysDifference = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
-		if (daysDifference < 1) {
-			return true;
-		}
-	};
-
 	const handleFilter = (value) => {
 		if (value == '') {
 			filter = ''; // Очищаем фильтр, если новое значение пустое
