@@ -66,7 +66,7 @@
 			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
 				<div class="w-full">
 					<label for="grade" class="label font-medium pb-1">
-						<span class="label-text">Grade*</span>
+						<span class="label-text">Grade</span>
 					</label>
 					<select
 						id="grade"
