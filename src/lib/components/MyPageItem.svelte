@@ -90,31 +90,39 @@
 						{/if}
 
 						<div class="font-bold text-xs">
-							<div class="z-20">
-								<div
-								class=" md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
-							>
-								{#if page.user === localUser.id}
-									<div class="h-full">
-										<div
-											class="gap-2 flex justify-end "
-										>
-											<a href="/pages/{page.id}/edit" class="">
-												<Icon
-													src={PencilSquare}
-													class="w-4 h-4 md:w-5 md:h-5 text-black-100 hover:text-warning"
-												/>
-											</a>
-		
-										</div>
+							<div class="grid place-items-end">
+								<div class="col-start-1 row-start-1 group-hover:invisible">
+									<div class="flex gap-1">
+										<Icon src={ArrowPathRoundedSquare} class="w-4 h-4" />
+										<div class="font-medium text-base-content/75">{formattedDateTime}</div>
 									</div>
-								{/if}
 								</div>
-							</div>
-							<div class="z-10 flex gap-1">
-								<Icon src={ArrowPathRoundedSquare} class="w-4 h-4" />
-								<div class="font-medium text-base-content/75">{formattedDateTime}</div>
-							
+
+								<div class="col-start-1 row-start-1">
+									<div
+									class="md:opacity-0 md:group-hover:opacity-100 p-1"
+								>
+									{#if page.user === localUser.id}
+										<div class="h-full">
+											<div
+												class="gap-2 flex justify-end"
+											>
+												<a href="/pages/{page.id}/edit" class="">
+													<Icon
+														src={PencilSquare}
+														class="w-4 h-4 md:w-5 md:h-5 text-black-100 hover:text-warning"
+													/>
+												</a>
+			
+											</div>
+										</div>
+									{/if}
+									</div>
+									
+								</div>
+							  </div>
+							  
+							<div class="">
 							</div>
 						</div>
 					</div>
