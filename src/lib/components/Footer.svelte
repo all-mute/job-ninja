@@ -1,4 +1,4 @@
-<footer class="footer footer-center p-10 bg-base-200 text-base-content rounded mt-10">
+<footer class="footer footer-center mx-auto bg-base-200 p-10 text-base-content rounded mt-10">
 	<div class="grid grid-cols-2 items-start lg:gap-40 md:gap-40 sm:gap-20 text-left lg:text-base  sm:text-lg">
 		<div class="grid grid-cols-1 gap-2">
 			<a href="/" class="link link-hover">Главная</a>

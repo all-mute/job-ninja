@@ -113,16 +113,16 @@
 
 </script>
 
-<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4 mb-20">
-	<!-- <div class="mt-8 text-center text-3xl font-bold tracking-tight text-base-content">
+<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4 mb-20 mt-3">
+	<div class="mt-8 text-center text-3xl font-bold tracking-tight text-base-content">
 		Вход
-	</div> -->
+	</div>
 	<form
 		method="post"
 		action="?/oauth_yandex"
 		on:submit|preventDefault={(e) => login_yandex(e.currentTarget)}
 		disabled={loading}
-		class="w-full mt-8"
+		class="w-full"
 	>
 		<input name="token" type="hidden" />
 		<button
@@ -133,12 +133,12 @@
 				<path d="M2.04 12c0-5.523 4.476-10 10-10 5.522 0 10 4.477 10 10s-4.478 10-10 10c-5.524 0-10-4.477-10-10z" fill="#FC3F1D"/>
 				<path d="M13.32 7.666h-.924c-1.694 0-2.585.858-2.585 2.123 0 1.43.616 2.1 1.881 2.959l1.045.704-3.003 4.487H7.49l2.695-4.014c-1.55-1.111-2.42-2.19-2.42-4.015 0-2.288 1.595-3.85 4.62-3.85h3.003v11.868H13.32V7.666z" fill="#fff"/>
 			</svg>
-			Войти через Яндекс
+			через Яндекс
 		</button>
 	</form>
 	<div class="flex flex-col w-full mt-2 border-opacity-50 text-neutral/50">
 		<div class="divider">или через почту</div>
-	  </div>
+	</div>
 	<form
 		action="?/login_pass"
 		method="POST"
@@ -169,11 +169,6 @@
 			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>
 				Войти
 			</button>
-			<div class="text-center mt-6 text-gray-700">
-				Нет аккаунта? <a
-					href="/register"
-					class="underline text-primary font-medium hover:cursor-pointer hover:underline">Зарегистрируйте</a>
-			</div>
 		</div>
 		<!-- {#if form?.notVerified}
 			<div class="alert alert-error shadow-lg w-full max-w-lg">
@@ -195,4 +190,9 @@
 			</div>
 		{/if} -->
 	</form>
+	<div class="text-center mt-6 text-gray-700">
+		Нет аккаунта? <a
+			href="/register"
+			class="underline text-primary font-medium hover:cursor-pointer hover:underline">Зарегистрируйте</a>
+	</div>
 </div>
