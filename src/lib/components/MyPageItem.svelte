@@ -91,6 +91,7 @@
 
 						<div class="font-bold text-xs">
 							<div class="grid place-items-end">
+							{#if page.user === localUser.id}
 								<div class="col-start-1 row-start-1 group-hover:invisible">
 									<div class="flex gap-1">
 										<Icon src={ArrowPathRoundedSquare} class="w-4 h-4" />
@@ -102,7 +103,6 @@
 									<div
 									class="opacity-0 group-hover:opacity-100 p-1"
 								>
-									{#if page.user === localUser.id}
 										<div class="h-full">
 											<div
 												class="gap-2 flex justify-end"
@@ -116,12 +116,17 @@
 			
 											</div>
 										</div>
-									{/if}
 									</div>
 									
 								</div>
-							  </div>
-							  
+							{:else}
+								<div class="col-start-1 row-start-1">
+									<div class="flex gap-1">
+										<Icon src={ArrowPathRoundedSquare} class="w-4 h-4" />
+										<div class="font-medium text-base-content/75">{formattedDateTime}</div>
+									</div>
+								</div>
+							{/if}
 							<div class="">
 							</div>
 						</div>
