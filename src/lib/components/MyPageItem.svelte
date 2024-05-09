@@ -100,7 +100,7 @@
 
 								<div class="col-start-1 row-start-1">
 									<div
-									class="md:opacity-0 md:group-hover:opacity-100 p-1"
+									class="opacity-0 group-hover:opacity-100 p-1"
 								>
 									{#if page.user === localUser.id}
 										<div class="h-full">

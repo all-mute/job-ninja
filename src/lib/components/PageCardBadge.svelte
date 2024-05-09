@@ -9,7 +9,7 @@
 
 {#if isPrivate}
 	<div class="z-40">
-		<div class="badge border-white justify-end pr-[3px] pt-1">
+		<div class="badge border-opacity-0 justify-end pr-[3px] pt-1">
 			<Icon src={EyeSlash} class="w-7 h-7 text-gray-500"/>
 		</div>
 	</div>
