@@ -14,7 +14,7 @@
 	let conf = {
 		skin: 'borderless',
 		content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-		min_height: 720,
+		min_height: 400,
 		selector: 'textarea',
 		placeholder: `Add your page's content here. Click save when finished.`,
 		toolbar_mode: 'sliding',

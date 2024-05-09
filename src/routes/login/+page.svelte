@@ -113,8 +113,8 @@
 
 </script>
 
-<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4">
-	<div class="mt-5 text-center text-3xl font-bold tracking-tight text-base-content">
+<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4 mb-20 mt-3">
+	<div class="mt-3 text-center text-3xl font-bold tracking-tight text-base-content">
 		Вход
 	</div>
 	<form
@@ -126,23 +126,23 @@
 	>
 		<input name="token" type="hidden" />
 		<button
-			class="flex items-center place-content-center gap-2 w-full border rounded-full p-4 mt-10 text-lg text-black stroke-neutral/10 hover:bg-gray-100"
+			class="flex items-center place-content-center gap-2 w-full border rounded-full p-3 mt-10 text-base font-medium text-black stroke-neutral/10 hover:bg-gray-100"
 			disabled={loading}
 		>
 			<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M2.04 12c0-5.523 4.476-10 10-10 5.522 0 10 4.477 10 10s-4.478 10-10 10c-5.524 0-10-4.477-10-10z" fill="#FC3F1D"/>
 				<path d="M13.32 7.666h-.924c-1.694 0-2.585.858-2.585 2.123 0 1.43.616 2.1 1.881 2.959l1.045.704-3.003 4.487H7.49l2.695-4.014c-1.55-1.111-2.42-2.19-2.42-4.015 0-2.288 1.595-3.85 4.62-3.85h3.003v11.868H13.32V7.666z" fill="#fff"/>
 			</svg>
-			Войти через Яндекс
+			через Яндекс
 		</button>
 	</form>
-	<div class="flex flex-col w-full mt-4 border-opacity-50 text-neutral/50">
+	<div class="flex flex-col w-full mt-2 border-opacity-50 text-neutral/50">
 		<div class="divider">или через почту</div>
-	  </div>
+	</div>
 	<form
 		action="?/login_pass"
 		method="POST"
-		class="flex flex-col items-center space-y-2 w-full pt-2"
+		class="flex flex-col items-center space-y-2 w-full pt-1"
 		on:submit|preventDefault={(e) => login_email_pass(e.currentTarget)}
 	>
 		<input name="token" type="hidden" />
@@ -160,6 +160,7 @@
 			label="Пароль"
 			errors={form?.errors?.password}
 			disabled={loading}
+			context="login"
 		/>
 
 
@@ -168,11 +169,6 @@
 			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>
 				Войти
 			</button>
-			<div class="text-center mt-6 text-gray-700">
-				Нет аккаунта? <a
-					href="/register"
-					class="underline text-primary font-medium hover:cursor-pointer hover:underline">Зарегистрируйте</a>
-			</div>
 		</div>
 		<!-- {#if form?.notVerified}
 			<div class="alert alert-error shadow-lg w-full max-w-lg">
@@ -194,4 +190,9 @@
 			</div>
 		{/if} -->
 	</form>
+	<div class="text-center mt-6 text-gray-700">
+		Нет аккаунта? <a
+			href="/register"
+			class="underline text-primary font-medium hover:cursor-pointer hover:underline">Зарегистрируйте</a>
+	</div>
 </div>

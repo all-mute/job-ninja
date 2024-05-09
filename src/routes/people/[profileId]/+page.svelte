@@ -34,10 +34,6 @@
 
 	const dateDiffInDays = (date1, date2) => Math.floor((date1 - date2) / MS_PER_DAY);
 
-	const isOld = (date) => dateDiffInDays(new Date(), new Date(date)) > 30;
-
-	const isNew = (date) => dateDiffInDays(new Date(), new Date(date)) < 1;
-
 	const pageBelongsToUser = (page) => page.user === data.pageUser.id;
 
 	// Set the value of userPageCount in your component
@@ -153,8 +149,6 @@
 								{page}
 								user={data.pageUser}
 								localUser={data.user}
-								isNew={isNew(page.created)}
-								isOld={isOld(page.updated)}
 							/>
 						{/if}
 					{/if}

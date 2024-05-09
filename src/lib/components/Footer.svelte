@@ -1,15 +1,14 @@
-<footer class="footer footer-center p-10 bg-base-200 text-base-content rounded mt-10">
+<footer class="footer footer-center mx-auto bg-base-200 p-10 text-base-content rounded mt-10">
 	<div class="grid grid-cols-2 items-start lg:gap-40 md:gap-40 sm:gap-20 text-left lg:text-base  sm:text-lg">
 		<div class="grid grid-cols-1 gap-2">
-			<a href="/" class="link link-hover">Главная</a>
 			<a href="/about" class="link link-hover">О сервисе</a>
 			<a href="/legal" class="link link-hover">Соглашение</a>
-			<a href="/people" class="link link-hover">Пользователи</a>
+			<a href="https://t.me/nonGilgamesh" class="link link-hover">Написать нам</a>
 		</div>
 		<div class="grid grid-cols-1 gap-2">
-			<a href="https://t.me/nonGilgamesh" class="link link-hover">Контакты</a>
-			<a href="#" class="link link-hover">Сообщество</a>
-			<a href="https://github.com/engageintellect" class="link link-hover">Большое спасибо</a>
+			<a href="#" class="link link-hover">Сообщество в телеграмме</a>
+			<a href="https://t.me/w0ltage" class="link link-hover hover:font-medium hover:bg-gradient-to-r from-red-700 via-orange-600 to-yellow-500 inline-block hover:text-transparent bg-clip-text">Дизайн делал w0ltage</a>
+			<a href="https://github.com/engageintellect" class="link link-hover">Автор шаблона</a>
 		</div>
 	</div>
 	<div>

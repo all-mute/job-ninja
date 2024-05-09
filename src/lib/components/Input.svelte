@@ -3,6 +3,7 @@
 	export let placeholder = '';
 	export let id;
 	export let label;
+	export let context;
 	export let type = 'text';
 	export let disabled = false;
 	export let required = false;
@@ -18,13 +19,13 @@
 			<span class="label-text">{label}</span>
 		</label>
 
-		{#if id === "password"}
+		{#if context === "login"}
 			<div class="pb-1 text-sm">
 				<a
 					href="/reset-password"
 					class="text-primary underline hover:cursor-pointer"
 				>
-					Забыли пароль?</a
+					Забыли?</a
 				>
 			</div>
 		{/if}

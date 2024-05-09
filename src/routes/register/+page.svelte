@@ -98,46 +98,47 @@
     }
 </script>
 
-<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4">
-	<div class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
-		Зарегистрироваться
+<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4 mb-20 mt-3">
+	<div class="mt-3 text-center text-3xl font-bold tracking-tight text-base-content">
+		Регистрация
 	</div>
-	<div class="text-center mt-1">
-		Или <a
-			href="/login"
-			class="underline text-primary font-medium hover:cursor-pointer hover:underline">войти в аккаунт</a
-		> если вы уже зарегистрировались.
-	</div>
-	<form method="post" action="?/oauth_yandex" on:submit|preventDefault={(e) => login_yandex(e.currentTarget)}>
+	<form method="post" action="?/oauth_yandex" on:submit|preventDefault={(e) => login_yandex(e.currentTarget)} class="w-full">
 		<input name="token" type="hidden" />
 		<button
-			class="border rounded p-2 mt-10 bg-gray-800 text-white hover:bg-gray-700"
+			class="flex items-center place-content-center gap-2 w-full border rounded-full p-3 mt-10 text-base font-medium text-black stroke-neutral/10 hover:bg-gray-100"
 			disabled={loading}
 		>
-			Login using Yandex
+			<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M2.04 12c0-5.523 4.476-10 10-10 5.522 0 10 4.477 10 10s-4.478 10-10 10c-5.524 0-10-4.477-10-10z" fill="#FC3F1D"/>
+				<path d="M13.32 7.666h-.924c-1.694 0-2.585.858-2.585 2.123 0 1.43.616 2.1 1.881 2.959l1.045.704-3.003 4.487H7.49l2.695-4.014c-1.55-1.111-2.42-2.19-2.42-4.015 0-2.288 1.595-3.85 4.62-3.85h3.003v11.868H13.32V7.666z" fill="#fff"/>
+			</svg>
+			через Яндекс
 		</button>
 	</form>
+	<div class="flex flex-col w-full mt-2 border-opacity-50 text-neutral/50">
+		<div class="divider">или через почту</div>
+	</div>
 	<form
 		action="?/register_new"
 		method="POST"
-		class="flex flex-col items-center space-y-2 w-full pt-4"
+		class="flex flex-col items-center space-y-2 w-full pt-1"
 		on:submit|preventDefault={(e) => register_email_pass(e.currentTarget)}
 	>
 		<input name="token" type="hidden" />
 		<Input
 			type="email"
 			id="email"
-			label="Email*"
+			label="Почта"
 			value={form?.data?.email}
 			errors={form?.errors?.email}
 			disabled={loading}
 		/>
 
-		<Input type="password" id="password" label="Password*" errors={form?.errors?.password} />
+		<Input type="password" id="password" label="Пароль" errors={form?.errors?.password} />
 		<Input
 			type="password"
 			id="passwordConfirm"
-			label="Confirm Password*"
+			label="Подтвердите пароль"
 			errors={form?.errors?.passwordConfirm}
 			disabled={loading}
 		/>
@@ -145,4 +146,10 @@
 			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>Зарегистрироваться</button>
 		</div>
 	</form>
+	<div class="text-xs text-center mt-6">
+		Регистрируясь, вы принимаете <a
+			href="/legal"
+			class="underline text-primary font-medium hover:cursor-pointer hover:underline">условия пользовательского соглашения</a
+		>.
+	</div>
 </div>

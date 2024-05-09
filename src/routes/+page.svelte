@@ -22,26 +22,6 @@
 		$feedSelect = !$feedSelect;
 	};
 
-	const isOld = (date) => {
-		const currentDate = new Date(); // Current date
-		const updatedDate = new Date(date); // Replace with page.updated value
-		const differenceInMilliseconds = currentDate - updatedDate;
-		const daysDifference = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
-		if (daysDifference > 30) {
-			return true;
-		}
-	};
-
-	const isNew = (date) => {
-		const currentDate = new Date(); // Current date
-		const createDate = new Date(date); // Replace with page.updated value
-		const differenceInMilliseconds = currentDate - createDate;
-		const daysDifference = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
-		if (daysDifference < 1) {
-			return true;
-		}
-	};
-
 	const handleFilter = (value) => {
 		if (value == '') {
 			filter = ''; // Очищаем фильтр, если новое значение пустое
@@ -160,7 +140,7 @@
 			<div class="">
 				<label class="group cursor-pointer">
 					<div
-						class=" flex items-center gap-2 border border-neutral group-hover:border-neutral/50 py-2.5 px-4 rounded group-hover:shadow-md transition-all duration-200"
+						class=" flex items-center gap-2 border border-neutral/10 group-hover:border-neutral/50 py-2.5 px-4 rounded group-hover:shadow-md transition-all duration-200"
 					>
 						<label class="swap swap-rotate">
 							<input
@@ -213,8 +193,7 @@
 							{page}
 							{user}
 							localUser={data.user}
-							isNew={isNew(page.created)}
-							isOld={isOld(page.updated)}
+							isPrivate={page.private}
 							/>
 						{/if}
 						{/if}
@@ -230,8 +209,7 @@
 								{page}
 								{user}
 								localUser={data.user}
-								isNew={isNew(page.created)}
-								isOld={isOld(page.updated)}
+								isPrivate={page.private}
 							/>
 							{/if}
 							{/if}
@@ -251,8 +229,7 @@
 							{page}
 							{user}
 							localUser={data.user}
-							isNew={isNew(page.created)}
-							isOld={isOld(page.updated)}
+							isPrivate={page.private}
 							/>
 						{/if}
 					{/each}
@@ -266,8 +243,7 @@
 						{page}
 						{user}
 						localUser={data.user}
-						isNew={isNew(page.created)}
-						isOld={isOld(page.updated)}
+						isPrivate={page.private}
 					/>
 					{/if}
 				{/each}
