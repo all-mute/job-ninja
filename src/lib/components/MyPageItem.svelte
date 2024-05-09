@@ -14,8 +14,6 @@
 	export let localUser;
 
 	const formattedDateTime = getFormattedDateTime(page.updated);
-	export let isNew = false;
-	export let isOld = false;
 	export let isPrivate = page.private;
 
 	// let modalOpen;
@@ -127,8 +125,6 @@
 									</div>
 								</div>
 							{/if}
-							<div class="">
-							</div>
 						</div>
 					</div>
 				</div>

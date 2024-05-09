@@ -213,8 +213,7 @@
 							{page}
 							{user}
 							localUser={data.user}
-							isNew={isNew(page.created)}
-							isOld={isOld(page.updated)}
+							isPrivate={page.isPrivate}
 							/>
 						{/if}
 						{/if}
@@ -230,8 +229,7 @@
 								{page}
 								{user}
 								localUser={data.user}
-								isNew={isNew(page.created)}
-								isOld={isOld(page.updated)}
+								isPrivate={page.isPrivate}
 							/>
 							{/if}
 							{/if}
@@ -251,8 +249,7 @@
 							{page}
 							{user}
 							localUser={data.user}
-							isNew={isNew(page.created)}
-							isOld={isOld(page.updated)}
+							isPrivate={page.isPrivate}
 							/>
 						{/if}
 					{/each}
@@ -266,8 +263,7 @@
 						{page}
 						{user}
 						localUser={data.user}
-						isNew={isNew(page.created)}
-						isOld={isOld(page.updated)}
+						isPrivate={page.isPrivate}
 					/>
 					{/if}
 				{/each}
