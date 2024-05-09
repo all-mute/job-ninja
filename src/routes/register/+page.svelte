@@ -98,8 +98,8 @@
     }
 </script>
 
-<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4 mt-3">
-	<div class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
+<div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4 mb-20 mt-3">
+	<div class="mt-3 text-center text-3xl font-bold tracking-tight text-base-content">
 		Регистрация
 	</div>
 	<form method="post" action="?/oauth_yandex" on:submit|preventDefault={(e) => login_yandex(e.currentTarget)} class="w-full">
@@ -146,10 +146,10 @@
 			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>Зарегистрироваться</button>
 		</div>
 	</form>
-	<div class="text-center mt-6">
-		Есть аккаунт? <a
-			href="/login"
-			class="underline text-primary font-medium hover:cursor-pointer hover:underline"> Войдите</a
-		>
+	<div class="text-xs text-center mt-6">
+		Регистрируясь, вы принимаете <a
+			href="/legal"
+			class="underline text-primary font-medium hover:cursor-pointer hover:underline">условия пользовательского соглашения</a
+		>.
 	</div>
 </div>

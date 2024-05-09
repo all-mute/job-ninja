@@ -114,7 +114,7 @@
 </script>
 
 <div class="flex flex-col items-center h-full w-full max-w-lg mx-auto px-4 mb-20 mt-3">
-	<div class="mt-8 text-center text-3xl font-bold tracking-tight text-base-content">
+	<div class="mt-3 text-center text-3xl font-bold tracking-tight text-base-content">
 		Вход
 	</div>
 	<form

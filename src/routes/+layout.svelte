@@ -55,8 +55,8 @@
 				</div>
 			{:else if !data.user}
 				<div class="dropdown dropdown-end">
-					<a href="/login" class="btn btn-outline rounded">Логин</a>
-					<a href="/register" class="btn btn-outline rounded">Регистрация</a>
+					<a href="/login" class="rounded-full btn bg-white text-black/90 hover:text-black">Вход</a>
+					<a href="/register" class="rounded-full btn bg-orange-500 text-white  hover:bg-orange-400 hover:text-white">Регистрация</a>
 				</div>
 			{:else}
 				<div class="dropdown dropdown-end mr-4">
