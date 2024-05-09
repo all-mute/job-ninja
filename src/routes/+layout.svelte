@@ -226,7 +226,7 @@
 		</div>
 	</nav>
 	<div class="py-4">
-		<div class="mx-auto max-w-5xl">
+		<div class="mx-auto max-w-6xl">
 			{#if !isLoaded}
 				<div class="scale-150 flex justify-center items-center h-screen w-full">
 					<span class="loading loading-dots loading-lg" />
