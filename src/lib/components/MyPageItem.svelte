@@ -139,10 +139,8 @@
 
 					<div class="flex flex-col justify-between items-end m-1">
 						{#if isPrivate}
-							<div class="relative object-cover rounded-l w-full">
-								<div class=" flex h-full w-full">
-									<PageCardBadge {isPrivate} />
-								</div>
+							<div class="flex items-strech">
+								<PageCardBadge {isPrivate} />
 							</div>
 						{:else if user}
 							<div class="flex items-stretch">

@@ -9,8 +9,8 @@
 
 {#if isPrivate}
 	<div class="z-40">
-		<div class="badge gap-2 absolute left-0 top-0 p-4">
-			<Icon src={EyeSlash} class="w-6 h-6"/>
+		<div class="badge border-white justify-end pr-[3px] pt-1">
+			<Icon src={EyeSlash} class="w-7 h-7 text-gray-500"/>
 		</div>
 	</div>
 {/if}
