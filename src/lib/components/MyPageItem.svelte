@@ -7,13 +7,16 @@
 	import toast from 'svelte-french-toast';
 	import MyPageItem from '$lib/components/MyPageItem.svelte';
 
-	import { Icon, PencilSquare, Trash, Check, ArrowPathRoundedSquare } from 'svelte-hero-icons';
+	import { Icon, PencilSquare, Trash, Check, ArrowPathRoundedSquare, EyeSlash } from 'svelte-hero-icons';
 
 	export let page;
 	export let user;
 	export let localUser;
 
 	const formattedDateTime = getFormattedDateTime(page.updated);
+	export let isNew = false;
+	export let isOld = false;
+	export let isPrivate = page.private;
 
 	// let modalOpen;
 	let loading = false;
@@ -45,10 +48,82 @@
 	class="flex w-full rounded border border-neutral/10 transition-all duration-100 hover:border-neutral/50 hover:shadow-lg group"
 >
 	<div class="w-full flex gap-0 items-center rounded">
+		<div class="w-full h-full avatar rounded">
+			<div class="relative object-cover rounded-l w-full">
+				<div class=" flex h-full border-r w-full bg-black">
+					<a href={`/pages/${page.id}`} class="">
+						<img
+							class="group-hover:opacity-50 group-hover:scale-105 transition-all duration-500 group-hover:saturate-150"
+							src={page?.thumbnail
+								? getImageURL(page.collectionId, page.id, page.thumbnail, '80x80')
+								: `https://via.placeholder.com/500/6d28d9/FFFFFF/?text=${page.name}`}
+							alt="page thumbnail"
+						/>
+					</a>
+					<div
+						class="absolute right-0 h-full shadow md:opacity-0 md:group-hover:opacity-100 transition-all duration-700"
+					>
+						{#if page.user === localUser.id}
+							<div class="h-full">
+								<div
+									class="w-full bg-neutral gap-2 flex flex-col justify-between md:justify-start items-end p-2 h-full"
+								>
+									<a href="/pages/{page.id}/edit" class="">
+										<Icon
+											src={PencilSquare}
+											class="w-5 h-5 md:w-6 md:h-6 text-base-100 hover:text-warning"
+											solid
+										/>
+									</a>
+
+									<Modal label={page.id} checked={modalOpen}>
+										<div slot="trigger" class="">
+											<button
+												class="w-5 h-5 md:w-6 md:h-6 hover:cursor-pointer text-base-100 hover:text-error"
+												on:click={openModal}
+											>
+												<Icon src={Trash} solid />
+											</button>
+										</div>
+										<div slot="heading">
+											<div class="text-2xl">Delete {page.name}</div>
+											<div class="text-base font-normal mt-2">
+												Are you sure you want to delete this page? Once deleted, the page cannot be
+												restored.
+											</div>
+										</div>
+										<div slot="actions" class="flex w-full items-center justify-center space-x-2">
+											<button class="btn btn-outline" on:click={() => (modalOpen = false)}
+												>Cancel</button
+											>
+											<form action="/?/deletePage" method="POST" use:enhance={submitDeletePage}>
+												<input type="hidden" name="id" value={page.id} />
+												<button type="submit" class="btn btn-error" disabled={loading}
+													>Delete</button
+												>
+											</form>
+										</div>
+									</Modal>
+								</div>
+							</div>
+						{/if}
+					</div>
+				</div>
+				{#if page.verified}
+					<div class="">
+						<Icon
+							src={Check}
+							class="absolute bottom-2 left-2 w-6 h-6 bg-success group-hover:animate-pulse rounded"
+						/>
+					</div>
+				{/if}
+			</div>
+		</div>
 		<div class="w-full h-full p-2">
 			<a href="/pages/{page.id}" class="">
 				<div class="flex justify-between h-full m-1">
 					<div>
+
 						<div class="badge badge-sm badge-neutral rounded capitalize my-1 py-3">{page.company}</div>
 						<div class="badge badge-sm badge-domain rounded capitalize my-1 py-3">{page.domain}</div>
 						<div class="badge badge-sm badge-ghost rounded capitalize my-1 py-3">{page.grade}</div>
@@ -63,7 +138,13 @@
 					</div>
 
 					<div class="flex flex-col justify-between items-end m-1">
-						{#if user}
+						{#if isPrivate}
+							<div class="relative object-cover rounded-l w-full">
+								<div class=" flex h-full w-full">
+									<PageCardBadge {isPrivate} />
+								</div>
+							</div>
+						{:else if user}
 							<div class="flex items-stretch">
 								<img
 									class="w-8 h-8 object-cover rounded-full border border-neutral group-hover:saturate-150 transition-color duration-300"

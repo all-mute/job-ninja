@@ -6,12 +6,18 @@
 	export let user;
 	export let isNew = false;
 	export let isOld = false;
+	export let isPrivate = false;
 	export let showUser = true;
 </script>
 
 <div
 	class="card border border-neutral bg-base-100 rounded group active:scale-[99%] hover:shadow-md transition-all h-full"
 >
+
+	{#if isPrivate}
+		<PageCardBadge msg={'SECRET'} {isPrivate} />
+	{/if}
+
 	{#if isNew}
 		<PageCardBadge msg={'NEW!'} {isNew} />
 	{/if}
