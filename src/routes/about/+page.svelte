@@ -31,19 +31,19 @@
 			<div class="max-w-lg">
 				<div class="text-5xl md:text-6xl lg:text-7xl font-bold">Делитесь вопросами с собеседований</div>
 				<div class="text-xl lg:text-2xl py-6">
-					Анонимное, управляемое пользователями, свежее сообщество по обмену вопросами с собесов. Волки хай.
+					Сообщество, управляемое пользователями, по обмену вопросами с собесов. Волки хай.
 				</div>
 
 				<div class="flex items-center gap-2">
 					<a
 						href="/register"
-						class="btn btn-primary bg-purple-500 border-purple-500 hover:bg-purple-700 rounded"
+						class="btn btn-primary border-opacity-0 hover:border-opacity-0 bg-orange-500 hover:bg-orange-300 rounded"
 						>Начать</a
 					>
 					<a href={$githubOurURL} class="btn btn-outline group rounded">
 						<div class="flex gap-1 items-center">
 							<div
-								class="group-hover:fill-purple-500 fill-purple-500 transition-color duration-200"
+								class="group-hover:fill-orange-500 fill-orange-500 transition-color duration-200"
 							>
 								<Icon src={AiOutlineGithub} size="20" />
 							</div>
