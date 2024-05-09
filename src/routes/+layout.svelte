@@ -94,7 +94,7 @@
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 					<ul
 						tabindex="0"
-						class="menu menu-compact border border-neutral dropdown-content p-2 shadow-lg bg-base-100 rounded-box w-52 z-[999]"
+						class="menu menu-compact border border-neutral/10 dropdown-content p-2 shadow-lg bg-base-100 rounded-box w-52 z-[999]"
 					>
 						<div class="my-2">
 							<li>
@@ -212,7 +212,7 @@
 									<button type="submit" class="w-full text-start">
 										<div class="flex gap-2 items-center">
 											<div>
-												<Icon src={Power} class="w-5 h-5" solid />
+												<Icon src={Power} class="w-5 h-5 font-black" solid />
 											</div>
 											<div>Выход</div>
 										</div>
