@@ -4,7 +4,7 @@
 	export let form;
 </script>
 
-<div class="flex flex-col w-full h-full px-4">
+<div class="flex flex-col max-w-xl mx-auto h-full px-4">
 	<div class="w-full mt-2">
 		<form
 			action="?/create"
@@ -13,26 +13,39 @@
 			enctype="multipart/form-data"
 			use:enhance
 		>
-			<div class="flex flex-col justify-center text-center mt-10">
+			<div class="flex flex-col justify-center text-center mt-10 mb-7">
 				<div class="text-center text-3xl font-bold">Запись собеседования</div>
-				<div class="pt-2 text-lg">В tagline можно записать свои теги по типу React, NLP, Memes</div>
 			</div>
 
-			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-3">
+			<div class="w-full grid grid-cols-1 gap-x-5 ">
 				<div>
 					<Input
 						id="name"
-						label="Название*"
+						label="Название"
 						value={form?.data?.name}
 						errors={form?.errors?.name}
 						placeholder="Сложный собес на бэк в Авито"
 					/>
 				</div>
+			</div>
 
+			<div class="w-full grid grid-cols-1 gap-x-5">
+				<div>
+					<Input
+						id="tagline"
+						label="Теги (любые)"
+						value={form?.data?.tagline}
+						errors={form?.errors?.tagline}
+						placeholder="golang postgresql gRPC kafka k8s"
+					/>
+				</div>
+			</div>
+
+			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
 				<div>
 					<Input
 						id="company"
-						label="Компания*"
+						label="Компания"
 						value={form?.data?.company}
 						errors={form?.errors?.company}
 						placeholder="avito"
@@ -42,13 +55,15 @@
 				<div>
 					<Input
 						id="domain"
-						label="Домен*"
+						label="Область"
 						value={form?.data?.domain}
 						errors={form?.errors?.domain}
 						placeholder="backend"
 					/>
 				</div>
+			</div>
 
+			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
 				<div class="w-full">
 					<label for="grade" class="label font-medium pb-1">
 						<span class="label-text">Grade*</span>
@@ -69,21 +84,25 @@
 					</select>
 					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
-				
-				<div>
-					<Input
-						id="tagline"
-						label="Какие угодно теги"
-						value={form?.data?.tagline}
-						errors={form?.errors?.tagline}
-						placeholder="golang"
-					/>
+				<div class="w-full flex items-center justify-center pt-7 form-control">
+					<label for="private" class="label cursor-pointer flex items-center mr-2">
+						<input
+							type="checkbox"
+							id="private"
+							name="private"
+							class="form-checkbox checkbox checkbox-primary"
+							checked={form?.data?.private}
+						/>
+						<span class="label-text ml-2 text-sm font-semibold">Скрыть пост</span>
+					</label>
 				</div>
+			</div>
 
+			<div class="w-full grid grid-cols-1 gap-x-5">
 				<div>
 					<Input
 						id="url"
-						label="Ссылка на вакансию, если есть"
+						label="Ссылка на вакансию (при наличии)"
 						value={form?.data?.url}
 						errors={form?.errors?.url}
 						placeholder="https://"
@@ -93,18 +112,6 @@
 				
 			</div>
 
-			<div class="flex items-center">
-				<label for="private" class="flex items-center mr-2">
-					<input
-						type="checkbox"
-						id="private"
-						name="private"
-						class="form-checkbox"
-						checked={form?.data?.private}
-					/>
-					<span class="ml-2 text-sm">Private</span>
-				</label>
-			</div>
 
 			<div class="w-full">
 				<WYSIWYG
