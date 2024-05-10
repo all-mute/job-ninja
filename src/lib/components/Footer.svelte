@@ -1,4 +1,4 @@
-<footer class="footer footer-center mx-auto bg-base-200 p-10 text-base-content rounded mt-10">
+<footer class="footer footer-center mx-auto max-w-6xl border-t-2 border-t-neutral/10 p-10 text-base-content mt-[5rem]">
 	<div class="grid grid-cols-2 items-start lg:gap-40 md:gap-40 sm:gap-20 text-left lg:text-base  sm:text-lg">
 		<div class="grid grid-cols-1 gap-2">
 			<a href="/about" class="link link-hover">О сервисе</a>
@@ -23,7 +23,7 @@
 			
 		</div>
 	</div>
-	<div>
+	<!-- <div>
 		<div>© Job Ninja, 2024</div>
-	</div>
+	</div> -->
 </footer>
