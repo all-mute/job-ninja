@@ -94,7 +94,7 @@
 			<span class="text-orange-500">Job</span> Ninja
 		</div> -->
 	</div>
-	<div class="text-center my-10 text-xl mx-[80px]">
+	<div class="text-center my-10 text-2xl mx-[80px]">
 		{#if $feedSelect}
 			<div class="flex justify-center items-center gap-2">
 				<div class="">
