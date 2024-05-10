@@ -4,7 +4,7 @@
 	export let form;
 </script>
 
-<div class="flex flex-col max-w-xl mx-auto h-full px-4">
+<div class="flex flex-col max-w-2xl mx-auto h-full px-4">
 	<div class="w-full mt-2">
 		<form
 			action="?/create"
