@@ -42,21 +42,34 @@
 			// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
 			let w = window.open()
 
-			// Set avatar
-			const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
-
 			await pb
 				.collection("users")
 				.authWithOAuth2({
 				provider: 'yandex',
 				createData: {
                     name: 'anonymous-' + Math.random().toString(36).substring(7),
-					avatar: avatarFile,
                 },
 				urlCallback: (url) => {
 					w.location.href = url
 				},
 				})
+
+			// Set avatar
+			if (!pb.authStore.model.avatar) {
+				const now = new Date();
+				const created = new Date(pb.authStore.model.created);
+				// Calculate the difference in milliseconds
+				const diffInMillis = now.getTime() - created.getTime();
+				// Check if the account was created less than a minute ago (60,000 milliseconds)
+				if (diffInMillis < 60000) {
+					console.log('set avatar');
+					const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
+					const formDataNew = new FormData();
+					formDataNew.append('avatar', avatarFile);
+
+					await pb.collection("users").update(pb.authStore.model.id, formDataNew);
+				}
+			}
 
             form.token.value = pb.authStore.token;
             form.submit();
