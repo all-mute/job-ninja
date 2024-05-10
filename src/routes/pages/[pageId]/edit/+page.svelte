@@ -27,7 +27,7 @@
 	};
 </script>
 
-<div class="flex flex-col w-full max-w-2xl mx-auto h-full px-4">
+<div class="flex flex-col w-full max-w-3xl mx-auto h-full px-4">
 	<div class="w-full mt-2">
 		<form
 			action="?/updatePage"
