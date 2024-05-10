@@ -34,6 +34,23 @@
 				},
 				})
 
+			// Set avatar
+			if (!pb.authStore.model.avatar) {
+				const now = new Date();
+				const created = new Date(pb.authStore.model.created);
+				// Calculate the difference in milliseconds
+				const diffInMillis = now.getTime() - created.getTime();
+				// Check if the account was created less than a minute ago (60,000 milliseconds)
+				if (diffInMillis < 60000) {
+					console.log('set avatar');
+					const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
+					const formDataNew = new FormData();
+					formDataNew.append('avatar', avatarFile);
+
+					await pb.collection("users").update(pb.authStore.model.id, formDataNew);
+				}
+			}
+
             form.token.value = pb.authStore.token;
             form.submit();
         } catch (err) {
