@@ -113,7 +113,7 @@
 			</div>
 
 
-			<div class="w-full">
+			<div class="w-full pt-10">
 				<WYSIWYG
 					type="hidden"
 					id="content"
