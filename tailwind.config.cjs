@@ -7,7 +7,20 @@ const config = {
 	},
 
 	daisyui: {
-		themes: [
+		themes: [ 
+			{
+				lightOrange: {
+					"primary": "#f97316",
+					"secondary": "#FFD4C5",
+					"accent": "#fc9652",
+					"neutral": "#0f0501",
+					"base-100": "#ffffff",
+					"info": "#60a5fa",
+					"success": "#4ade80",
+					"warning": "#f87171",
+					"error": "#ef4444",
+				},
+			},
 			'light',
 			'dark',
 			'cupcake',

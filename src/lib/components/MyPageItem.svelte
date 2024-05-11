@@ -51,8 +51,8 @@
 				<div class="flex justify-between h-full m-1">
 					<div>
 
-						<div class="badge badge-sm badge-neutral rounded capitalize my-1 py-3">{page.company}</div>
-						<div class="badge badge-sm badge-domain rounded capitalize my-1 py-3">{page.domain}</div>
+						<div class="badge badge-sm badge-neutral rounded capitalize font-medium text-white my-1 py-3">{page.company}</div>
+						<div class="badge badge-sm badge-secondary rounded capitalize my-1 py-3">{page.domain}</div>
 						<div class="badge badge-sm badge-ghost rounded capitalize my-1 py-3">{page.grade}</div>
 						<div class=" font-bold mt-2">
 							{page.name.length > 23

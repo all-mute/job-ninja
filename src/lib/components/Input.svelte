@@ -23,7 +23,7 @@
 			<div class="pb-1 text-sm">
 				<a
 					href="/reset-password"
-					class="text-primary underline hover:cursor-pointer"
+					class="text-neutral hover:text-primary underline hover:cursor-pointer"
 				>
 					Забыли?</a
 				>

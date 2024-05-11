@@ -166,13 +166,13 @@
 			disabled={loading}
 		/>
 		<div class="w-full max-w-lg pt-2">
-			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>Зарегистрироваться</button>
+			<button type="submit" class="rounded w-full btn btn-neutral text-white hover:btn-primary hover:text-white" disabled={loading}>Зарегистрироваться</button>
 		</div>
 	</form>
 	<div class="text-xs text-center mt-6">
 		Регистрируясь, вы принимаете <a
 			href="/legal"
-			class="underline text-primary font-medium hover:cursor-pointer hover:underline">условия пользовательского соглашения</a
+			class="underline text-neutral font-medium hover:cursor-pointer hover:underline hover:text-primary">условия пользовательского соглашения</a
 		>.
 	</div>
 </div>

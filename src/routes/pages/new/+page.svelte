@@ -4,7 +4,7 @@
 	export let form;
 </script>
 
-<div class="flex flex-col max-w-xl mx-auto h-full px-4">
+<div class="flex flex-col max-w-3xl mx-auto h-full px-4">
 	<div class="w-full mt-2">
 		<form
 			action="?/create"
@@ -113,7 +113,7 @@
 			</div>
 
 
-			<div class="w-full">
+			<div class="w-full pt-10">
 				<WYSIWYG
 					type="hidden"
 					id="content"
@@ -123,7 +123,7 @@
 				/>
 			</div>
 			<div class="w-full max-w-lg pt-3">
-				<button type="submit" class="btn btn-success rounded w-full max-w-lg">Создать страницу</button>
+				<button type="submit" class="btn btn-accent rounded w-full max-w-lg">Создать страницу</button>
 			</div>
 		</form>
 	</div>

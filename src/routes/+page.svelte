@@ -91,21 +91,21 @@
 <div>
 	<div class="mt-10 text-center text-7xl font-bold tracking-tight text-base-content">
 		<!-- <div>
-			<span class="text-orange-500">Job</span> Ninja
+			<span class="text-primary">Job</span> Ninja
 		</div> -->
 	</div>
-	<div class="text-center my-10 text-xl mx-[80px]">
+	<div class="text-center my-10 text-2xl mx-[80px]">
 		{#if $feedSelect}
 			<div class="flex justify-center items-center gap-2">
 				<div class="">
 					Лента <strong>подписок</strong>
 				</div>
-				<div><Icon src={UserGroup} class="w-7 h-7 text-orange-500" solid /></div>
+				<div><Icon src={UserGroup} class="w-7 h-7 text-primary" solid /></div>
 			</div>
 		{:else}
 			<div class="flex justify-center items-center gap-2 text-pretty">
 				<div class="">Лента <strong>последних</strong> собеседований</div>
-				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-orange-500" solid /></div>
+				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-primary" solid /></div>
 			</div>
 		{/if}
 	</div>
@@ -172,7 +172,7 @@
 					>
 				{/each}
 				<button
-					class="btn btn-sm lowercase shadow hover:bg-orange-500 hover:text-white"
+					class="btn btn-sm lowercase shadow hover:bg-primary hover:text-white"
 					on:click={() => handleFilter('')}>Clear</button
 				>
 			</div>

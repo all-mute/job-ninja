@@ -215,7 +215,7 @@
 				<div class="display">
 					<div class="artboard artboard-demo phone-1">
 						<div class="text-5xl font-bold animate-pulse">
-							<span class="text-orange-500">Job </span>Ninja
+							<span class="text-primary">Job </span>Ninja
 						</div>
 						<div>Optimized for mobile.</div>
 					</div>
@@ -323,7 +323,7 @@
 						href="https://kit.svelte.dev/"
 						target="_blank"
 						class="flex-col hover:scale-[102%] tranistion-all duration-200 h-40 w-full lg:h-72 lg:w-72 shadow-lg border border-neutral/50 rounded flex items-center
-						justify-center hover:fill-orange-500"
+						justify-center hover:fill-primary"
 					>
 						<Icon src={SiSvelte} size="72" />
 						<div>Sveltekit</div>

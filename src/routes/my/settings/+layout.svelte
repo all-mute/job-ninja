@@ -2,22 +2,22 @@
 	import { page } from '$app/stores';
 	const navigation = [
 		{
-			title: 'Profile',
+			title: 'Профиль',
 			href: '/my/settings/profile'
 		},
 		{
-			title: 'Account',
+			title: 'Аккаунт',
 			href: '/my/settings/account'
 		},
 		{
-			title: 'Security',
+			title: 'Безопасность',
 			href: '/my/settings/security'
 		}
 	];
 </script>
 
 <div class="w-full h-full px-2 mt-10">
-	<div class="text-6xl font-bold">Settings</div>
+	<div class="text-6xl font-bold">Настройки</div>
 	<div class="divider" />
 </div>
 <div class="flex w-full h-full space-x-4">

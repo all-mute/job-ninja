@@ -38,7 +38,7 @@
 <div class="min-h-full">
 	<nav class="navbar bg-base-100 border-b border-neutral/10 max-w-5xl mx-auto">
 		<div class="flex-1">
-			<a href="/" class="btn btn-ghost normal-case text-xl">
+			<a href="/" class="normal-case text-xl">
 				<div>
 					<span class="text-orange-600 font-bold">Job </span>Ninja
 				</div>
@@ -47,23 +47,20 @@
 		<div class="flex-none">
 			{#if $page.url.pathname === "/login"}
 				<div class="dropdown dropdown-end">
-					<a href="/register" class="rounded-full btn bg-white text-black/90 hover:bg-orange-500 hover:text-white">Регистрация</a>
+					<a href="/register" class="rounded btn bg-white text-black/90 hover:bg-orange-500 hover:text-white">Регистрация</a>
 				</div>
 			{:else if $page.url.pathname === "/register"}
 				<div class="dropdown dropdown-end">
-					<a href="/login" class="rounded-full btn bg-white text-black/90 hover:bg-orange-500 hover:text-white">Вход по аккаунту</a>
+					<a href="/login" class="rounded btn bg-white text-black/90 hover:bg-orange-500 hover:text-white">Вход по аккаунту</a>
 				</div>
 			{:else if !data.user}
 				<div class="dropdown dropdown-end">
-					<a href="/login" class="rounded-full btn bg-white text-black/90 hover:text-black">Вход</a>
-					<a href="/register" class="rounded-full btn bg-orange-500 text-white  hover:bg-orange-400 hover:text-white">Регистрация</a>
+					<a href="/login" class="rounded btn bg-white text-black/90 hover:text-black">Вход</a>
+					<a href="/register" class="rounded btn bg-primary text-white hover:bg-accent hover:text-white">Регистрация</a>
 				</div>
 			{:else}
 				<div class="dropdown dropdown-end mr-4">
-					<div class="dropdown dropdown-end">
-						<a href="/pages/new" class="rounded-full btn bg-white text-black/90 hover:bg-orange-500 hover:text-white">Создать запись</a>
-					</div>
-					<!-- <button classs="btn">
+					<button classs="btn">
 						<a
 							href="/pages/new"
 							class="btn btn-ghost hover:scale-[105%] active:scale-[98%] transition-transform duration-50"
@@ -79,7 +76,7 @@
 						>
 							<Icon src={RectangleGroup} class="w-5 h-5" />
 						</a>
-					</button> -->
+					</button>
 				</div>
 				<div class="dropdown md:dropdown-hover dropdown-end">
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -181,7 +178,7 @@
 										</div>
 										<div>Job-AI</div>
 									</div>
-									<div class="badge badge-success uppercase badge-sm ml-5">soon</div>
+									<div class="badge badge-secondary uppercase badge-sm ml-5">soon</div>
 								</a>
 							</li>
 
@@ -193,7 +190,7 @@
 										</div>
 										<div>AI Search</div>
 									</div>
-									<div class="badge badge-success uppercase badge-sm">soon</div>
+									<div class="badge badge-secondary uppercase badge-sm">soon</div>
 								</a>
 							</li>
 						</div>
