@@ -85,16 +85,15 @@
 	const dateTime = new Date(dateTimeString);
 
 	const options = {
-		timeZone: 'America/Los_Angeles', // Specify the desired time zone
+		timeZone: 'Europe/Moscow', // Specify the desired time zone
 		year: 'numeric',
-		month: 'long',
+		month: 'short',
 		day: 'numeric',
 		hour: 'numeric',
 		minute: 'numeric',
-		second: 'numeric'
 	};
 
-	const formattedDateTime = dateTime.toLocaleString('en-US', options);
+	const formattedDateTime = dateTime.toLocaleString('ru-RU', options);
 
 	const getTotalLikes = (users, pages) => {
 		const total = users.reduce((count, user) => {
@@ -125,6 +124,73 @@
 	<div
 		class="flex flex-col w-full md:mt-10 max-w-full mx-auto px-4 py-4 md:border border-neutral/10 rounded md:shadow"
 	>
+		<!-- CREATOR -->
+		{#each data.users as creator}
+			{#if creator.id === data.page.user}
+				<div class="w-full flex gap-2 my-10">
+					<div class="w-full flex gap-4">
+						<div class="relative">
+							<a href={`/people/${creator.id}`}>
+								<img
+									class="w-9 h-8 object-cover rounded-full border border-neutral hover:saturate-150 hover:scale-[102%] transition-all duration-50 active:scale-[98%]"
+									src={creator?.avatar
+										? getImageURL(creator?.collectionId, creator?.id, creator?.avatar)
+										: `https://ui-avatars.com/api/?name=${creator?.name}`}
+									alt="User avatar"
+								/>
+							</a>
+						</div>
+
+						<div class="w-full flex justify-between">
+							<div class="flex flex-col">
+								<div class="text-sm text-neutral font-semibold primary-content">
+									{creator.name}
+								</div>
+								<div class="font-thin text-sm md:text-md">
+									{formattedDateTime}.
+								</div>
+								<!-- <div class="text-sm font-medium secondary-content">
+									{creator.description}
+								</div> -->
+							</div>
+							<div>
+								{#if creator.id != data.user.id}
+									<div class="my-2">
+										<form action="?/followUser" method="POST" use:enhance>
+											<button type="submit" class="active:scale-[98%] transition-all duration-200">
+												<input type="hidden" name="id" value={creator.id} />
+												<div>
+													{#if data.user.following.includes(creator.id)}
+														<input type="hidden" name="follow" value="true" />
+														<button class="flex btn btn-xs btn-success capitalize rounded">
+															<!-- <Icon src={CheckCircle} class="text-primary w-5 h-5" solid /> -->
+
+															<div class="flex gap-2 items-center">
+																<div>Подписан</div>
+															</div>
+														</button>
+													{:else}
+														<input type="hidden" name="follow" value="false" />
+
+														<button class="flex btn btn-xs capitalize rounded">
+															<!-- <Icon src={PlusCircle} class="text-primary w-5 h-5" /> -->
+															<div>Подписаться</div>
+														</button>
+													{/if}
+												</div>
+											</button>
+										</form>
+									</div>
+								{/if}
+							</div>
+
+						</div>
+						
+					</div>
+				</div>
+			{/if}
+		{/each}
+
 		<div class="flex gap-2 items-center mb-2">
 			<!-- VERIFIED -->
 			{#if data.page.verified}
@@ -144,10 +210,10 @@
 		<!-- TITLE -->
 		<div>
 			<div class="badge badge-xl badge-neutral rounded capitalize my-1 py-3">{data.page.company}</div>
-			<div class="badge badge-xl badge-domain rounded capitalize my-1 py-3">{data.page.domain}</div>
+			<div class="badge badge-xl badge-domain border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
 			<div class="badge badge-xl badge-ghost rounded capitalize my-1 py-3">{data.page.grade}</div>
 			
-			<div class="text-5xl font-bold">
+			<div class="text-neutral text-5xl font-bold">
 				{data.page.name}<span />
 			</div>
 			<div class=" text-sm text-base-content/75">
@@ -178,69 +244,11 @@
 					</div>
 
 					<div>
-						{readTime.text}.
+						{data.page.url}.
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- CREATOR -->
-		{#each data.users as creator}
-			{#if creator.id === data.page.user}
-				<div class="flex gap-2 my-10">
-					<div class="flex items-start gap-4">
-						<div class="relative">
-							<a href={`/people/${creator.id}`}>
-								<img
-									class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border border-neutral hover:saturate-150 hover:scale-[102%] transition-all duration-50 active:scale-[98%]"
-									src={creator?.avatar
-										? getImageURL(creator?.collectionId, creator?.id, creator?.avatar)
-										: `https://ui-avatars.com/api/?name=${creator?.name}`}
-									alt="User avatar"
-								/>
-							</a>
-						</div>
-
-						<div class="flex flex-col justify-center">
-							<div class="text-lg font-semibold primary-content">
-								{creator.name}
-							</div>
-							<div class="text-sm font-medium secondary-content">{creator.description}</div>
-							
-
-							{#if creator.id != data.user.id}
-								<div class="my-2">
-									<form action="?/followUser" method="POST" use:enhance>
-										<button type="submit" class="active:scale-[98%] transition-all duration-200">
-											<input type="hidden" name="id" value={creator.id} />
-											<div>
-												{#if data.user.following.includes(creator.id)}
-													<input type="hidden" name="follow" value="true" />
-													<button class="flex btn btn-xs btn-success capitalize rounded">
-														<!-- <Icon src={CheckCircle} class="text-primary w-5 h-5" solid /> -->
-
-														<div class="flex gap-2 items-center">
-															<div>Подписан</div>
-														</div>
-													</button>
-												{:else}
-													<input type="hidden" name="follow" value="false" />
-
-													<button class="flex btn btn-xs capitalize rounded">
-														<!-- <Icon src={PlusCircle} class="text-primary w-5 h-5" /> -->
-														<div>Подписаться</div>
-													</button>
-												{/if}
-											</div>
-										</button>
-									</form>
-								</div>
-							{/if}
-						</div>
-					</div>
-				</div>
-			{/if}
-		{/each}
 
 		<!-- PAGE METAGS -->
 		<div
