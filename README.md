@@ -1,49 +1,90 @@
-# Project Nexum
+## Job Ninja
 
-## Technologies
-- SvelteKit
-- PocketBase
-- OpenAI
-- Zod
-- TailwindCSS
-- DaisyUI
-- TinyMCE
-- Read Time
-- Svelte French Toast
+**Сообщество, управляемое пользователями, по обмену вопросами с собесов.**
 
-## Getting Started
+Этот проект представляет собой веб-сайт, разработанный для удобного хранения и обмена вопросами с последних собеседований в IT-компаниях. Он использует современные технологии для обеспечения быстрого и эффективного пользовательского опыта.
+
+### Технологии
+
+*   **PocketBase:** Бэкенд с открытым исходным кодом для быстрого создания API и администрирования данных.
+*   **Vercel:** Платформа для развертывания и хостинга веб-приложений.
+*   **SvelteKit:** Фреймворк для создания высокопроизводительных веб-приложений.
+*   **zod:** Библиотека для валидации данных и обеспечения их целостности.
+*   **TailwindCSS:** CSS-библиотека для быстрого создания веб-приложений.
+*   **DaisyUI:** Набор компонентов для быстрого создания веб-приложений.
+*   **TinyMCE:** Удобный редактор WYSIWYG для быстрого создания веб-приложений.
+*   **Svelte French Toast:** Библиотека для отображения уведомлений веб-приложений.
+
+### Фичи
+
+*   Личный кабинет 
+*   API
+*   CRUD Постов (собеседований) с большим количеством параметров
+*   Oauth2 авторизация
+*   Лайки, подписки, избранное
+*   Красивый дашборд
+*   Поиск по записям
+*   Приватность
+
+### Установка и запуск
+
+**Предварительные требования:**
+
+*   Node.js
+*   npm (менеджер пакетов Node.js)
+
+**Инструкции:**
+
+0.  Разверните локальный инстанс pocketbase следуя инструкции в папке `pocketbase`
+
+1.  Клонируйте репозиторий:
 
 ```bash
-# create a new project in the current directory
-git clone <REPO>
-
-# create a new project in my-app
-pnpm install
+git clone https://github.com/all-mute/job-ninja.git
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+2.  Перейдите в директорию проекта:
 
 ```bash
-pnpm run dev
-
-# or start the server and open the app in a new browser tab
-pnpm run dev -- --open
-
-# you can also host your dev session on your local network, allowing you to test on other devices. Use --host to specify the host you want to use:
-
-pnpm run dev --host
+cd job-ninja
 ```
 
-## Building
-
-To create a production version of your app:
+3.  Установите зависимости:
 
 ```bash
-pnpm run build
+npm install
 ```
 
-You can preview the production build with `npm run preview`.
+4.  Задайте переменные окружения и измените их значения:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+export cp .env.example .env
+```
+
+4.  Запустите проект:
+
+```bash
+npm run dev
+```
+
+5.  Откройте `http://localhost:5173` в вашем браузере.
+
+### Использование
+
+**[Опиши, как пользователи могут взаимодействовать с проектом и его функциями. Приведи примеры кода или скриншотов, демонстрирующие использование проекта.]**
+
+### Вклад в проект
+
+**[Правила оформления кода, процесс отправки изменений, способы связи с тобой или командой разработчиков]**
+
+### Лицензия
+
+MIT
+
+### Дополнительная информация
+
+**[Благодарности, ссылки на документацию, API, демо-версию и т.д.]** 
+
+### Участие в опен-сурсе
+
+За участие в опенсурсе, уведомление об ошибках и тд. Будут выдаваться уникальные достижения.
