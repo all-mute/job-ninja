@@ -60,10 +60,7 @@
 				</div>
 			{:else}
 				<div class="dropdown dropdown-end mr-4">
-					<div class="dropdown dropdown-end">
-						<a href="/pages/new" class="rounded-full btn bg-white text-black/90 hover:bg-orange-500 hover:text-white">Создать запись</a>
-					</div>
-					<!-- <button classs="btn">
+					<button classs="btn">
 						<a
 							href="/pages/new"
 							class="btn btn-ghost hover:scale-[105%] active:scale-[98%] transition-transform duration-50"
@@ -79,7 +76,7 @@
 						>
 							<Icon src={RectangleGroup} class="w-5 h-5" />
 						</a>
-					</button> -->
+					</button>
 				</div>
 				<div class="dropdown md:dropdown-hover dropdown-end">
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
