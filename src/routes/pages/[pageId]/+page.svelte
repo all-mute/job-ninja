@@ -124,7 +124,7 @@
 
 <div class="flex">
 	<div
-		class="flex flex-col w-full md:mt-10 max-w-full mx-auto px-4 py-4 md:border border-neutral/10 rounded md:shadow"
+		class="flex flex-col w-full md:mt-10 max-w-4xl mx-auto px-7 py-7 md:border border-neutral/10 rounded md:shadow"
 	>
 		<!-- CREATOR -->
 		{#each data.users as creator}
@@ -134,7 +134,7 @@
 						<div class="relative place-content-center">
 							<a href={`/people/${creator.id}`}>
 								<img
-									class="w-9 h-8 object-cover rounded-full border border-neutral hover:saturate-150 hover:scale-[102%] transition-all duration-50 active:scale-[98%]"
+									class="w-9 h-8 md:w-10 md:h-10 object-cover rounded-full border border-neutral/10 hover:saturate-150 hover:scale-[102%] transition-all duration-50 active:scale-[98%]"
 									src={creator?.avatar
 										? getImageURL(creator?.collectionId, creator?.id, creator?.avatar)
 										: `https://ui-avatars.com/api/?name=${creator?.name}`}
@@ -145,10 +145,10 @@
 
 						<div class="w-full flex justify-between">
 							<div class="flex flex-col place-content-center">
-								<div class="text-sm text-neutral font-semibold primary-content">
+								<div class="text-sm text-neutral font-semibold primary-content md:text-base">
 									{creator.name}
 								</div>
-								<div class="font-medium text-xs text-gray-400">
+								<div class="font-medium text-xs text-gray-400 md:text-sm">
 									{formattedDateTime}
 								</div>
 								<!-- <div class="text-sm font-medium secondary-content">
@@ -211,7 +211,7 @@
 
 		<!-- TITLE -->
 		<div>
-			<div class="text-neutral text-4xl font-bold">
+			<div class="text-neutral text-4xl font-bold md:text-5xl">
 				{data.page.name}<span />
 			</div>
 		</div>
@@ -225,7 +225,7 @@
 
 		<!-- POSITION LINK -->
 		<div class="my-2 mb-8 flex">
-			<div class="text-sm text-gray-500 font-base primary-content">
+			<div class="text-sm md:text-base text-gray-500 font-base primary-content">
 				<div class="flex gap-2 items-center">
 					<div>
 						<Icon src={Link} class="w-4 h-4" />
@@ -266,12 +266,16 @@
 
 		<!-- BADGES + TAGLINE -->
 		<div class="mt-7">
-			<div class="badge badge-xl badge-neutral rounded capitalize my-1 py-3">{data.page.company}</div>
-			<div class="badge badge-xl badge-domain border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
-			<div class="badge badge-xl badge-ghost rounded capitalize my-1 py-3">{data.page.grade}</div>
+			<div class="badge badge-xl badge-neutral font-medium text-white rounded capitalize my-1 py-3">{data.page.company}</div>
+			<div class="badge badge-xl badge-domain font-medium border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
+			<div class="badge badge-xl badge-ghost font-medium rounded capitalize my-1 py-3">{data.page.grade}</div>
 
 			<div class="mt-2 text-sm text-base-content/75">
-				{data.page.tagline}
+				{#if data.page.tagline}
+					#{@html data.page.tagline.replace(/\s+/g, ' #')}
+				{:else}
+					&nbsp;
+				{/if}
 			</div>
 		</div>
 
