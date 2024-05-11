@@ -1,6 +1,9 @@
 <script>
 	import { enhance } from '$app/forms';
 	import { Input, TextArea, WYSIWYG } from '$lib/components';
+	import { fade } from 'svelte/transition';
+
+	let isOpen = false;
 	export let form;
 </script>
 
@@ -15,30 +18,6 @@
 		>
 			<div class="flex flex-col justify-center text-center mt-10 mb-7">
 				<div class="text-center text-3xl font-bold">Запись собеседования</div>
-			</div>
-
-			<div class="w-full grid grid-cols-1 gap-x-5 ">
-				<div>
-					<Input
-						id="name"
-						label="Название"
-						value={form?.data?.name}
-						errors={form?.errors?.name}
-						placeholder="Сложный собес на бэк в Авито"
-					/>
-				</div>
-			</div>
-
-			<div class="w-full grid grid-cols-1 gap-x-5">
-				<div>
-					<Input
-						id="tagline"
-						label="Теги (любые)"
-						value={form?.data?.tagline}
-						errors={form?.errors?.tagline}
-						placeholder="golang postgresql gRPC kafka k8s"
-					/>
-				</div>
 			</div>
 
 			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
@@ -99,17 +78,60 @@
 			</div>
 
 			<div class="w-full grid grid-cols-1 gap-x-5">
-				<div>
-					<Input
-						id="url"
-						label="Ссылка на вакансию (при наличии)"
-						value={form?.data?.url}
-						errors={form?.errors?.url}
-						placeholder="https://"
-					/>
-				</div>
-
-				
+				<details class="spoiler" bind:open={isOpen}>
+				  <summary class="flex items-center justify-between bg-gray-100 p-2 cursor-pointer">
+					<div class="flex items-center">
+					  <svg
+						class="w-4 h-4 text-gray-500 transform transition-transform duration-200"
+						class:rotate-90={isOpen}
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					  >
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+					  </svg>
+					  <span class="ml-2 text-sm text-gray-500">Необязательные параметры</span>
+					</div>
+				  </summary>
+				  {#if isOpen}
+					<div transition:fade class="w-full grid grid-cols-1 gap-x-5" >
+					  <div>
+						<Input
+						  id="name"
+						  label="Название"
+						  value={form?.data?.name}
+						  errors={form?.errors?.name}
+						  placeholder="Сложный собес на бэк в Авито"
+						/>
+					  </div>
+					</div>
+			  
+					<div transition:fade class="w-full grid grid-cols-1 gap-x-5">
+					  <div>
+						<Input
+						  id="tagline"
+						  label="Теглайн"
+						  value={form?.data?.tagline}
+						  errors={form?.errors?.tagline}
+						  placeholder="golang postgresql gRPC kafka k8s"
+						/>
+					  </div>
+					</div>
+			  
+					<div transition:fade class="w-full grid grid-cols-1 gap-x-5">
+					  <div>
+						<Input
+						  id="url"
+						  label="Ссылка на вакансию"
+						  value={form?.data?.url}
+						  errors={form?.errors?.url}
+						  placeholder="https://"
+						/>
+					  </div>
+					</div>
+				  {/if}
+				</details>
 			</div>
 
 
