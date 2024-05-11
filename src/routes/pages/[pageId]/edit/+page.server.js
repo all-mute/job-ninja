@@ -29,16 +29,17 @@ export const actions = {
 	updatePage: async ({ request, locals, params }) => {
 		const body = await request.formData();
 		
-		// TODO fix this shit
-		const privateValue = body.get('private');
+		const privacyValue = parseInt(body.get('privacy')); // Преобразуем в число
 
 		const { formData, errors } = await validateData(body, updatePageSchema);
 
-		if (privateValue === 'on') {
-			formData.private = true;
-		} else {
-			formData.private = false;
-		}
+		// Устанавливаем private на основе privacyValue
+		formData.private = privacyValue > 0;
+
+		// Вычисляем public_at
+		const publicAt = new Date();
+		publicAt.setDate(publicAt.getDate() + privacyValue);
+		formData.public_at = publicAt.toISOString();
 
 		const { ...rest } = formData;
 

@@ -16,6 +16,7 @@
 			enctype="multipart/form-data"
 			use:enhance
 		>
+			<input type="hidden" name="public_at" value={(new Date()).toISOString()} />
 			<div class="flex flex-col justify-center text-center mt-10 mb-7">
 				<div class="text-center text-3xl font-bold">Запись собеседования</div>
 			</div>
@@ -78,7 +79,7 @@
 						<option selected value=30>Опубликовать через 30 дней</option>
 						<option value=60>Опубликовать через 60 дней</option>
 						<option value=180>Опубликовать через 180 дней</option>
-						<option value=10000>Только для меня </option>
+						<option value=10000>Только для меня</option>
 					</select>
 					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
@@ -151,7 +152,6 @@
 					errors={form?.errors?.content}
 				/>
 			</div>
-			<input type="hidden" name="public_at" value={(new Date()).toISOString()} />
 			<div class="w-full max-w-lg pt-3">
 				<button type="submit" class="btn btn-accent rounded w-full max-w-lg">Создать страницу</button>
 			</div>
