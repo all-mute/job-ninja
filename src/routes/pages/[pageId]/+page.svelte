@@ -14,6 +14,7 @@
 		ArrowPathRoundedSquare,
 		CheckCircle,
 		Clock,
+		Link,
 		Trash
 	} from 'svelte-hero-icons';
 	import readtime from 'read-time';
@@ -127,9 +128,9 @@
 		<!-- CREATOR -->
 		{#each data.users as creator}
 			{#if creator.id === data.page.user}
-				<div class="w-full flex gap-2 my-10">
-					<div class="w-full flex gap-4">
-						<div class="relative">
+				<div class="w-full flex gap-2">
+					<div class="w-full flex gap-3">
+						<div class="relative place-content-center">
 							<a href={`/people/${creator.id}`}>
 								<img
 									class="w-9 h-8 object-cover rounded-full border border-neutral hover:saturate-150 hover:scale-[102%] transition-all duration-50 active:scale-[98%]"
@@ -142,12 +143,12 @@
 						</div>
 
 						<div class="w-full flex justify-between">
-							<div class="flex flex-col">
+							<div class="flex flex-col place-content-center">
 								<div class="text-sm text-neutral font-semibold primary-content">
 									{creator.name}
 								</div>
-								<div class="font-thin text-sm md:text-md">
-									{formattedDateTime}.
+								<div class="font-medium text-xs text-gray-400">
+									{formattedDateTime}
 								</div>
 								<!-- <div class="text-sm font-medium secondary-content">
 									{creator.description}
@@ -230,21 +231,15 @@
 
 		<!-- DATE -->
 		<div class="my-2 flex flex-col md:flex-row md:gap-5">
-			<div class="font-medium flex items-center gap-2">
-				<Icon src={ArrowPathRoundedSquare} class="w-4 h-4" />
-				<div class="font-thin text-sm md:text-md">
-					{formattedDateTime}.
-				</div>
-			</div>
-
-			<div class="text-sm md:text-md font-bold primary-content">
+			<div class="text-sm text-gray-500 font-base primary-content">
 				<div class="flex gap-2 items-center">
 					<div>
-						<Icon src={Clock} class=" w-4 h-4" />
+						<Icon src={Link} class="w-4 h-4" />
 					</div>
-
 					<div>
-						{data.page.url}.
+						<a href="{data.page.url}" target="_blank" class="hover:underline">
+							ссылка на вакансию
+						</a>
 					</div>
 				</div>
 			</div>
