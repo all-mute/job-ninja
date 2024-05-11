@@ -56,7 +56,7 @@
 			{:else if !data.user}
 				<div class="dropdown dropdown-end">
 					<a href="/login" class="rounded btn bg-white text-black/90 hover:text-black">Вход</a>
-					<a href="/register" class="rounded btn bg-orange-500 text-white  hover:bg-orange-400 hover:text-white">Регистрация</a>
+					<a href="/register" class="rounded btn bg-primary text-white hover:bg-accent hover:text-white">Регистрация</a>
 				</div>
 			{:else}
 				<div class="dropdown dropdown-end mr-4">
@@ -178,7 +178,7 @@
 										</div>
 										<div>Job-AI</div>
 									</div>
-									<div class="badge badge-success uppercase badge-sm ml-5">soon</div>
+									<div class="badge badge-secondary uppercase badge-sm ml-5">soon</div>
 								</a>
 							</li>
 
@@ -190,7 +190,7 @@
 										</div>
 										<div>AI Search</div>
 									</div>
-									<div class="badge badge-success uppercase badge-sm">soon</div>
+									<div class="badge badge-secondary uppercase badge-sm">soon</div>
 								</a>
 							</li>
 						</div>

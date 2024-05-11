@@ -28,7 +28,7 @@
 				People following
 				<span class="font-bold capitalize">{data.pageUser.name}</span>
 			</div>
-			<div><Icon src={UserGroup} class="w-7 h-7 text-orange-500" solid /></div>
+			<div><Icon src={UserGroup} class="w-7 h-7 text-primary" solid /></div>
 		</div>
 	</div>
 

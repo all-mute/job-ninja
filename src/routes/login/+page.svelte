@@ -179,7 +179,7 @@
 
 
 		<div class="w-full max-w-lg pt-7">
-			<button type="submit" class="btn btn-primary rounded w-full" disabled={loading}>
+			<button type="submit" class="btn btn-neutral font-bold rounded w-full text-white hover:btn-accent hover:text-base-100" disabled={loading}>
 				Войти
 			</button>
 		</div>
@@ -206,6 +206,6 @@
 	<div class="text-center mt-6 text-gray-700">
 		Нет аккаунта? <a
 			href="/register"
-			class="underline text-primary font-medium hover:cursor-pointer hover:underline">Зарегистрируйте</a>
+			class="underline text-neutral hover:text-primary font-medium hover:cursor-pointer hover:underline">Зарегистрируйте</a>
 	</div>
 </div>

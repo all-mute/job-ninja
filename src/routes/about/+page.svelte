@@ -37,13 +37,13 @@
 				<div class="flex items-center gap-2">
 					<a
 						href="/register"
-						class="btn btn-primary border-opacity-0 hover:border-opacity-0 bg-orange-500 hover:bg-orange-300 rounded"
+						class="btn btn-primary text-white hover:border-accent hover:btn-accent hover:text-white rounded"
 						>Начать</a
 					>
 					<a href={$githubOurURL} class="btn btn-outline group rounded">
 						<div class="flex gap-1 items-center">
 							<div
-								class="group-hover:fill-orange-500 fill-orange-500 transition-color duration-200"
+								class="group-hover:fill-primary fill-primary transition-color duration-200"
 							>
 								<Icon src={AiOutlineGithub} size="20" />
 							</div>
