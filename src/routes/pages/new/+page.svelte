@@ -123,7 +123,7 @@
 				/>
 			</div>
 			<div class="w-full max-w-lg pt-3">
-				<button type="submit" class="btn btn-success rounded w-full max-w-lg">Создать страницу</button>
+				<button type="submit" class="btn btn-accent rounded w-full max-w-lg">Создать страницу</button>
 			</div>
 		</form>
 	</div>

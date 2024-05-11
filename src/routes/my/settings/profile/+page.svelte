@@ -58,7 +58,7 @@
 						<Icon src={Pencil} class="w-4 h-4" />
 					</span>
 				</label>
-				<div class="w-32 rounded-full border border-primary">
+				<div class="w-32 rounded-full border border-neutral">
 					<img
 						src={data.user?.avatar
 							? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)
@@ -105,8 +105,8 @@
 		/>
 
 		<div class="w-full max-w-lg pt-3">
-			<button class="btn btn-primary w-full max-w-lg" type="submit" disabled={loading}>
-				Update Profile
+			<button class="btn btn-accent w-full max-w-lg" type="submit" disabled={loading}>
+				Обновить профиль
 			</button>
 		</div>
 	</form>
