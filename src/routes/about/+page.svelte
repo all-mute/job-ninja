@@ -16,7 +16,7 @@
 	import BiUserCircle from 'svelte-icons-pack/bi/BiUserCircle';
 	import SiVercel from 'svelte-icons-pack/si/SiVercel';
 
-	import homepage from '$lib/assets/homepage.png';
+	import feed from '$lib/assets/feed-screenshot.png';
 	import quantumComputing from '$lib/assets/quantum-computing.png';
 </script>
 
@@ -24,9 +24,9 @@
 	<div class="hero mb-20">
 		<div class="hero-content flex w-full flex-col items-center justify-between lg:flex-row-reverse">
 			<img
-				src="https://cdn.discordapp.com/attachments/1008571063732539392/1115921630120656957/engage_intellect_cyberpunk_graph_network_on_a_white_background_5b873da3-eb66-4c8a-b8dd-6dad314f3238.png"
+				src={feed}
 				class="object-cover max-w-0 lg:max-w-lg"
-				alt="hero"
+				alt="feed"
 			/>
 			<div class="max-w-lg">
 				<div class="text-5xl md:text-6xl lg:text-7xl font-bold">Делитесь вопросами с собеседований</div>
