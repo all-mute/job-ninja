@@ -210,15 +210,8 @@
 
 		<!-- TITLE -->
 		<div>
-			<div class="badge badge-xl badge-neutral rounded capitalize my-1 py-3">{data.page.company}</div>
-			<div class="badge badge-xl badge-domain border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
-			<div class="badge badge-xl badge-ghost rounded capitalize my-1 py-3">{data.page.grade}</div>
-			
 			<div class="text-neutral text-5xl font-bold">
 				{data.page.name}<span />
-			</div>
-			<div class=" text-sm text-base-content/75">
-				{data.page.tagline}
 			</div>
 		</div>
 		<!-- <div>
@@ -382,6 +375,17 @@
 				{@html data.page.content}
 			</div>
 		{/if}
+
+		<!-- BADGES + TAGLINE -->
+		<div>
+			<div class="badge badge-xl badge-neutral rounded capitalize my-1 py-3">{data.page.company}</div>
+			<div class="badge badge-xl badge-domain border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
+			<div class="badge badge-xl badge-ghost rounded capitalize my-1 py-3">{data.page.grade}</div>
+
+			<div class=" text-sm text-base-content/75">
+				{data.page.tagline}
+			</div>
+		</div>
 	</div>
 
 	<!-- TOC -->
