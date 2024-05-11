@@ -123,7 +123,7 @@
 
 <div class="flex">
 	<div
-		class="flex flex-col w-full md:mt-10 max-w-full mx-auto px-4 py-4 md:border border-neutral rounded md:shadow"
+		class="flex flex-col w-full md:mt-10 max-w-full mx-auto px-4 py-4 md:border border-neutral/10 rounded md:shadow"
 	>
 		<div class="flex gap-2 items-center mb-2">
 			<!-- VERIFIED -->
