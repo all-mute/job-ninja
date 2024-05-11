@@ -11,7 +11,8 @@
 	export let errors;
   
 	let editor;
-	let content = '';
+	
+	let content = value;
   
 	onMount(async () => {
 	  const Quill = (await import('quill')).default;
@@ -37,6 +38,8 @@
 		content = editor.root.innerHTML;
 		value = content; 
 	  });
+
+	  editor.root.innerHTML = content;
 	});
   </script>
   
