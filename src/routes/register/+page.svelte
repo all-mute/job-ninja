@@ -47,6 +47,9 @@
 					const formDataNew = new FormData();
 					formDataNew.append('avatar', avatarFile);
 
+					// ALFA BADGE
+					formDataNew.append('badges', 'bcmmsrxje5fsrax'); // has to be same at dev and prod
+
 					await pb.collection("users").update(pb.authStore.model.id, formDataNew);
 				}
 			}
@@ -88,6 +91,9 @@
 			// Set avatar
 			const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
 			formDataNew.append('avatar', avatarFile);
+
+			// ALFA BADGE
+			formDataNew.append('badges', 'bcmmsrxje5fsrax'); // has to be same at dev and prod
 
 			const authData = await pb.collection('users').create(formDataNew);
 			await pb.collection('users').requestVerification(formData.email);

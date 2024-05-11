@@ -54,10 +54,10 @@ const imageTypes = [
 
 export const createPageSchema = z.object({
 	name: z
-		.string({ required_error: 'Name is required' })
-		.min(2, { message: 'Name must be longer than 2 characters' })
+		.string()
 		.max(64, { message: 'Name must be 64 characters or less' })
-		.trim(),
+		.trim()
+		.optional(),
 
 
 	company: z

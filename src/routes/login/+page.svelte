@@ -66,6 +66,9 @@
 					const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
 					const formDataNew = new FormData();
 					formDataNew.append('avatar', avatarFile);
+					
+					// ALFA BADGE
+					formDataNew.append('badges', 'bcmmsrxje5fsrax'); // has to be same at dev and prod
 
 					await pb.collection("users").update(pb.authStore.model.id, formDataNew);
 				}

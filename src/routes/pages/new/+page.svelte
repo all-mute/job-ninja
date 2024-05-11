@@ -1,6 +1,9 @@
 <script>
 	import { enhance } from '$app/forms';
 	import { Input, TextArea, WYSIWYG } from '$lib/components';
+	import { fade } from 'svelte/transition';
+
+	let isOpen = false;
 	export let form;
 </script>
 
@@ -13,32 +16,9 @@
 			enctype="multipart/form-data"
 			use:enhance
 		>
+			<input type="hidden" name="public_at" value={(new Date()).toISOString()} />
 			<div class="flex flex-col justify-center text-center mt-10 mb-7">
 				<div class="text-center text-3xl font-bold">Запись собеседования</div>
-			</div>
-
-			<div class="w-full grid grid-cols-1 gap-x-5 ">
-				<div>
-					<Input
-						id="name"
-						label="Название"
-						value={form?.data?.name}
-						errors={form?.errors?.name}
-						placeholder="Сложный собес на бэк в Авито"
-					/>
-				</div>
-			</div>
-
-			<div class="w-full grid grid-cols-1 gap-x-5">
-				<div>
-					<Input
-						id="tagline"
-						label="Теги (любые)"
-						value={form?.data?.tagline}
-						errors={form?.errors?.tagline}
-						placeholder="golang postgresql gRPC kafka k8s"
-					/>
-				</div>
 			</div>
 
 			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
@@ -75,7 +55,7 @@
 						class="select select-bordered w-full"
 					>
 						<!-- TODO: Make this dynamic -->
-						<option disabled selected>Select Grade</option>
+						<option disabled selected>Выберите грейд</option>
 						<option value="intern">intern</option>
 						<option value="junior">junior</option>
 						<option value="middle">middle</option>
@@ -84,32 +64,82 @@
 					</select>
 					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
-				<div class="w-full flex items-center justify-center pt-7 form-control">
-					<label for="private" class="label cursor-pointer flex items-center mr-2">
-						<input
-							type="checkbox"
-							id="private"
-							name="private"
-							class="form-checkbox checkbox checkbox-primary"
-							checked={form?.data?.private}
-						/>
-						<span class="label-text ml-2 text-sm font-semibold">Скрыть пост</span>
+				<div class="w-full">
+					<label for="privacy" class="label font-medium pb-1">
+						<span class="label-text">Приватность</span>
 					</label>
+					<select
+						id="privacy"
+						name="privacy"
+						label="Приватность"
+						class="select select-bordered w-full"
+					>
+						<!-- TODO: Make this dynamic -->
+						<option value=0>Публичный пост</option>
+						<option selected value=30>Опубликовать через 30 дней</option>
+						<option value=60>Опубликовать через 60 дней</option>
+						<option value=180>Опубликовать через 180 дней</option>
+						<option value=10000>Только для меня</option>
+					</select>
+					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
 			</div>
 
 			<div class="w-full grid grid-cols-1 gap-x-5">
-				<div>
-					<Input
-						id="url"
-						label="Ссылка на вакансию (при наличии)"
-						value={form?.data?.url}
-						errors={form?.errors?.url}
-						placeholder="https://"
-					/>
-				</div>
-
-				
+				<details class="spoiler" bind:open={isOpen}>
+				  <summary class="flex items-center justify-between bg-gray-100 p-2 cursor-pointer">
+					<div class="flex items-center">
+					  <svg
+						class="w-4 h-4 text-gray-500 transform transition-transform duration-200"
+						class:rotate-90={isOpen}
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					  >
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+					  </svg>
+					  <span class="ml-2 text-sm text-gray-500">Необязательные параметры</span>
+					</div>
+				  </summary>
+				  {#if isOpen}
+					<div transition:fade class="w-full grid grid-cols-1 gap-x-5" >
+					  <div>
+						<Input
+						  id="name"
+						  label="Название"
+						  value={form?.data?.name}
+						  errors={form?.errors?.name}
+						  placeholder="Сложный собес на бэк в Авито"
+						/>
+					  </div>
+					</div>
+			  
+					<div transition:fade class="w-full grid grid-cols-1 gap-x-5">
+					  <div>
+						<Input
+						  id="tagline"
+						  label="Теглайн"
+						  value={form?.data?.tagline}
+						  errors={form?.errors?.tagline}
+						  placeholder="golang postgresql gRPC kafka k8s"
+						/>
+					  </div>
+					</div>
+			  
+					<div transition:fade class="w-full grid grid-cols-1 gap-x-5">
+					  <div>
+						<Input
+						  id="url"
+						  label="Ссылка на вакансию"
+						  value={form?.data?.url}
+						  errors={form?.errors?.url}
+						  placeholder="https://"
+						/>
+					  </div>
+					</div>
+				  {/if}
+				</details>
 			</div>
 
 

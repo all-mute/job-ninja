@@ -14,18 +14,20 @@ export const actions = {
 	create: async ({ request, locals }) => {
 		const body = await request.formData();
 
-		const privateValue = body.get('private');
+		const privacyValue = parseInt(body.get('privacy')); // Преобразуем в число
 
 		body.append('user', locals.user.id);
 
 		const { formData, errors } = await validateData(body, createPageSchema);
-		
-		if (privateValue === 'on') {
-			formData.private = true;
-		} else {
-			formData.private = false;
-		}
-		
+
+		// Устанавливаем private на основе privacyValue
+		formData.private = privacyValue > 0;
+
+		// Вычисляем public_at
+		const publicAt = new Date();
+		publicAt.setDate(publicAt.getDate() + privacyValue);
+		formData.public_at = publicAt.toISOString();
+
 		const { ...rest } = formData;
 
 		if (errors) {
@@ -42,7 +44,6 @@ export const actions = {
 			throw error(err.status, err.message);
 		}
 
-		//console.log('FORM DATA: ', formData);
 		throw redirect(303, '/');
 	}
 };
