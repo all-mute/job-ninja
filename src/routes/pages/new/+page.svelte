@@ -54,7 +54,7 @@
 						class="select select-bordered w-full"
 					>
 						<!-- TODO: Make this dynamic -->
-						<option disabled selected>Select Grade</option>
+						<option disabled selected>Выберите грейд</option>
 						<option value="intern">intern</option>
 						<option value="junior">junior</option>
 						<option value="middle">middle</option>
@@ -63,17 +63,24 @@
 					</select>
 					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
-				<div class="w-full flex items-center justify-center pt-7 form-control">
-					<label for="private" class="label cursor-pointer flex items-center mr-2">
-						<input
-							type="checkbox"
-							id="private"
-							name="private"
-							class="form-checkbox checkbox checkbox-primary"
-							checked={form?.data?.private}
-						/>
-						<span class="label-text ml-2 text-sm font-semibold">Скрыть пост</span>
+				<div class="w-full">
+					<label for="privacy" class="label font-medium pb-1">
+						<span class="label-text">Приватность</span>
 					</label>
+					<select
+						id="privacy"
+						name="privacy"
+						label="Приватность"
+						class="select select-bordered w-full"
+					>
+						<!-- TODO: Make this dynamic -->
+						<option value=0>Публичный пост</option>
+						<option selected value=30>Опубликовать через 30 дней</option>
+						<option value=60>Опубликовать через 60 дней</option>
+						<option value=180>Опубликовать через 180 дней</option>
+						<option value=10000>Только для меня </option>
+					</select>
+					<!-- <span class="text-sm text-red-600">{form?.errors?.grade}</span> -->
 				</div>
 			</div>
 
@@ -144,6 +151,7 @@
 					errors={form?.errors?.content}
 				/>
 			</div>
+			<input type="hidden" name="public_at" value={(new Date()).toISOString()} />
 			<div class="w-full max-w-lg pt-3">
 				<button type="submit" class="btn btn-accent rounded w-full max-w-lg">Создать страницу</button>
 			</div>
