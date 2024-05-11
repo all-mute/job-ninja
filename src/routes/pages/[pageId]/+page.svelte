@@ -9,7 +9,8 @@
 		Icon,
 		Heart,
 		HandThumbUp,
-		Share,
+		Bookmark,
+		InboxArrowDown,
 		PencilSquare,
 		ArrowPathRoundedSquare,
 		CheckCircle,
@@ -210,7 +211,7 @@
 
 		<!-- TITLE -->
 		<div>
-			<div class="text-neutral text-5xl font-bold">
+			<div class="text-neutral text-4xl font-bold">
 				{data.page.name}<span />
 			</div>
 		</div>
@@ -222,8 +223,8 @@
 			</div>
 		</div> -->
 
-		<!-- DATE -->
-		<div class="my-2 flex flex-col md:flex-row md:gap-5">
+		<!-- POSITION LINK -->
+		<div class="my-2 mb-8 flex">
 			<div class="text-sm text-gray-500 font-base primary-content">
 				<div class="flex gap-2 items-center">
 					<div>
@@ -238,19 +239,55 @@
 			</div>
 		</div>
 
+		<!-- IMAGE -->
+		{#if data.page.thumbnail}
+			<div class="avatar">
+				<div class="w-full h-64 md:h-96 rounded shadow-lg">
+					<img
+						in:fade
+						class=""
+						src={data.page?.thumbnail
+							? getImageURL(data.page.collectionId, data.page.id, data.page.thumbnail, '0x0')
+							: `https://via.placeholder.com/400/4506CB/FFFFFF/?text=${data.page.name}`}
+						alt="page thumbnail"
+					/>
+				</div>
+			</div>
+
+			<!-- CONTENT -->
+			<div class="mt-10 page-content font-base text-neutral overflow-x-hidden">
+				{@html data.page.content}
+			</div>
+		{:else}
+			<div class="page-content font-base text-neutral overflow-x-hidden">
+				{@html data.page.content}
+			</div>
+		{/if}
+
+		<!-- BADGES + TAGLINE -->
+		<div class="mt-7">
+			<div class="badge badge-xl badge-neutral rounded capitalize my-1 py-3">{data.page.company}</div>
+			<div class="badge badge-xl badge-domain border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
+			<div class="badge badge-xl badge-ghost rounded capitalize my-1 py-3">{data.page.grade}</div>
+
+			<div class="mt-2 text-sm text-base-content/75">
+				{data.page.tagline}
+			</div>
+		</div>
+
 		<!-- PAGE METAGS -->
 		<div
-			class="flex md:items-center flex-col gap-2 md:flex-row justify-between sticky top-0 z-50 bg-base-100 py-2"
+			class="flex flex-row justify-between gap-2 sticky z-50 bg-base-100 py-2 mt-5"
 		>
 			<!-- <div class="sticky bg-base-100 flex md:items-center flex-col gap-2 md:flex-row justify-between"> -->
 			<!-- TAGS -->
-			<div class="flex flex-wrap gap-2">
+			<!-- <div class="flex flex-wrap gap-2">
 				{#if data.page.expand.tags}
 					{#each data.page.expand.tags as tag}
 						<div class="badge badge-outline py-3">{tag.name}</div>
 					{/each}
 				{/if}
-			</div>
+			</div> -->
 
 			<!-- ACTION BUTTONS -->
 			<div class="flex gap-5">
@@ -265,10 +302,10 @@
 							<div>
 								{#if data.user.likes.includes(data.page.id)}
 									<input type="hidden" name="like" value="true" />
-									<Icon src={HandThumbUp} class="text-info w-7 h-7" solid />
+									<Icon src={Heart} class="text-warning w-7 h-7" solid />
 								{:else}
 									<input type="hidden" name="like" value="false" />
-									<Icon src={HandThumbUp} class="text-neutral w-7 h-7" />
+									<Icon src={Heart} class="text-neutral w-7 h-7" />
 								{/if}
 							</div>
 						</button>
@@ -287,10 +324,10 @@
 							<div>
 								{#if data.user.favorites.includes(data.page.id)}
 									<input type="hidden" name="favorite" value="true" />
-									<Icon src={Heart} class="text-error w-7 h-7" solid />
+									<Icon src={Bookmark} class="text-info w-7 h-7" solid />
 								{:else}
 									<input type="hidden" name="favorite" value="false" />
-									<Icon src={Heart} class="text-neutral w-7 h-7" />
+									<Icon src={Bookmark} class="text-neutral w-7 h-7" />
 								{/if}
 							</div>
 						</button>
@@ -305,12 +342,13 @@
 						href={`mailto:?subject=Nexum: ${data.page.name}&body=${PUBLIC_HOME_URL}/pages/${data.page.id}`}
 					>
 						<Icon
-							src={Share}
+							src={InboxArrowDown}
 							class="text-content-neutral w-7 h-7 hover:scale-105 active:scale-95 transition-all duration-200"
 						/>
 					</a>
 				</div>
-
+			</div>
+			<div class="flex gap-5">
 				<!-- EDIT -->
 				{#if data.page.user === data.user.id}
 					<a href="/pages/{data.page.id}/edit">
@@ -351,45 +389,10 @@
 			</div>
 		</div>
 
-		<!-- IMAGE -->
-		{#if data.page.thumbnail}
-			<div class="avatar">
-				<div class="w-full h-64 md:h-96 rounded shadow-lg">
-					<img
-						in:fade
-						class=""
-						src={data.page?.thumbnail
-							? getImageURL(data.page.collectionId, data.page.id, data.page.thumbnail, '0x0')
-							: `https://via.placeholder.com/400/4506CB/FFFFFF/?text=${data.page.name}`}
-						alt="page thumbnail"
-					/>
-				</div>
-			</div>
-
-			<!-- CONTENT -->
-			<div class="mt-10 page-content overflow-x-hidden">
-				{@html data.page.content}
-			</div>
-		{:else}
-			<div class="page-content overflow-x-hidden">
-				{@html data.page.content}
-			</div>
-		{/if}
-
-		<!-- BADGES + TAGLINE -->
-		<div>
-			<div class="badge badge-xl badge-neutral rounded capitalize my-1 py-3">{data.page.company}</div>
-			<div class="badge badge-xl badge-domain border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
-			<div class="badge badge-xl badge-ghost rounded capitalize my-1 py-3">{data.page.grade}</div>
-
-			<div class=" text-sm text-base-content/75">
-				{data.page.tagline}
-			</div>
-		</div>
 	</div>
 
-	<!-- TOC -->
+	<!-- TOC
 	<div class="mt-10 hidden xl:flex justify-start">
 		<Toc title={'Page Contents'} autoHide={true} />
-	</div>
+	</div> -->
 </div>
