@@ -52,7 +52,7 @@
 			
 			<div class="flex flex-col justify-center text-center mt-10 mb-7">
 				<div class="text-3xl font-bold">Редактировать</div>
-				<div class="text-3xl font-bold">"{data.page.name}"</div>
+				<div class="text-3xl font-bold">{data.page.name ? `"${data.page.name}"` : '"Без названия"'}</div>
 			</div>
 
 			<div class="w-full grid grid-cols-1 gap-x-5 md:grid-cols-2">
