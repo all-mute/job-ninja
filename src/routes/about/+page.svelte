@@ -18,6 +18,12 @@
 
 	import feed from '$lib/assets/feed-screenshot.png';
 	import quantumComputing from '$lib/assets/quantum-computing.png';
+	import createPage from '$lib/assets/new3.png';
+	import privacyPages from '$lib/assets/privacy.png';
+	import search from '$lib/assets/search.png';
+	import rag from '$lib/assets/rag.jpg';
+	import fancy from '$lib/assets/fancy.jpg';
+	//import createPage from '$lib/assets/new2.png';
 </script>
 
 <div>
@@ -43,17 +49,17 @@
 				<div class="flex items-center gap-2">
 					<a
 						href="/register"
-						class="btn btn-primary bg-purple-500 border-purple-500 hover:bg-purple-700 rounded"
+						class="btn btn-primary text-white hover:border-accent hover:btn-accent hover:text-white rounded"
 						>Начать</a
 					>
 					<a href={$githubOurURL} class="btn btn-outline group rounded">
 						<div class="flex gap-1 items-center">
 							<div
-								class="group-hover:fill-purple-500 fill-purple-500 transition-color duration-200"
+								class="group-hover:fill-primary fill-primary transition-color duration-200"
 							>
 								<Icon src={AiOutlineGithub} size="20" />
 							</div>
-							<div class="">Помочь проекту</div>
+							<div class="">Наш гитхаб</div>
 						</div>
 					</a>
 				</div>
@@ -78,14 +84,14 @@
 		</div>
 		<div class="relative">
 			<img
-				src={feed}
+				src={createPage}
 				alt="hello"
 				class="max-3xl lg:max-w-6xl shadow-lg border border-neutral/50"
 			/>
 		</div>
 	</div>
 
-	<div class="px-4 my-20 max-w-5xl text-center mx-auto flex flex-col items-center">
+	<div class="px-4 my-40 pb-10 max-w-5xl text-center mx-auto flex flex-col items-center">
 		<div>
 			<div class="text-4xl font-bold flex justify-center">Безопасность и приватность</div>
 
@@ -94,13 +100,13 @@
 			</div>
 		</div>
 		<img
-			src={quantumComputing}
+			src={privacyPages}
 			alt="hello"
 			class="max-3xl lg:max-w-6xl shadow-lg border border-neutral/50"
 		/>
 	</div>
 
-	<div class="px-4 my-20 max-w-5xl text-center mx-auto flex flex-col items-center">
+	<div class="px-4 my-40 max-w-5xl text-center mx-auto flex flex-col items-center">
 		<div>
 			<div class="text-4xl font-bold flex justify-center">
 				Удобный поиск
@@ -111,7 +117,7 @@
 			</div>
 		</div>
 		<img
-			src={feed}
+			src={search}
 			alt="hello"
 			class="max-3xl lg:max-w-6xl shadow-lg border border-neutral/50"
 		/>
@@ -243,13 +249,30 @@
 			<div class="hero-content flex-col lg:flex-row xl:gap-32">
 				<img
 					alt="hero"
-					src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+					src="https://blogs.nvidia.com/wp-content/uploads/2023/11/Retrieval-Augmented-Generation-RAG-KV-1.jpg"
 					class="h-80 w-full object-cover rounded shadow-lg"
 				/>
 				<div class="text-center max-w-lg">
 					<div class="text-3xl font-bold">AI-поиск по вопросам сайта (Скоро)</div>
 					<div class="py-5">
 						Семантический поиск по вопросам, аналогичный you.com.
+					</div>
+					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
+				</div>
+			</div>
+		</div>
+
+		<div class="hero min-h-full rounded">
+			<div class="hero-content flex-col lg:flex-row-reverse xl:gap-32">
+				<img
+					alt="hero"
+					src="https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80"
+					class="h-80 w-full object-cover rounded shadow-lg"
+				/>
+				<div class="text-center max-w-lg">
+					<div class="text-3xl font-bold">Внешняя библиотека вопросов (Скоро)</div>
+					<div class="py-5">
+						Скопируем easyoffer.ru.
 					</div>
 					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
 				</div>
@@ -274,28 +297,12 @@
 			</div>
 		</div>
 
-		<div class="hero min-h-full rounded">
-			<div class="hero-content flex-col lg:flex-row-reverse xl:gap-32">
-				<img
-					alt="hero"
-					src="https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80"
-					class="h-80 w-full object-cover rounded shadow-lg"
-				/>
-				<div class="text-center max-w-lg">
-					<div class="text-3xl font-bold">Внешняя библиотека вопросов (Скоро)</div>
-					<div class="py-5">
-						Украдем функционал easyoffer.ru.
-					</div>
-					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
-				</div>
-			</div>
-		</div>
 
 		<div class="hero min-h-full rounded">
 			<div class="hero-content flex-col lg:flex-row-reverse xl:gap-32">
 				<img
 					alt="hero"
-					src="https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80"
+					src="https://i.pinimg.com/originals/ab/ae/98/abae988de571f443aa5f1274711d96a4.jpg"
 					class="h-80 w-full object-cover rounded shadow-lg"
 				/>
 				<div class="text-center max-w-lg">
