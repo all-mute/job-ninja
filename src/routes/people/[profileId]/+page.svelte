@@ -34,10 +34,6 @@
 
 	const dateDiffInDays = (date1, date2) => Math.floor((date1 - date2) / MS_PER_DAY);
 
-	const isOld = (date) => dateDiffInDays(new Date(), new Date(date)) > 30;
-
-	const isNew = (date) => dateDiffInDays(new Date(), new Date(date)) < 1;
-
 	const pageBelongsToUser = (page) => page.user === data.pageUser.id;
 
 	// Set the value of userPageCount in your component
@@ -107,7 +103,7 @@
 			<div class="flex items-center justify-center w-full gap-2">
 				<div class=" flex w-full max-w-lg border border-neutral/10 rounded p-3">
 					<div class="flex items-center gap-2 w-full">
-						<Icon src={MagnifyingGlass} class=" text-primary w-5 h-5" />
+						<Icon src={MagnifyingGlass} class=" text-neutral w-5 h-5" />
 						<!-- svelte-ignore a11y-autofocus -->
 						<input
 							type="text"
@@ -153,8 +149,6 @@
 								{page}
 								user={data.pageUser}
 								localUser={data.user}
-								isNew={isNew(page.created)}
-								isOld={isOld(page.updated)}
 							/>
 						{/if}
 					{/if}

@@ -22,26 +22,6 @@
 		$feedSelect = !$feedSelect;
 	};
 
-	const isOld = (date) => {
-		const currentDate = new Date(); // Current date
-		const updatedDate = new Date(date); // Replace with page.updated value
-		const differenceInMilliseconds = currentDate - updatedDate;
-		const daysDifference = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
-		if (daysDifference > 30) {
-			return true;
-		}
-	};
-
-	const isNew = (date) => {
-		const currentDate = new Date(); // Current date
-		const createDate = new Date(date); // Replace with page.updated value
-		const differenceInMilliseconds = currentDate - createDate;
-		const daysDifference = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
-		if (daysDifference < 1) {
-			return true;
-		}
-	};
-
 	const handleFilter = (value) => {
 		if (value == '') {
 			filter = ''; // Очищаем фильтр, если новое значение пустое
@@ -111,21 +91,21 @@
 <div>
 	<div class="mt-10 text-center text-7xl font-bold tracking-tight text-base-content">
 		<!-- <div>
-			<span class="text-orange-500">Job</span> Ninja
+			<span class="text-primary">Job</span> Ninja
 		</div> -->
 	</div>
-	<div class="text-center my-10 text-xl mx-[80px]">
+	<div class="text-center my-10 text-2xl mx-[80px]">
 		{#if $feedSelect}
 			<div class="flex justify-center items-center gap-2">
 				<div class="">
 					Лента <strong>подписок</strong>
 				</div>
-				<div><Icon src={UserGroup} class="w-7 h-7 text-orange-500" solid /></div>
+				<div><Icon src={UserGroup} class="w-7 h-7 text-primary" solid /></div>
 			</div>
 		{:else}
 			<div class="flex justify-center items-center gap-2 text-pretty">
 				<div class="">Лента <strong>последних</strong> собеседований</div>
-				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-orange-500" solid /></div>
+				<div><Icon src={ChatBubbleLeftRight} class="w-7 h-7 text-primary" solid /></div>
 			</div>
 		{/if}
 	</div>
@@ -160,7 +140,7 @@
 			<div class="">
 				<label class="group cursor-pointer">
 					<div
-						class=" flex items-center gap-2 border border-neutral group-hover:border-neutral/50 py-2.5 px-4 rounded group-hover:shadow-md transition-all duration-200"
+						class=" flex items-center gap-2 border border-neutral/10 group-hover:border-neutral/50 py-2.5 px-4 rounded group-hover:shadow-md transition-all duration-200"
 					>
 						<label class="swap swap-rotate">
 							<input
@@ -192,7 +172,7 @@
 					>
 				{/each}
 				<button
-					class="btn btn-sm lowercase shadow hover:bg-orange-500 hover:text-white"
+					class="btn btn-sm lowercase shadow hover:bg-primary hover:text-white"
 					on:click={() => handleFilter('')}>Clear</button
 				>
 			</div>
@@ -213,8 +193,7 @@
 							{page}
 							{user}
 							localUser={data.user}
-							isNew={isNew(page.created)}
-							isOld={isOld(page.updated)}
+							isPrivate={page.private}
 							/>
 						{/if}
 						{/if}
@@ -230,8 +209,7 @@
 								{page}
 								{user}
 								localUser={data.user}
-								isNew={isNew(page.created)}
-								isOld={isOld(page.updated)}
+								isPrivate={page.private}
 							/>
 							{/if}
 							{/if}
@@ -251,8 +229,7 @@
 							{page}
 							{user}
 							localUser={data.user}
-							isNew={isNew(page.created)}
-							isOld={isOld(page.updated)}
+							isPrivate={page.private}
 							/>
 						{/if}
 					{/each}
@@ -266,8 +243,7 @@
 						{page}
 						{user}
 						localUser={data.user}
-						isNew={isNew(page.created)}
-						isOld={isOld(page.updated)}
+						isPrivate={page.private}
 					/>
 					{/if}
 				{/each}

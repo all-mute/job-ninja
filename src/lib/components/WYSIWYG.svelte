@@ -1,6 +1,6 @@
 <script>
-	import Editor from '@tinymce/tinymce-svelte';
-	import { PUBLIC_TINY_API_KEY } from '$env/static/public';
+	import { onMount } from 'svelte';
+  
 	export let value = '';
 	export let placeholder = '';
 	export let id;
@@ -8,71 +8,71 @@
 	export let type = 'hidden';
 	export let disabled = false;
 	export let required = false;
-
 	export let errors;
+  
+	let editor;
+	
+	let content = value;
+  
+	onMount(async () => {
+	  const Quill = (await import('quill')).default;
+	  import('quill/dist/quill.snow.css');
+  
+	  editor = new Quill(`#${id}`, {
+		theme: 'snow',
+		modules: {
+		  toolbar: [
+			[{ header: [1, 2, false] }],
+			['bold', 'italic', 'underline', 'strike'],
+			['code-block'],
+			['link', 'image', 'video'],
+			[{ list: 'ordered' }, { list: 'bullet' }],
+			[{ align: [] }],
+			['clean'],
+		  ],
+		},
+		placeholder,
+	  });
+  
+	  editor.on('text-change', () => {
+		content = editor.root.innerHTML;
+		value = content; 
+	  });
 
-	let conf = {
-		skin: 'borderless',
-		content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-		min_height: 720,
-		selector: 'textarea',
-		placeholder: `Add your page's content here. Click save when finished.`,
-		toolbar_mode: 'sliding',
-		// menubar: 'file edit view insert format tools table tc help',
-		menubar: false,
-		toolbar:
-			'undo redo | blocks | bold italic underline strikethrough codesample | numlist bullist checklist | link insertfile image media table |' +
-			'alignleft aligncenter alignright alignjustify |' +
-			'forecolor backcolor casechange permanentpen formatpainter |' +
-			'code fullscreen',
-
-		plugins: [
-			'advlist',
-			'codesample',
-			'autolink',
-			'lists',
-			'link',
-			'image',
-			'charmap',
-			'preview',
-			'anchor',
-			'searchreplace',
-			'visualblocks',
-			'code',
-			'fullscreen',
-			'insertdatetime',
-			'media',
-			'table',
-			'help',
-			'wordcount'
-		]
-	};
-</script>
-
-<div class="form-control w-full">
+	  editor.root.innerHTML = content;
+	});
+  </script>
+  
+  <div class="form-control w-full">
 	<label for={id} class="label font-medium pb-1">
-		<span class="label-text">{label}</span>
+	  <span class="label-text">{label}</span>
 	</label>
-	<Editor apiKey='9fb1yzlp4mb860eelswkpw8yj16jd91gsph4lzdhhdswkk39' conf={conf} class="textarea textarea-bordered resize-y h-full" bind:value />
-
+  
+	<div id={id} class="quill-editor h-full min-h-[400px]"></div>
+  
 	<input
-		class="textarea textarea-bordered resize-y h-full"
-		{type}
-		{placeholder}
-		{required}
-		{disabled}
-		{id}
-		name={id}
-		{value}
+	  type='hidden'
+	  {placeholder}
+	  {required}
+	  {disabled}
+	  {id}
+	  name={id}
+	  bind:value={content}
+	  class="hidden"
 	/>
-
+  
 	{#if errors}
-		{#each errors as error}
-			<label for={id} class="label py-0 pt-1">
-				<span class="label-text-alt text-error">
-					{error}
-				</span>
-			</label>
-		{/each}
+	  {#each errors as error}
+		<label for={id} class="label py-0 pt-1">
+		  <span class="label-text-alt text-error">{error}</span>
+		</label>
+	  {/each}
 	{/if}
-</div>
+  </div>
+  
+  <style>
+	.quill-editor {
+	  min-height: 400px;
+	}
+  </style>
+  

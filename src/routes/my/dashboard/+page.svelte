@@ -60,16 +60,6 @@
 		return count;
 	}, 0);
 
-	const isOld = (date) => {
-		const currentDate = new Date(); // Current date
-		const updatedDate = new Date(date); // Replace with page.updated value
-		const differenceInMilliseconds = currentDate - updatedDate;
-		const daysDifference = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
-		if (daysDifference > 30) {
-			return true;
-		}
-	};
-
 	// const isPageVerified = (page) => {
 	// 	if (page.verified) {
 	// 		return true;
@@ -224,45 +214,11 @@
 			<div class=" flex flex-col gap-2 my-2">
 				{#each data.pages as page}
 					{#if page.user === data.user.id}
-						{#if isOld(page.updated)}
+						{#if page.private}
 							<div class="hidden">
 								{incrementStaleCount()}
 							</div>
 
-							<a
-								class=" border border-warning/50 bg-warning/10 md:hover:bg-warning/20 md:hover:shadow rounded transition-shadow duration-200"
-								href={`/pages/${page.id}`}
-							>
-								<div class="flex items-start h-16 overflow-hidden text-ellipsis rounded">
-									<!-- IMAGE -->
-									{#if page.thumbnail}
-										<div class="">
-											<div class="h-16 w-12">
-												<img
-													class="h-full object-cover rounded rounded-r shadow"
-													src={page?.thumbnail
-														? getImageURL(page.collectionId, page.id, page.thumbnail, '0x0')
-														: `https://via.placeholder.com/400/4506CB/FFFFFF/?text=${page.name}`}
-													alt="page thumbnail"
-												/>
-											</div>
-										</div>
-									{/if}
-
-									<div class="flex justify-between gap-2 w-full items-start p-2 h-full">
-										<div class="text-sm font-semibold">
-											{page.name}
-										</div>
-									</div>
-									<div
-										class="md:hover:scale-[102%] active:scale-[98%] transition-transform duration-200 flex items-center h-full"
-									>
-										<a href={`/pages/${page.id}/edit`}>
-											<Icon src={PencilSquare} class="w-7 h-7 pr-2" solid />
-										</a>
-									</div>
-								</div>
-							</a>
 						{/if}
 					{/if}
 				{/each}
