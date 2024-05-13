@@ -29,17 +29,22 @@
 				alt="feed"
 			/>
 			<div class="max-w-lg">
-				<div class="text-5xl md:text-6xl lg:text-7xl font-bold">Все собеседования в одном месте</div>
+				<div class="text-5xl md:text-6xl lg:text-6xl font-bold">Все собеседования в одном месте</div>
 				<div class="text-xl lg:text-2xl py-6">
-					Записывайте вопросы с собеседований в одном месте,чтобы не терять. <br />
-					Найдите последние вопросы <strong> в свою компанию, на свою позицию и на свою роль.</strong>
+					Записывайте вопросы с собеседований в одном месте, чтобы не терять. <br />
+					Находите последние вопросы 
+					<span class="font-bold"
+				> в свою компанию, на свою позицию и на свою роль
+				</span>
+				 среди постов других участников.
+					<div class=""></div>
 				</div>
 
 				<div class="flex items-center gap-2">
 					<a
 						href="/register"
 						class="btn btn-primary bg-purple-500 border-purple-500 hover:bg-purple-700 rounded"
-						>Get Started</a
+						>Начать</a
 					>
 					<a href={$githubOurURL} class="btn btn-outline group rounded">
 						<div class="flex gap-1 items-center">
@@ -48,7 +53,7 @@
 							>
 								<Icon src={AiOutlineGithub} size="20" />
 							</div>
-							<div class="">GitHub</div>
+							<div class="">Помочь проекту</div>
 						</div>
 					</a>
 				</div>
@@ -60,40 +65,32 @@
 
 	<div class="px-4 my-20 max-w-5xl text-center mx-auto flex flex-col items-center group">
 		<div>
-			<div class="text-4xl font-bold flex justify-center">Everything in one place.</div>
+			<div class="text-4xl font-bold flex justify-center">Интуитивное добавление</div>
 
 			<div class="my-5 text-lg">
-				Unlike traditional knowledge bases, we focus on connecting people and content. We believe
-				that the best way to learn is through people. Most knowledge bases are static and don't
-				allow for a way to connect with the people behind the content. <span class="font-bold"
-					>We're here to change all of that.</span
-				>
+				Используйте наш сайт как универсальное место, в котором можно сохранять любую информацию о
+				своих последних собеседованиях.
+				<span class="font-bold"
+				> Первые 100 участников, разместивших посты, получают специальное достижение. 
+				</span>
+				Также среди самых популярных постов будет проведен розыгрыш трех кошкажена.
 			</div>
 		</div>
 		<div class="relative">
 			<img
-				src={homepage}
+				src={feed}
 				alt="hello"
 				class="max-3xl lg:max-w-6xl shadow-lg border border-neutral/50"
 			/>
-
-			<div
-				class="group-hover:opacity-100 opacity-0 transition-all duration-500 absolute -bottom-5 -right-5 shadow-lg h-64 w-full max-w-lg bg-base-100 border border-neutral/50 rounded"
-			>
-				<div class="text-2xl font-semibold">Built on search.</div>
-			</div>
 		</div>
 	</div>
 
 	<div class="px-4 my-20 max-w-5xl text-center mx-auto flex flex-col items-center">
 		<div>
-			<div class="text-4xl font-bold flex justify-center">Dynamic UI.</div>
+			<div class="text-4xl font-bold flex justify-center">Безопасность и приватность</div>
 
 			<div class="my-5 text-lg">
-				<strong>A UI that adapts</strong> to your content to show you only the most relevant information
-				at all times. Your page has tags and headings? Great! We'll show you a table of contents and
-				all of your tags. No Headings? No problem. We'll automatically hide any elements that aren't
-				being used, so your content shines.
+				Записи можно сохранять публично и приватно, а также с отложенной публикацией. Приватные записи видны только вам и никогда не попадут в поисковую выдачу. Мы гарантируем конфиденциальность ваших персональных данных.
 			</div>
 		</div>
 		<img
@@ -106,20 +103,105 @@
 	<div class="px-4 my-20 max-w-5xl text-center mx-auto flex flex-col items-center">
 		<div>
 			<div class="text-4xl font-bold flex justify-center">
-				Quick access to the things that matter most.
+				Удобный поиск
 			</div>
 
 			<div class="my-5 text-lg">
-				Personalized user dashboards that give you <strong
-					>quick access to the things that matter most</strong
-				> to you.
+				Ищите собеседования на свою позицию, используя фильтр, встроенный в поиск. Разработано программистами и для программистов.
 			</div>
 		</div>
 		<img
-			src={homepage}
+			src={feed}
 			alt="hello"
 			class="max-3xl lg:max-w-6xl shadow-lg border border-neutral/50"
 		/>
+	</div>
+
+	<div class="my-40">
+		<div class="my-40">
+			<div class="px-4 my-10 max-w-5xl text-center mx-auto flex flex-col items-center">
+				<div>
+					<div class="text-4xl font-bold flex justify-center">Еще фичи</div>
+
+					<div class="my-5 text-lg">Дополнительные возможности, которые могут вам пригодиться</div>
+				</div>
+			</div>
+
+			<div
+				class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 w-full gap-2 md:gap-5 px-4 md:px-0"
+			>
+				<FeatureCard
+					title="Open Source"
+					description="Разработано в опенсурсе и используя опенсурсные технологии."
+					button="click me"
+					><div class="fill-teal-500 text-teal-500">
+						<Icon src={AiOutlineGithub} size="24" />
+					</div></FeatureCard
+				>
+
+				<FeatureCard
+					title="Большое будущее"
+					description="Большое количество AI-фичей в ближайшее время."
+					button="click me"
+					><div class="fill-teal-500 text-teal-500">
+						<Icon src={FaRobot} size="24" />
+					</div></FeatureCard
+				>
+
+				<FeatureCard
+					title="Редактируемый профиль"
+					description="Личный кабинет и случайная мемная аватарка на старте."
+					button="click me"
+					><div class="fill-teal-500 text-teal-500">
+						<Icon src={BsCardList} size="24" />
+					</div></FeatureCard
+				>
+
+				<FeatureCard
+					title="Дополнительные поля для постов"
+					description="Для более удобной ориентации по записям."
+					button="click me"
+					><div class="fill-teal-500 text-teal-500">
+						<Icon src={AiOutlineSearch} size="24" />
+					</div></FeatureCard
+				>
+				<FeatureCard
+					title="Лайки, подписки, избранное..."
+					description="Всё для вас."
+					button="click me"
+					><div class="fill-teal-500 text-teal-500">
+						<Icon src={AiOutlineApi} size="24" />
+					</div></FeatureCard
+				>
+
+				<FeatureCard
+					title="Удобный редактор"
+					description="Quill - html редактор"
+					button="click me"
+					><div class="fill-teal-500 text-teal-500">
+						<Icon src={AiFillDatabase} size="24" />
+					</div></FeatureCard
+				>
+
+				<FeatureCard
+					title="Достижения"
+					description="Необычная система ачивок."
+					button="click me"
+					><div class="fill-teal-500 text-teal-500">
+						<Icon src={BiNetworkChart} size="24" />
+					</div></FeatureCard
+				>
+
+				<FeatureCard
+					title="Полная свобода"
+					description="Мы не сдерживаем вас строгим форматом постов."
+					button="click me"
+					><div class="fill-teal-500 text-teal-500">
+						<Icon src={BiUserCircle} size="24" />
+					</div></FeatureCard
+				>
+			</div>
+		</div>
 	</div>
 
 	<div class="my-10 bg-base-200 py-10 rounded shadow-lg">
@@ -131,7 +213,7 @@
 					class="h-80 w-full object-cover rounded shadow-lg"
 				/>
 				<div class="text-center max-w-lg">
-					<div class="text-3xl font-bold">Improve Cross-team Connections</div>
+					<div class="text-3xl font-bold">Ассистент для собесов (Скоро)</div>
 					<div class="py-5">
 						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
 						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
@@ -149,7 +231,7 @@
 					class="h-80 w-full object-cover rounded shadow-lg"
 				/>
 				<div class="text-center max-w-lg">
-					<div class="text-3xl font-bold">Foster Collaborations</div>
+					<div class="text-3xl font-bold">Популярность вопросов относительно компаний/позиций/ролей (Скоро)</div>
 					<div class="py-5">
 						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
 						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
@@ -167,7 +249,25 @@
 					class="h-80 w-full object-cover rounded shadow-lg"
 				/>
 				<div class="text-center max-w-lg">
-					<div class="text-3xl font-bold">Better Developer Experience</div>
+					<div class="text-3xl font-bold">AI-поиск по вопросам сайта (Скоро)</div>
+					<div class="py-5">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</div>
+					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
+				</div>
+			</div>
+		</div>
+
+		<div class="hero min-h-full rounded">
+			<div class="hero-content flex-col lg:flex-row xl:gap-32">
+				<img
+					alt="hero"
+					src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+					class="h-80 w-full object-cover rounded shadow-lg"
+				/>
+				<div class="text-center max-w-lg">
+					<div class="text-3xl font-bold">Ассистент для подготовки к собесам (Скоро)</div>
 					<div class="py-5">
 						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
 						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
@@ -185,7 +285,7 @@
 					class="h-80 w-full object-cover rounded shadow-lg"
 				/>
 				<div class="text-center max-w-lg">
-					<div class="text-3xl font-bold">Improved Data Modeling</div>
+					<div class="text-3xl font-bold">Внешняя библиотека вопросов (Скоро)</div>
 					<div class="py-5">
 						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
 						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
@@ -194,177 +294,21 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="my-40">
-		<div class="px-4 my-10 max-w-5xl text-center mx-auto flex flex-col items-center">
-			<div>
-				<div class="text-4xl font-bold flex justify-center">Optimized for Mobile.</div>
-
-				<div class="my-5 text-lg">
-					Unlike traditional knowledge bases, we focus on connecting people and content. We believe
-					that the best way to learn is through people. Most knowledge bases are static and don't
-					allow for a way to connect with the people behind the content. We want to change that.
-				</div>
-			</div>
-		</div>
-
-		<div class="flex justify-center">
-			<a href="/about" class="mockup-phone border-neutral shadow-xl shadow-purple-500">
-				<div class="camera" />
-				<div class="display">
-					<div class="artboard artboard-demo phone-1">
-						<div class="text-5xl font-bold animate-pulse">
-							<span class="text-primary">Job </span>Ninja
-						</div>
-						<div>Optimized for mobile.</div>
+		<div class="hero min-h-full rounded">
+			<div class="hero-content flex-col lg:flex-row-reverse xl:gap-32">
+				<img
+					alt="hero"
+					src="https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80"
+					class="h-80 w-full object-cover rounded shadow-lg"
+				/>
+				<div class="text-center max-w-lg">
+					<div class="text-3xl font-bold">Генерация индивидуальной программы по подготовке к собесам (Не скоро)</div>
+					<div class="py-5">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
 					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="my-40">
-			<div class="px-4 my-10 max-w-5xl text-center mx-auto flex flex-col items-center">
-				<div>
-					<div class="text-4xl font-bold flex justify-center">Features</div>
-
-					<div class="my-5 text-lg">The features that matter most to you.</div>
-				</div>
-			</div>
-
-			<div
-				class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 w-full gap-2 md:gap-5 px-4 md:px-0"
-			>
-				<FeatureCard
-					title="Open Source"
-					description="Built using open-sourced technologies."
-					button="click me"
-					><div class="fill-teal-500 text-teal-500">
-						<Icon src={AiOutlineGithub} size="24" />
-					</div></FeatureCard
-				>
-
-				<FeatureCard
-					title="Built for AI"
-					description="Designed with AI Embeddings in mind."
-					button="click me"
-					><div class="fill-teal-500 text-teal-500">
-						<Icon src={FaRobot} size="24" />
-					</div></FeatureCard
-				>
-
-				<FeatureCard
-					title="Flat Page Structure"
-					description="Don't worry about nested pages, or where to put your content."
-					button="click me"
-					><div class="fill-teal-500 text-teal-500">
-						<Icon src={BsCardList} size="24" />
-					</div></FeatureCard
-				>
-
-				<FeatureCard
-					title="Designed for Search"
-					description="Search-centric user experience, with a focus on speed."
-					button="click me"
-					><div class="fill-teal-500 text-teal-500">
-						<Icon src={AiOutlineSearch} size="24" />
-					</div></FeatureCard
-				>
-				<FeatureCard
-					title="Sane APIs"
-					description="Self-documented APIs for easy and seamless integrations with your app or service."
-					button="click me"
-					><div class="fill-teal-500 text-teal-500">
-						<Icon src={AiOutlineApi} size="24" />
-					</div></FeatureCard
-				>
-
-				<FeatureCard
-					title="Integrated CMS"
-					description="Fully integrated backend CMS for easy content management."
-					button="click me"
-					><div class="fill-teal-500 text-teal-500">
-						<Icon src={AiFillDatabase} size="24" />
-					</div></FeatureCard
-				>
-
-				<FeatureCard
-					title="Connect People and Content"
-					description="People are the best way to learn. Connect with the people behind the content.	"
-					button="click me"
-					><div class="fill-teal-500 text-teal-500">
-						<Icon src={BiNetworkChart} size="24" />
-					</div></FeatureCard
-				>
-
-				<FeatureCard
-					title="User-first design"
-					description="Minimalist design with a focus on the user experience."
-					button="click me"
-					><div class="fill-teal-500 text-teal-500">
-						<Icon src={BiUserCircle} size="24" />
-					</div></FeatureCard
-				>
-			</div>
-		</div>
-
-		<div class="my-40">
-			<div class="px-4 my-10 max-w-5xl text-center mx-auto flex flex-col items-center">
-				<div>
-					<div class="text-4xl font-bold flex justify-center">Technology Stack</div>
-
-					<div class="my-5 text-lg">
-						Built using state-of-the-art technologies that you will love.
-					</div>
-				</div>
-
-				<div class="my-10 flex flex-col md:flex-row gap-2 sm:gap-5 w-full items-center">
-					<a
-						href="https://kit.svelte.dev/"
-						target="_blank"
-						class="flex-col hover:scale-[102%] tranistion-all duration-200 h-40 w-full lg:h-72 lg:w-72 shadow-lg border border-neutral/50 rounded flex items-center
-						justify-center hover:fill-primary"
-					>
-						<Icon src={SiSvelte} size="72" />
-						<div>Sveltekit</div>
-					</a>
-
-					<a
-						href="https://vercel.com"
-						target="_blank"
-						class="flex-col hover:scale-[102%] tranistion-all duration-200 h-40 w-full lg:h-72 lg:w-72 lg:translate-y-5 shadow-lg border border-neutral/50 rounded flex items-center justify-center hover:fill-neutral/50"
-					>
-						<Icon src={SiVercel} size="72" />
-						<div>Vercel</div>
-					</a>
-
-					<a
-						href="https://openai.com/"
-						target="_blank"
-						class="flex-col hover:scale-[102%] tranistion-all duration-200 h-40 w-full lg:h-72 lg:w-72 shadow-lg border border-neutral/50 rounded flex items-center justify-center hover:fill-teal-500"
-					>
-						<Icon src={SiOpenai} size="72" />
-						<div>OpenAI</div>
-					</a>
-
-					<a
-						href="https://tailwindcss.com/"
-						target="_blank"
-						class="flex-col hover:scale-[102%] tranistion-all duration-200 h-40 w-full lg:h-72 lg:w-72 lg:translate-y-5 shadow-lg border border-neutral/50 rounded flex items-center justify-center hover:fill-sky-600"
-					>
-						<Icon src={SiTailwindcss} size="72" />
-						<div>Tailwind CSS</div>
-					</a>
-
-					<a
-						href="https://huggingface.co/"
-						target="_blank"
-						class="flex-col saturate-0 hover:saturate-100 hover:scale-[102%] tranistion-all duration-200 h-40 w-full lg:h-72 lg:w-72 shadow-lg border border-neutral/50 rounded flex items-center justify-center hover:fill-sky-600"
-					>
-						<!-- <Icon src={SiTailwindcss} size="72" /> -->
-						<div class="text-[64px]">🤗</div>
-						<div>Hugging Face</div>
-					</a>
+					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
 				</div>
 			</div>
 		</div>
@@ -375,15 +319,14 @@
 				class="flex flex-col justify-center gap-2 max-w-3xl border border-neutral/50 p-10 rounded shadow-lg w-full items-center"
 			>
 				<div class="max-w-lg">
-					<div class="text-4xl flex justify-center font-bold my-5">Contact</div>
+					<div class="text-4xl flex justify-center font-bold my-5">Написать нам</div>
 					<div class="text-xl">
-						Have a question? Want to learn more? We'd love to hear from you. Send us a message and
-						we'll get back to you as soon as possible.
+						Есть вопрос? Хотите узнать больше? Напишите нам, и мы ответим вам как можно скорее.
 					</div>
 					<a
-						href="mailto:jc9361@gmail.com"
+						href="https://t.me/nonGilgamesh"
 						target="_blank"
-						class="btn btn-primary rounded w-full my-5">Let's Chat</a
+						class="btn btn-primary rounded w-full my-5">Телеграм</a
 					>
 				</div>
 			</div>
