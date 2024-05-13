@@ -51,7 +51,7 @@
 				</div>
 			{:else if $page.url.pathname === "/register"}
 				<div class="dropdown dropdown-end">
-					<a href="/login" class="rounded btn bg-white text-black/90 hover:bg-orange-500 hover:text-white">Вход по аккаунту</a>
+					<a href="/login" class="rounded btn bg-white text-black/90 hover:bg-orange-500 hover:text-white">Вход в аккаунт</a>
 				</div>
 			{:else if !data.user}
 				<div class="dropdown dropdown-end">

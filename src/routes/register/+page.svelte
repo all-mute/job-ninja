@@ -5,6 +5,13 @@
 	import toast from 'svelte-french-toast';
 	import { registerUserSchema } from '$lib/schemas';
 	import { z } from 'zod';
+	import bowser from 'bowser';
+
+	let isSafari = false;
+
+	$: {
+		isSafari = bowser.getParser(window.navigator.userAgent).satisfies({ safari: '>0' });
+	}
 
 	export let form;
 
@@ -15,24 +22,31 @@
     async function login_yandex(form) {
 		loading = true;
         try {
-			// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
-			let w = window.open()
+			if (isSafari) {
+				// for safari popup problem https://github.com/pocketbase/pocketbase/discussions/2429#discussioncomment-5943061
+				let w = window.open()	
 
-			// Set avatar
-			const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
-
-			await pb
-				.collection("users")
-				.authWithOAuth2({
-				provider: 'yandex',
-				createData: {
-                    name: 'anonymous-' + Math.random().toString(36).substring(7),
-					avatar: avatarFile
-                },
-				urlCallback: (url) => {
-					w.location.href = url
-				},
-				})
+				await pb
+					.collection("users")
+					.authWithOAuth2({
+					provider: 'yandex',
+					createData: {
+						name: 'anonymous-' + Math.random().toString(36).substring(7),
+					},
+					urlCallback: (url) => {
+						w.location.href = url
+					},
+					})
+			} else {
+				await pb
+					.collection("users")
+					.authWithOAuth2({
+					provider: 'yandex',
+					createData: {
+						name: 'anonymous-' + Math.random().toString(36).substring(7),
+					}
+					})
+			}
 
 			// Set avatar
 			if (!pb.authStore.model.avatar) {
