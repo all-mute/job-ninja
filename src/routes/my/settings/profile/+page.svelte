@@ -46,11 +46,11 @@
 		enctype="multipart/form-data"
 		use:enhance={submitUpdateProfile}
 	>
-		<div class="text-2xl font-medium">Update Profile</div>
+		<div class="text-2xl font-medium">Обновить профиль</div>
 		<div class="divider" />
 		<div class="form-control w-full max-w-lg">
 			<label for="avatar" class="label font-medium pb-1">
-				<span class="label-text">Profile Picture</span>
+				<span class="label-text">Аватарка</span>
 			</label>
 			<label for="avatar" class="avatar w-32 rounded-full hover:cursor-pointer">
 				<label for="avatar" class="absolute -bottom-0.5 -right-0.5 hover:cursor-pointer">
@@ -90,7 +90,7 @@
 		</div>
 		<Input
 			id="name"
-			label="Name"
+			label="Отображаемое имя"
 			value={form?.data?.name ?? data?.user?.name}
 			disabled={loading}
 			errors={form?.errors?.name}
@@ -98,7 +98,7 @@
 
 		<Input
 			id="description"
-			label="Description"
+			label="Описание"
 			value={form?.data?.description ?? data?.user?.description}
 			disabled={loading}
 			errors={form?.errors?.description}

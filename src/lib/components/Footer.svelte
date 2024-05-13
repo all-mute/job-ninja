@@ -8,7 +8,7 @@
 		<div class="grid grid-cols-1 gap-2">
 			<a href="#" class="link link-hover">Сообщество в телеграмме</a>
 			<a href="https://t.me/w0ltage" class="link link-hover hover:font-medium hover:bg-gradient-to-r from-red-700 via-orange-600 to-yellow-500 inline-block hover:text-transparent bg-clip-text">Дизайн делал w0ltage</a>
-			<a href="https://github.com/engageintellect" class="link link-hover">Автор шаблона</a>
+			<a href="https://github.com/engageintellect" class="link link-hover">Благодарности</a>
 		</div>
 	</div>
 	<div>
