@@ -193,20 +193,19 @@
 			{/if}
 		{/each}
 
-		<div class="flex gap-2 items-center mb-2">
-			<!-- VERIFIED -->
-			{#if data.page.verified}
-				<div class="badge badge-sm badge-success rounded-full py-3">
-					<div class="flex gap-1 items-center justify-center">
-						<div>
-							<Icon src={CheckCircle} class=" w-5 h-5" />
-						</div>
-						<div class="uppercase font-semibold">verified</div>
-					</div>
-				</div>
-			{/if}
+		<!-- BADGES + TAGLINE -->
+		<div class="mt-4 mb-4">
+			<div class="badge badge-xl badge-neutral font-medium text-white rounded capitalize my-1 py-3">{data.page.company}</div>
+			<div class="badge badge-xl badge-domain font-medium border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
+			<div class="badge badge-xl badge-ghost font-medium rounded capitalize my-1 py-3">{data.page.grade}</div>
 
-			
+			<div class="mt-2 text-sm text-base-content/75">
+				{#if data.page.tagline}
+					#{@html data.page.tagline.replace(/\s+/g, ' #')}
+				{:else}
+					&nbsp;
+				{/if}
+			</div>
 		</div>
 
 		<!-- TITLE -->
@@ -263,21 +262,6 @@
 				{@html data.page.content}
 			</div>
 		{/if}
-
-		<!-- BADGES + TAGLINE -->
-		<div class="mt-7">
-			<div class="badge badge-xl badge-neutral font-medium text-white rounded capitalize my-1 py-3">{data.page.company}</div>
-			<div class="badge badge-xl badge-domain font-medium border-secondary rounded capitalize my-1 py-3">{data.page.domain}</div>
-			<div class="badge badge-xl badge-ghost font-medium rounded capitalize my-1 py-3">{data.page.grade}</div>
-
-			<div class="mt-2 text-sm text-base-content/75">
-				{#if data.page.tagline}
-					#{@html data.page.tagline.replace(/\s+/g, ' #')}
-				{:else}
-					&nbsp;
-				{/if}
-			</div>
-		</div>
 
 		<!-- PAGE METAGS -->
 		<div
