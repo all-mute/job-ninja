@@ -215,8 +215,7 @@
 				<div class="text-center max-w-lg">
 					<div class="text-3xl font-bold">Ассистент для собесов (Скоро)</div>
 					<div class="py-5">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+						AI-инструмент для помощи в прохождении собесов в режиме реального времени. Будет помогать как с техническими вопросами, так и с кейсами.
 					</div>
 					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
 				</div>
@@ -233,8 +232,7 @@
 				<div class="text-center max-w-lg">
 					<div class="text-3xl font-bold">Популярность вопросов относительно компаний/позиций/ролей (Скоро)</div>
 					<div class="py-5">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+						Рейтинг вопросов относительно компаний/позиций/ролей с вероятностью появления за определенный период.
 					</div>
 					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
 				</div>
@@ -251,8 +249,7 @@
 				<div class="text-center max-w-lg">
 					<div class="text-3xl font-bold">AI-поиск по вопросам сайта (Скоро)</div>
 					<div class="py-5">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+						Семантический поиск по вопросам, аналогичный you.com.
 					</div>
 					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
 				</div>
@@ -269,8 +266,8 @@
 				<div class="text-center max-w-lg">
 					<div class="text-3xl font-bold">Ассистент для подготовки к собесам (Скоро)</div>
 					<div class="py-5">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+						AI-тренер, который помежет вам подготовится к актуальным вопросам с собеседований.
+						Будет спрашивать уточняющие вопросы и моделировать кейсы.
 					</div>
 					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
 				</div>
@@ -287,8 +284,7 @@
 				<div class="text-center max-w-lg">
 					<div class="text-3xl font-bold">Внешняя библиотека вопросов (Скоро)</div>
 					<div class="py-5">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+						Украдем функционал easyoffer.ru.
 					</div>
 					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
 				</div>
@@ -305,8 +301,7 @@
 				<div class="text-center max-w-lg">
 					<div class="text-3xl font-bold">Генерация индивидуальной программы по подготовке к собесам (Не скоро)</div>
 					<div class="py-5">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+						Сформированный под вас упорядоченный список вопросов для оптимального ботанья.
 					</div>
 					<!-- <button class="btn btn-primary w-full">Get Started</button> -->
 				</div>
