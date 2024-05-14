@@ -11,7 +11,7 @@
 	let isSafari = false;
 
 	$: {
-		isSafari = false;
+		isSafari = true;
 	}
 	
 	export let form;
