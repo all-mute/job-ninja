@@ -11,7 +11,7 @@
 	let isSafari = false;
 
 	$: {
-		isSafari = bowser.getParser(window.navigator.userAgent).satisfies({ safari: '>0' });
+		isSafari = false;
 	}
 	
 	export let form;
