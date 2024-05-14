@@ -177,7 +177,7 @@
         "id": "mabrrloh",
         "name": "thumbnail",
         "type": "file",
-        "required": true,
+        "required": false,
         "presentable": false,
         "unique": false,
         "options": {
@@ -343,10 +343,23 @@
       },
       {
         "system": false,
+        "id": "qdfu6ig7",
+        "name": "public_at",
+        "type": "date",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "system": false,
         "id": "kcum4x7w",
         "name": "name",
         "type": "text",
-        "required": true,
+        "required": false,
         "presentable": false,
         "unique": false,
         "options": {
@@ -418,22 +431,6 @@
       },
       {
         "system": false,
-        "id": "qntz90l4",
-        "name": "user",
-        "type": "relation",
-        "required": true,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "collectionId": "_pb_users_auth_",
-          "cascadeDelete": true,
-          "minSelect": null,
-          "maxSelect": 1,
-          "displayFields": null
-        }
-      },
-      {
-        "system": false,
         "id": "9hy2flf1",
         "name": "content",
         "type": "text",
@@ -472,6 +469,22 @@
           "cascadeDelete": false,
           "minSelect": null,
           "maxSelect": 5,
+          "displayFields": null
+        }
+      },
+      {
+        "system": false,
+        "id": "qntz90l4",
+        "name": "user",
+        "type": "relation",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "collectionId": "_pb_users_auth_",
+          "cascadeDelete": true,
+          "minSelect": null,
+          "maxSelect": 1,
           "displayFields": null
         }
       },
@@ -619,5 +632,46 @@
     "updateRule": null,
     "deleteRule": null,
     "options": {}
+  },
+  {
+    "id": "wblu4yms6awddys",
+    "name": "tags_auto",
+    "type": "view",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "jxmxbxbn",
+        "name": "name",
+        "type": "json",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "maxSize": 1
+        }
+      },
+      {
+        "system": false,
+        "id": "9mvvx9de",
+        "name": "cnt",
+        "type": "json",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "maxSize": 1
+        }
+      }
+    ],
+    "indexes": [],
+    "listRule": "",
+    "viewRule": "",
+    "createRule": null,
+    "updateRule": null,
+    "deleteRule": null,
+    "options": {
+      "query": "SELECT \n  name as id,\n  name,\n  cnt\nFROM (\n  SELECT \n    value AS name, \n    COUNT(*) AS cnt \n  FROM (\n    SELECT \n      company AS value \n    FROM pages \n    UNION ALL \n    SELECT \n      grade \n    FROM pages \n    UNION ALL \n    SELECT \n      SUBSTR(tagline, INSTR(tagline, ' ') + 1, INSTR(SUBSTR(tagline, INSTR(tagline, ' ') + 1), ' ') - 1) AS value \n    FROM pages \n    WHERE \n      INSTR(tagline, ' ') > 0 \n    UNION ALL \n    SELECT \n      SUBSTR(tagline, INSTR(tagline, ' ') + 1) AS value \n    FROM pages \n    WHERE \n      INSTR(tagline, ' ') > 0 \n    UNION ALL \n    SELECT \n      SUBSTR(tagline, 1, INSTR(tagline, ' ') - 1) AS value \n    FROM pages \n    WHERE \n      INSTR(tagline, ' ') > 0\n  ) \n  GROUP BY \n    value \n)\nORDER BY \n  cnt DESC \nLIMIT 30;\n"
+    }
   }
 ]

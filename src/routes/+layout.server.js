@@ -36,7 +36,7 @@ export const load = ({ locals }) => {
 
 		const getTags = async () => {
 			try {
-				const tags = serializeNonPOJOs(await locals.pb.collection('tags').getFullList(undefined));
+				const tags = serializeNonPOJOs(await locals.pb.collection('tags_auto').getFullList(undefined));
 				return tags;
 			} catch (err) {
 				console.log('Error:', err);

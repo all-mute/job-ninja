@@ -40,6 +40,7 @@
 	"type": "module",
 	"dependencies": {
 		"ai": "3.1.1",
+		"bowser": "^2.11.0",
 		"openai-edge": "^0.5.1",
 		"pocketbase": "0.15.0-rc",
 		"quill": "^2.0.1",

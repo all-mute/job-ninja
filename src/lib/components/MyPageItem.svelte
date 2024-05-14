@@ -61,9 +61,8 @@
 							}
 						</div>
 						<div class=" text-sm text-base-content/75">
-							{page.domain}
-							{page.tagline.length > 20
-								? page.tagline.slice(0, 20) + '...'
+							{page.tagline.length > 26
+								? page.tagline.slice(0, 26) + '...'
 								: page.tagline
 							}
 						</div>
