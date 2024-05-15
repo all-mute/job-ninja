@@ -144,6 +144,7 @@
 
 
 			<div class="w-full pt-10">
+				<p style="color: red; font-size: small;">Временно не рекомендуем прикреплять картинки, скоро пофиксим</p>
 				<WYSIWYG
 					type="hidden"
 					id="content"
