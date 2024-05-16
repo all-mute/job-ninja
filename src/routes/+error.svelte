@@ -4,8 +4,8 @@
 </script>
 
 <h1>Error: {$page.status} {$page.error.message}</h1>
-<span style="font-size: 3em">
-	Ты просишь без уважения... <br />
+<span style="font-size: 2em">
+	Сайт совсем свежий.. <br />
 	Если что-то действительно сломалось, большая просьба написать tg @nonGilgamesh, мы выдать вам миска рис
 </span>
 <span style="font-size: 5em">

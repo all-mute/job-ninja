@@ -49,7 +49,8 @@
 			}
 
 			// Set avatar
-			if (!pb.authStore.model.avatar) {
+			//if (!pb.authStore.model.avatar) {
+			if (false) {
 				const now = new Date();
 				const created = new Date(pb.authStore.model.created);
 				// Calculate the difference in milliseconds
@@ -103,8 +104,8 @@
 			formDataNew.append('name', regData.name);
 
 			// Set avatar
-			const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
-			formDataNew.append('avatar', avatarFile);
+			//const avatarFile = await fetch(`/images/random_avatars`).then(r => r.blob());
+			//formDataNew.append('avatar', avatarFile);
 
 			// ALFA BADGE
 			formDataNew.append('badges', 'bcmmsrxje5fsrax'); // has to be same at dev and prod
