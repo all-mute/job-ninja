@@ -74,7 +74,8 @@
 			
 
 			// Set avatar
-			if (!pb.authStore.model.avatar) {
+			//if (!pb.authStore.model.avatar) {
+			if (false) {
 				const now = new Date();
 				const created = new Date(pb.authStore.model.created);
 				// Calculate the difference in milliseconds
